@@ -1,0 +1,7 @@
+-- Fact BPerformance
+select
+	r.rental_date, s.staff_id, s.store_id,
+	(select count(*) from DimRental where staff_id = s.staff_id) as quantity,
+	(select sum(amount) from DimRental where staff_id = s.staff_id) as amount
+from DimRental r
+join DimStaff s ON s.staff_id = r.staff_id
