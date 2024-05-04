@@ -26,26 +26,26 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-BEALJ3H</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0K/IEc5HmUyMMbRTkjH6FwAAAAACAAAAAAAQZgAAAAEAACAAAACZE5dn8e4k8WBab5KRouOABzC3g++QpFerLA4ge7EoiwAAAAAOgAAAAAIAACAAAADTEvhqnSX4OHIrGin9K5DT9OUVtM70pASewQCzVLU+eJAAAAC4Q9nQ0gh34VBCbPEliaWrTfWGFInUdiVqG4SoYdMDyNNfd80CQaS7uUf67dAYMpV8wWMhTxqsSVLLZmZ/zTPyPA5lMLTryTy/dUiFRAdjS0YGxEBMSgXull1O5LR0aCquOKE0ohOCp5DJJ7UR/PzoPuvcah7NQo4L9jfdpEJsgChEspGpMwxlQBA8T+6QuYZAAAAACDnKPk8+w9j9BpB/q4bJLQeY/J427FbQKlce5Tt1Jw6UutJjz/Gc+Gv1FtG1cnsmrD30yvh17pb76PtRmqyUug==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0K/IEc5HmUyMMbRTkjH6FwAAAAACAAAAAAAQZgAAAAEAACAAAADeS+DDWul0jjZsKwrRS2IJD1oDGg8/1syfdy543nNZUQAAAAAOgAAAAAIAACAAAABjvtXEfP408r/+maGyDi/LJVzpEyeN3QoFyN4eleP1QJAAAADaahFkJAUIU0N7P5r0x5EPxij4bqUlLdroniE+FizpXLogd8G3OATEjm9dThyvqXKop0JmmxN8DzX7vq2K9Kdh3KmPwnU+NluELDkuhoheDY1lw7SoA9IQMiYvQYnMQIKs04PGP+mbGDMeFmNUqRcjSjRxWqmeP0RgXPkPUjk8ggDT5+vhaAbY1wG6n29sF1JAAAAAqCxMUnjEWYli6w96w0ciLvtFhd3Mz4SblRuxfYYrprhPIe/p3Dtum8tKGzrsxmLbrH3OQoS0+NU4rp4EGKKiCQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="Integrate_DimRental.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Integrate_Dimensions.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters />
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="Integrate_DimRental.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Integrate_Dimensions.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{9E3BD424-7CD3-4658-93AC-21FC039A5139}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Integrate_DimRental</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">36</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">40</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{58147824-20EC-4290-A78F-7E0C6DB2E51B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0CF0A5BC-60FB-442E-BE4B-35DE6993BA48}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_DimRental"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{0CF0A5BC-60FB-442E-BE4B-35DE6993BA48}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{C910B9A0-31AB-46AA-98E9-F150618CF9FB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -119,7 +119,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -3245,17 +3245,25 @@ FROM     stgStaff</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Execute SQL Task"
-          TopLeft="351.428572176671,48.1764705460068" />
-        <NodeLayout
           Size="257.6,41.6"
           Id="Package\DF - Extract From Source to stgRental"
           TopLeft="115.000000244805,135.352941057828" />
         <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\DF - Extract From Source to stgStaff"
+          TopLeft="522.142858254362,142.999999874655" />
+        <NodeLayout
           Size="246.4,41.6"
           Id="Package\DF - Load From Stage to DimRental"
           TopLeft="116.428571676417,220.235293924602" />
+        <NodeLayout
+          Size="238.4,41.6"
+          Id="Package\DF - Load From Stage to DimStaff"
+          TopLeft="521.428572538556,217.176470397872" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="351.428572176671,48.1764705460068" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="432.628572176671,89.7764705460067">
@@ -3312,14 +3320,6 @@ FROM     stgStaff</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="249.6,41.6"
-          Id="Package\DF - Extract From Source to stgStaff"
-          TopLeft="522.142858254362,142.999999874655" />
-        <NodeLayout
-          Size="238.4,41.6"
-          Id="Package\DF - Load From Stage to DimStaff"
-          TopLeft="521.428572538556,217.176470397872" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="458.361905510004,89.7764705460067">
@@ -3385,13 +3385,13 @@ FROM     stgStaff</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="196,41.6"
-          Id="Package\DF - Extract From Source to stgRental\SRC - Rental From Sakila"
-          TopLeft="422.666660368442,39.333332747221" />
-        <NodeLayout
           Size="221.6,47.2"
           Id="Package\DF - Extract From Source to stgRental\DST - stgRental in SakilaStage"
           TopLeft="416.66666045785,142.499997876585" />
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\DF - Extract From Source to stgRental\SRC - Rental From Sakila"
+          TopLeft="422.666660368442,39.333332747221" />
         <EdgeLayout
           Id="Package\DF - Extract From Source to stgRental.Paths[OLE DB Source Output]"
           TopLeft="524.066660413146,80.933332747221">
@@ -3417,6 +3417,88 @@ FROM     stgStaff</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Extract From Source to stgRental\DST - stgRental in SakilaStage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Extract From Source to stgRental\SRC - Rental From Sakila">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Extract From Source to stgStaff">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="233.6,41.6"
+          Id="Package\DF - Extract From Source to stgStaff\SRC - Staff From sakila Database"
+          TopLeft="588.999991223216,67.9999989867211" />
+        <NodeLayout
+          Size="252,41.6"
+          Id="Package\DF - Extract From Source to stgStaff\DST - Load to stgStaff in SakilaStage"
+          TopLeft="583.999991297722,165.999997526407" />
+        <EdgeLayout
+          Id="Package\DF - Extract From Source to stgStaff.Paths[OLE DB Source Output]"
+          TopLeft="707.899991260469,109.599998986721">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.3999985396862"
+              Start="0,0"
+              End="0,48.8999985396862">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.8999985396862" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Extract From Source to stgStaff\DST - Load to stgStaff in SakilaStage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Extract From Source to stgStaff\SRC - Staff From sakila Database">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DF - Load From Stage to DimRental">
     <LayoutInfo>
@@ -3426,6 +3508,14 @@ FROM     stgStaff</property>
           Size="248.8,41.6"
           Id="Package\DF - Load From Stage to DimRental\SRC - Stage Table From SakilaStage"
           TopLeft="339.871428898342,42.2058823207671" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load From Stage to DimRental\Insert Destination"
+          TopLeft="159.071428898342,245.405882320767" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimRental\OLE DB Command"
+          TopLeft="381.871428898342,245.405882320767" />
         <NodeLayout
           Size="296,41.6"
           Id="Package\DF - Load From Stage to DimRental\DST - Slowing Changing Dimension DimRental"
@@ -3464,10 +3554,6 @@ FROM     stgStaff</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load From Stage to DimRental\Insert Destination"
-          TopLeft="159.071428898342,245.405882320767" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[New Output]"
           TopLeft="460.271428898342,185.405882320767">
@@ -3504,10 +3590,6 @@ FROM     stgStaff</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load From Stage to DimRental\OLE DB Command"
-          TopLeft="381.871428898342,245.405882320767" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[Changing Attribute Updates Output]"
           TopLeft="556.271428898342,185.405882320767">
@@ -3547,27 +3629,6 @@ FROM     stgStaff</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Extract From Source to stgRental\SRC - Rental From Sakila">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Extract From Source to stgRental\DST - stgRental in SakilaStage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DF - Load From Stage to DimRental\SRC - Stage Table From SakilaStage">
     <Properties>
@@ -3661,82 +3722,26 @@ FROM     stgStaff</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\DF - Extract From Source to stgStaff">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="233.6,41.6"
-          Id="Package\DF - Extract From Source to stgStaff\SRC - Staff From sakila Database"
-          TopLeft="588.999991223216,67.9999989867211" />
-        <NodeLayout
-          Size="252,41.6"
-          Id="Package\DF - Extract From Source to stgStaff\DST - Load to stgStaff in SakilaStage"
-          TopLeft="583.999991297722,165.999997526407" />
-        <EdgeLayout
-          Id="Package\DF - Extract From Source to stgStaff.Paths[OLE DB Source Output]"
-          TopLeft="707.899991260469,109.599998986721">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56.3999985396862"
-              Start="0,0"
-              End="0,48.8999985396862">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.8999985396862" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
     design-time-name="Package\DF - Load From Stage to DimStaff">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="228.8,41.6"
-          Id="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage"
-          TopLeft="424.481814781644,50.95454477722" />
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimStaff\OLE DB Command"
+          TopLeft="559.209085978161,274.154544479197" />
         <NodeLayout
           Size="281.6,41.6"
           Id="Package\DF - Load From Stage to DimStaff\DST - Slowly Changing Dimension DimStaff"
           TopLeft="398.081814781644,152.55454477722" />
-        <EdgeLayout
-          Id="Package\DF - Load From Stage to DimStaff.Paths[OLE DB Source Output]"
-          TopLeft="538.881814781644,92.55454477722">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load From Stage to DimStaff\Insert Destination"
           TopLeft="346.40908582915,274.154544479197" />
+        <NodeLayout
+          Size="228.8,41.6"
+          Id="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage"
+          TopLeft="424.481814781644,50.95454477722" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimStaff.Paths[New Output]"
           TopLeft="493.281814781644,194.15454477722">
@@ -3773,10 +3778,6 @@ FROM     stgStaff</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load From Stage to DimStaff\OLE DB Command"
-          TopLeft="559.209085978161,274.154544479197" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimStaff.Paths[Changing Attribute Updates Output]"
           TopLeft="584.481814781644,194.15454477722">
@@ -3813,43 +3814,33 @@ FROM     stgStaff</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimStaff.Paths[OLE DB Source Output]"
+          TopLeft="538.881814781644,92.55454477722">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Extract From Source to stgStaff\SRC - Staff From sakila Database">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Extract From Source to stgStaff\DST - Load to stgStaff in SakilaStage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DF - Load From Stage to DimStaff\DST - Slowly Changing Dimension DimStaff">
     <Properties>
@@ -3938,6 +3929,19 @@ FROM     stgStaff</property>
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
