@@ -1,3 +1,42 @@
+-- SRC - Rental From Sakila
+SELECT r.rental_id, r.customer_id, r.inventory_id, r.staff_id, p.amount, r.rental_date, p.payment_date, r.return_date
+FROM  rental AS r INNER JOIN payment AS p ON p.rental_id = r.rental_id
+
+-- Create stgRental
+CREATE TABLE [stgRental] (
+    [rental_id] int,
+    [customer_id] int,
+    [inventory_id] int,
+    [staff_id] int,
+    [amount] decimal(5,2),
+    [rental_date] datetime,
+    [payment_date] datetime,
+    [return_date] datetime
+)
+
+-- SRC - Staff From Sakila
+SELECT s.staff_id, st.store_id, st.manager_staff_id, st.address_id, c.city, a.district, co.country, s.first_name, s.last_name, s.email, s.active
+FROM staff AS s 
+INNER JOIN store AS st ON st.store_id = s.store_id 
+INNER JOIN address AS a ON a.address_id = st.address_id
+INNER JOIN city AS c ON c.city_id = a.city_id 
+INNER JOIN country AS co ON co.country_id = c.country_id
+
+-- Create stgStaff
+CREATE TABLE [stgStaff] (
+    [staff_id] int,
+    [store_id] int,
+    [manager_staff_id] int,
+    [address_id] int,
+    [city] varchar(50),
+    [district] varchar(20),
+    [country] varchar(50),
+    [first_name] varchar(45),
+    [last_name] varchar(45),
+    [email] varchar(50),
+    [active] bit
+)
+
 -- Fact BPerformance
 select
 	r.rental_date, s.staff_id, s.store_id,

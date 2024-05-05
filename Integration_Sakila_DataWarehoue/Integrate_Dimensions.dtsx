@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_DimRental"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{C910B9A0-31AB-46AA-98E9-F150618CF9FB}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{6F226AF5-B192-40F5-8359-16CACC5ECDD7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,18 +45,6 @@
       DTS:CreationName="OLEDB"
       DTS:DTSID="{6FB0A428-EB9B-4B08-AA0D-5057668DE23D}"
       DTS:ObjectName="LocalHost.SakilaStage">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=SakilaStage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.SakilaStage 1]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{DB08FBBE-AA7D-40C2-99E3-1E88E2C4EB7E}"
-      DTS:ObjectName="LocalHost.SakilaStage 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
