@@ -1,3 +1,53 @@
+-- SRC - Address From Sakila
+SELECT a.address_id, a.address, a.address2, a.district, a.city_id, c.city, c.country_id, cn.country, a.postal_code, a.phone
+FROM address AS a 
+INNER JOIN city AS c ON c.city_id = a.city_id
+INNER JOIN country AS cn ON cn.country_id = c.country_id;
+
+-- Create stgAddress
+CREATE TABLE [stgAddress] (
+    [address_id] int,
+    [address] varchar(50),
+    [address2] varchar(50),
+    [district] varchar(20),
+    [city_id] int,
+    [city] varchar(50),
+    [country_id] smallint,
+    [country] varchar(50),
+    [postal_code] varchar(10),
+    [phone] varchar(20)
+)
+
+-- Create Temp.Date and stgDate tables
+-- Insert data into Temp.Date by SampleDateDim.xls commands
+CREATE TABLE [stgDate] (
+    [date_key] int,
+    [full_date] datetime,
+    [day_of_week] tinyint,
+    [day_num_in_month] tinyint,
+    [day_num_overall] int,
+    [day_name] nvarchar(255),
+    [day_abbrev] nvarchar(255),
+    [weekday_flag] nvarchar(255),
+    [week_num_in_year] tinyint,
+    [week_num_overall] tinyint,
+    [week_begin_date] datetime,
+    [week_begin_date_key] int,
+    [month] tinyint,
+    [month_num_overall] tinyint,
+    [month_name] nvarchar(255),
+    [month_abbrev] nvarchar(255),
+    [quarter] tinyint,
+    [year] int,
+    [yearmo] int,
+    [fiscal_month] tinyint,
+    [fiscal_quarter] tinyint,
+    [fiscal_year] smallint,
+    last_day_in_month_flag char(20),
+    same_day_year_ago_date smalldatetime,
+    primary key (date_key)
+)
+
 -- SRC - Rental From Sakila
 SELECT r.rental_id, r.customer_id, r.inventory_id, r.staff_id, p.amount, r.rental_date, p.payment_date, r.return_date
 FROM  rental AS r INNER JOIN payment AS p ON p.rental_id = r.rental_id
@@ -23,6 +73,7 @@ INNER JOIN city AS c ON c.city_id = a.city_id
 INNER JOIN country AS co ON co.country_id = c.country_id
 
 -- Create stgStaff
+-- Load data into DimStaff like stgStaff
 CREATE TABLE [stgStaff] (
     [staff_id] int,
     [store_id] int,
@@ -37,58 +88,14 @@ CREATE TABLE [stgStaff] (
     [active] bit
 )
 
--- SRC - Address From Sakila
-SELECT a.address_id, a.address, a.address2, a.district, a.city_id, c.country_id, cn.country, a.postal_code, a.phone
-FROM address AS a 
-INNER JOIN city AS c ON c.city_id = a.city_id
-INNER JOIN country AS cn ON cn.country_id = c.country_id;
-
--- Create stgAddress
-CREATE TABLE [stgAddress] (
-    [address_id] int,
-    [address] varchar(50),
-    [address2] varchar(50),
-    [district] varchar(20),
-    [city_id] int,
-    [country_id] smallint,
-    [country] varchar(50),
-    [postal_code] varchar(10),
-    [phone] varchar(20)
-)
-
--- Create stgDate
--- DimDate
-CREATE TABLE [stgDate] (
-    [date_key] int,
-    [full_date] date,
-    [day_of_week] tinyint,
-    [day_num_in_month] tinyint,
-    [day_num_overall] smallint,
-    [day_name] nvarchar(50),
-    [day_abbrev] nvarchar(50),
-    [weekday_flag] nvarchar,
-    [week_num_in_year] tinyint,
-    [week_num_overall] smallint,
-    [week_begin_date] nvarchar(10),
-    [week_begin_date_key] nvarchar(10),
-    [month] tinyint,
-    [month_num_overall] tinyint,
-    [month_name] nvarchar(50),
-    [month_abbrev] nvarchar(50),
-    [quarter] tinyint,
-    [year] smallint,
-    [yearmo] nvarchar(10),
-    [fiscal_month] tinyint,
-    [fiscal_quarter] tinyint,
-    [fiscal_year] smallint,
-    [month_end_flag] bit
-)
-
-
 -- Fact BPerformance
 select
-	r.rental_date, s.staff_id, s.store_id,
-	(select count(*) from DimRental where staff_id = s.staff_id) as quantity,
-	(select sum(amount) from DimRental where staff_id = s.staff_id) as amount
+	s.staff_key, r.rental_key, s.store_id, s.address_store_id,
+	a.city, a.district, a.country, s.full_name, r.amount,
+	(select count(rental_id) from DimRental where staff_id = s.staff_id) as quantity,
+	(select sum(amount) from DimRental where staff_id = s.staff_id) as revenue,
+	(DAY(r.rental_date) + MONTH(r.rental_date) * 100 + YEAR(r.rental_date) * 10000) as rental_date_key,
+	(DAY(r.payment_date) + MONTH(r.payment_date) * 100 + YEAR(r.payment_date) * 10000) as payment_date_key
 from DimRental r
 join DimStaff s ON s.staff_id = r.staff_id
+join DimAddress a ON a.address_id = s.address_store_id

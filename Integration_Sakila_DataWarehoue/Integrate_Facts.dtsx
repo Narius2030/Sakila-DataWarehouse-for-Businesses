@@ -1,0 +1,2422 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/5/2024 6:04:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BEALJ3H"
+  DTS:CreatorName="DESKTOP-BEALJ3H\buidu"
+  DTS:DTSID="{F7B4DC35-3D18-4E24-92B4-8643DA082373}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Integrate_Facts"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{8E2604F9-4D50-49E3-BC09-A706AEA0D1AA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{17CFA0B0-96E7-49CB-BE25-30EF54B52BE1}"
+      DTS:ObjectName="LocalHost.SakilaDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=SakilaDWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.SakilaStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B48D3F9E-9E6C-4D76-9989-1CC804C54DEC}"
+      DTS:ObjectName="LocalHost.SakilaStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=SakilaStage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF - Load From Dimensions to stgBPerformance"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A687F436-D773-443D-80E8-8B9D576B0159}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Load From Dimensions to stgBPerformance"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Load to FactBPerformance"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stgBPerformance]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[staff_key]"
+                      cachedDataType="i4"
+                      cachedName="staff_key"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[staff_key]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[staff_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[rental_key]"
+                      cachedDataType="i4"
+                      cachedName="rental_key"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[store_id]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[store_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[address_store_id]"
+                      cachedDataType="i4"
+                      cachedName="address_store_id"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[address_store_id]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[address_store_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[district]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="district"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[district]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[district]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[full_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="90"
+                      cachedName="full_name"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[full_name]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[full_name]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[amount]"
+                      cachedDataType="numeric"
+                      cachedName="amount"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[amount]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[revenue]"
+                      cachedDataType="numeric"
+                      cachedName="revenue"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[revenue]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[rental_date_key]"
+                      cachedDataType="i4"
+                      cachedName="rental_date_key"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_date_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[payment_date_key]"
+                      cachedDataType="i4"
+                      cachedName="payment_date_key"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[payment_date_key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[staff_key]"
+                      dataType="i4"
+                      name="staff_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
+                      dataType="i4"
+                      name="rental_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[address_store_id]"
+                      dataType="i4"
+                      name="address_store_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="district" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      dataType="numeric"
+                      name="amount"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
+                      dataType="numeric"
+                      name="revenue"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
+                      dataType="i4"
+                      name="rental_date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
+                      dataType="i4"
+                      name="payment_date_key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - Load From Dimensions"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s.staff_key, r.rental_key, s.store_id, s.address_store_id, a.city, a.district, a.country, s.full_name, r.amount,
+                      (SELECT COUNT(rental_id) AS Expr1
+                       FROM      DimRental
+                       WHERE   (staff_id = s.staff_id)) AS quantity,
+                      (SELECT SUM(amount) AS Expr1
+                       FROM      DimRental AS DimRental_1
+                       WHERE   (staff_id = s.staff_id)) AS revenue, (DAY(r.rental_date) + MONTH(r.rental_date) * 100) + YEAR(r.rental_date) * 10000 AS rental_date_key, (DAY(r.payment_date) + MONTH(r.payment_date) * 100) + YEAR(r.payment_date) 
+                  * 10000 AS payment_date_key
+FROM     DimRental AS r INNER JOIN
+                  DimStaff AS s ON s.staff_id = r.staff_id INNER JOIN
+                  DimAddress AS a ON a.address_id = s.address_store_id</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[staff_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[staff_key]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[staff_key]"
+                      name="staff_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[rental_key]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_key]"
+                      name="rental_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[store_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[store_id]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[store_id]"
+                      name="store_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[address_store_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[address_store_id]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[address_store_id]"
+                      name="address_store_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[district]"
+                      length="20"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[district]"
+                      name="district"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="50"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[full_name]"
+                      length="90"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[full_name]"
+                      name="full_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[amount]"
+                      name="amount"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[revenue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[revenue]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[revenue]"
+                      name="revenue"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[rental_date_key]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_date_key]"
+                      name="rental_date_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[payment_date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[payment_date_key]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[payment_date_key]"
+                      name="payment_date_key"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[staff_key]"
+                      dataType="i4"
+                      name="staff_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[rental_key]"
+                      dataType="i4"
+                      name="rental_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[address_store_id]"
+                      dataType="i4"
+                      name="address_store_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="district" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      dataType="numeric"
+                      name="amount"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[revenue]"
+                      dataType="numeric"
+                      name="revenue"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[rental_date_key]"
+                      dataType="i4"
+                      name="rental_date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[payment_date_key]"
+                      dataType="i4"
+                      name="payment_date_key" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[staff_key]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[staff_key]"
+                      name="staff_key" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[rental_key]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[rental_key]"
+                      name="rental_key" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[store_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[store_id]"
+                      name="store_id" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[address_store_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[address_store_id]"
+                      name="address_store_id" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[district]"
+                      name="district" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[full_name]"
+                      name="full_name" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      dataType="numeric"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      name="amount"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[revenue]"
+                      dataType="numeric"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[revenue]"
+                      name="revenue"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
+                      name="rental_date_key" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[payment_date_key]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[payment_date_key]"
+                      name="payment_date_key" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Load From Dimensions to stgBPerformance.Paths[OLE DB Source Output]"
+              endId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Load Stage to FactBPerformance"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6FDDC003-FEC5-4FD4-AF7B-C85E8907BF4D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Load Stage to FactBPerformance"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="DST - Slowly Changing Load to FactBPerformance"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [amount], [city], [country], [district], [full_name], [payment_date_key], [quantity], [rental_date_key], [rental_key], [revenue], [staff_key], [store_address_key], [store_id] FROM [dbo].[FactBPerformance]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[amount]"
+                      cachedDataType="numeric"
+                      cachedName="amount"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[amount]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[amount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[city]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[country]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[district]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="district"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[district]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[full_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="90"
+                      cachedName="full_name"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[full_name]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[payment_date_key]"
+                      cachedDataType="i4"
+                      cachedName="payment_date_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[payment_date_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[rental_date_key]"
+                      cachedDataType="i4"
+                      cachedName="rental_date_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[rental_date_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[rental_key]"
+                      cachedDataType="i4"
+                      cachedName="rental_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[rental_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[revenue]"
+                      cachedDataType="numeric"
+                      cachedName="revenue"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[revenue]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[staff_key]"
+                      cachedDataType="i4"
+                      cachedName="staff_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[staff_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[staff_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[address_store_id]"
+                      cachedDataType="i4"
+                      cachedName="address_store_id"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[store_address_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[address_store_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[store_id]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[store_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[amount]"
+                      dataType="numeric"
+                      name="amount"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="district" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[payment_date_key]"
+                      dataType="i4"
+                      name="payment_date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[rental_date_key]"
+                      dataType="i4"
+                      name="rental_date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[rental_key]"
+                      dataType="i4"
+                      name="rental_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[revenue]"
+                      dataType="numeric"
+                      name="revenue"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[staff_key]"
+                      dataType="i4"
+                      name="staff_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[store_address_key]"
+                      dataType="i4"
+                      name="store_address_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load Stage to FactBPerformance\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactBPerformance]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[staff_key]"
+                      cachedDataType="i4"
+                      cachedName="staff_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[staff_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[staff_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[rental_key]"
+                      cachedDataType="i4"
+                      cachedName="rental_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[store_id]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[store_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[address_store_id]"
+                      cachedDataType="i4"
+                      cachedName="address_store_id"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[store_address_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[address_store_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[district]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="district"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[district]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[full_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="90"
+                      cachedName="full_name"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[full_name]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[amount]"
+                      cachedDataType="numeric"
+                      cachedName="amount"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[amount]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[revenue]"
+                      cachedDataType="numeric"
+                      cachedName="revenue"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[rental_date_key]"
+                      cachedDataType="i4"
+                      cachedName="rental_date_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[payment_date_key]"
+                      cachedDataType="i4"
+                      cachedName="payment_date_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[staff_key]"
+                      dataType="i4"
+                      name="staff_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
+                      dataType="i4"
+                      name="rental_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[store_address_key]"
+                      dataType="i4"
+                      name="store_address_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="district" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      dataType="numeric"
+                      name="amount"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
+                      dataType="numeric"
+                      name="revenue"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
+                      dataType="i4"
+                      name="rental_date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
+                      dataType="i4"
+                      name="payment_date_key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactBPerformance] SET [amount] = ?,[city] = ?,[country] = ?,[district] = ?,[full_name] = ?,[payment_date_key] = ?,[quantity] = ?,[rental_date_key] = ?,[revenue] = ?,[store_address_key] = ?,[store_id] = ? WHERE [rental_key] = ? AND [staff_key] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[amount]"
+                      cachedDataType="numeric"
+                      cachedName="amount"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[amount]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[district]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="district"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[full_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="90"
+                      cachedName="full_name"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[payment_date_key]"
+                      cachedDataType="i4"
+                      cachedName="payment_date_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[rental_date_key]"
+                      cachedDataType="i4"
+                      cachedName="rental_date_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[rental_key]"
+                      cachedDataType="i4"
+                      cachedName="rental_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[revenue]"
+                      cachedDataType="numeric"
+                      cachedName="revenue"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[staff_key]"
+                      cachedDataType="i4"
+                      cachedName="staff_key"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[staff_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[address_store_id]"
+                      cachedDataType="i4"
+                      cachedName="address_store_id"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[address_store_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[store_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="numeric"
+                      name="Param_8"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="i4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="i4"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="i4"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="i4"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - Load From Stage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stgBPerformance]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[staff_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[staff_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[staff_key]"
+                      name="staff_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[rental_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]"
+                      name="rental_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[store_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[store_id]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[store_id]"
+                      name="store_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[address_store_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[address_store_id]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[address_store_id]"
+                      name="address_store_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[district]"
+                      length="20"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]"
+                      name="district"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="50"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[full_name]"
+                      length="90"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]"
+                      name="full_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[amount]"
+                      name="amount"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[revenue]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]"
+                      name="revenue"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[rental_date_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]"
+                      name="rental_date_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[payment_date_key]"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]"
+                      name="payment_date_key"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[staff_key]"
+                      dataType="i4"
+                      name="staff_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[rental_key]"
+                      dataType="i4"
+                      name="rental_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[address_store_id]"
+                      dataType="i4"
+                      name="address_store_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="district" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      dataType="numeric"
+                      name="amount"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[revenue]"
+                      dataType="numeric"
+                      name="revenue"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[rental_date_key]"
+                      dataType="i4"
+                      name="rental_date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[payment_date_key]"
+                      dataType="i4"
+                      name="payment_date_key" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[staff_key]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[staff_key]"
+                      name="staff_key" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[rental_key]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[rental_key]"
+                      name="rental_key" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[store_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[store_id]"
+                      name="store_id" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[address_store_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[address_store_id]"
+                      name="address_store_id" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[district]"
+                      name="district" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[full_name]"
+                      name="full_name" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      dataType="numeric"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      name="amount"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[revenue]"
+                      dataType="numeric"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[revenue]"
+                      name="revenue"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
+                      name="rental_date_key" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[payment_date_key]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[payment_date_key]"
+                      name="payment_date_key" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Load Stage to FactBPerformance.Paths[Changing Attribute Updates Output]"
+              endId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\DF - Load Stage to FactBPerformance.Paths[New Output]"
+              endId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Outputs[New Output]" />
+            <path
+              refId="Package\DF - Load Stage to FactBPerformance.Paths[OLE DB Source Output]"
+              endId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Stage Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{72F66CD8-193C-4EF3-B854-B87C152117E0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Stage Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B48D3F9E-9E6C-4D76-9989-1CC804C54DEC}"
+          SQLTask:SqlStatementSource="truncate table stgBPerformance;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C3FCCE1E-1BAC-4BF7-B55D-5DD34AB1C898}"
+      DTS:From="Package\SQL - Truncate Stage Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF - Load From Dimensions to stgBPerformance" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{45198901-BB1A-4E34-92DE-80926DA757C6}"
+      DTS:From="Package\DF - Load From Dimensions to stgBPerformance"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DF - Load Stage to FactBPerformance" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\SQL - Truncate Stage Tables"
+          TopLeft="344.285715018608,30.5882352673059" />
+        <NodeLayout
+          Size="304.8,41.6"
+          Id="Package\DF - Load From Dimensions to stgBPerformance"
+          TopLeft="90.0000001915863,134.588235176146" />
+        <NodeLayout
+          Size="256,41.6"
+          Id="Package\DF - Load Stage to FactBPerformance"
+          TopLeft="108.571428802549,232.470588031525" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="451.085715018608,72.1882352673059">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-208.685714827022,62.3999999088399"
+              Start="0,0"
+              End="-208.685714827022,54.8999999088399">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.1999999544199" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.1999999544199"
+                    Point2="0,31.1999999544199"
+                    Point3="-4,31.1999999544199" />
+                  <mssgle:LineSegment
+                    End="-204.685714827022,31.1999999544199" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-204.685714827022,31.1999999544199"
+                    Point2="-208.685714827022,31.1999999544199"
+                    Point3="-208.685714827022,35.1999999544199" />
+                  <mssgle:LineSegment
+                    End="-208.685714827022,54.8999999088399" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="239.485714497067,176.188235176146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.2823528553789"
+              Start="0,0"
+              End="0,48.7823528553789">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.7823528553789" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF - Load From Dimensions to stgBPerformance">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions"
+          TopLeft="348.571429313446,29.0588235039406" />
+        <NodeLayout
+          Size="232,41.6"
+          Id="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance"
+          TopLeft="340.000000723771,140.705882229607" />
+        <EdgeLayout
+          Id="Package\DF - Load From Dimensions to stgBPerformance.Paths[OLE DB Source Output]"
+          TopLeft="456.085715018608,70.6588235039406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.0470587256664"
+              Start="0,0"
+              End="0,62.5470587256664">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5470587256664" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DF - Load Stage to FactBPerformance">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage"
+          TopLeft="430.033330154419,36.3333328738808" />
+        <NodeLayout
+          Size="312.8,41.6"
+          Id="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance"
+          TopLeft="367.633330154419,137.933332873881" />
+        <EdgeLayout
+          Id="Package\DF - Load Stage to FactBPerformance.Paths[OLE DB Source Output]"
+          TopLeft="524.033330154419,77.9333328738808">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load Stage to FactBPerformance\Insert Destination"
+          TopLeft="218.833330154419,239.533332873881" />
+        <EdgeLayout
+          Id="Package\DF - Load Stage to FactBPerformance.Paths[New Output]"
+          TopLeft="473.233330154419,179.533332873881">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-173.2,60"
+              Start="0,0"
+              End="-173.2,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1832061068702" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1832061068702"
+                    Point2="0,24.1832061068702"
+                    Point3="-4,24.1832061068702" />
+                  <mssgle:LineSegment
+                    End="-169.2,24.1832061068702" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-169.2,24.1832061068702"
+                    Point2="-173.2,24.1832061068702"
+                    Point3="-173.2,28.1832061068702" />
+                  <mssgle:LineSegment
+                    End="-173.2,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.69138671875,29.1832061068702,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load Stage to FactBPerformance\OLE DB Command"
+          TopLeft="441.633330154419,239.533332873881" />
+        <EdgeLayout
+          Id="Package\DF - Load Stage to FactBPerformance.Paths[Changing Attribute Updates Output]"
+          TopLeft="574.833330154419,179.533332873881">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50.8,60"
+              Start="0,0"
+              End="-50.8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1832061068702" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1832061068702"
+                    Point2="0,24.1832061068702"
+                    Point3="-4,24.1832061068702" />
+                  <mssgle:LineSegment
+                    End="-46.8,24.1832061068702" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-46.8,24.1832061068702"
+                    Point2="-50.8,24.1832061068702"
+                    Point3="-50.8,28.1832061068702" />
+                  <mssgle:LineSegment
+                    End="-50.8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-103.93390625,29.1832061068702,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{17CFA0B0-96E7-49CB-BE25-30EF54B52BE1}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[FactBPerformance]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[amount]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;amount&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[city]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;city&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;country&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;district&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;full_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;payment_date_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;quantity&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;rental_date_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;rental_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;revenue&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[staff_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;staff_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[address_store_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;store_address_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[store_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;store_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,4 +1,4 @@
-/****** Object:  Database SakilaDWH    Script Date: 5/5/2024 2:00:23 AM ******/
+/****** Object:  Database SakilaDWH    Script Date: 5/5/2024 5:13:28 PM ******/
 /*
 Kimball Group, The Microsoft Data Warehouse Toolkit
 Generate a database from the datamodel worksheet, version: 4
@@ -57,16 +57,15 @@ CREATE TABLE dbo.DimDate (
    [date_key]  int   NOT NULL
 ,  [Date]  datetime   NOT NULL
 ,  [DayOfWeek]  tinyint   NULL
-,  [DayName]  nchar(10)   NOT NULL
+,  [DayName]  nvarchar(255)   NOT NULL
 ,  [DayOfMonth]  tinyint   NOT NULL
 ,  [DayOfYear]  int   NOT NULL
 ,  [WeekOfYear]  tinyint   NOT NULL
-,  [MonthName]  nchar(10)   NOT NULL
+,  [MonthName]  nvarchar(255)   NOT NULL
 ,  [MonthOfYear]  tinyint   NOT NULL
 ,  [Quarter]  tinyint   NOT NULL
-,  [QuarterName]  nchar(10)   NOT NULL
 ,  [Year]  int   NOT NULL
-,  [IsAWeekday]  varchar(15)   NOT NULL
+,  [IsAWeekday]  nvarchar(255)   NOT NULL
 , CONSTRAINT [PK_dbo.DimDate] PRIMARY KEY CLUSTERED 
 ( [date_key] )
 ) ON [PRIMARY]
@@ -95,7 +94,6 @@ SELECT [date_key] AS [date_key]
 , [MonthName] AS [MonthName]
 , [MonthOfYear] AS [MonthOfYear]
 , [Quarter] AS [Quarter]
-, [QuarterName] AS [QuaterName]
 , [Year] AS [Year]
 , [IsAWeekday] AS [IsAWeekday]
 FROM dbo.DimDate
@@ -112,7 +110,6 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'WeekOfYear', @le
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'MonthName', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthName'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'MonthOfYear', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthOfYear'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'Quarter', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Quarter'; 
-exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'QuaterName', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'QuarterName'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'Year', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Year'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'IsAWeekday', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'Surrogate primary key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'date_key'; 
@@ -126,7 +123,6 @@ exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Temp', @level0t
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Temp', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthName'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Temp', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthOfYear'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Temp', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Quarter'; 
-exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Temp', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'QuarterName'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Temp', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Year'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Temp', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'date_key'; 
@@ -139,7 +135,6 @@ exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0ty
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthName'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthOfYear'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Quarter'; 
-exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'QuarterName'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Year'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Date_Dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'date_key'; 
@@ -152,7 +147,6 @@ exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Date_Dimension',
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Date_Dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthName'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Date_Dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthOfYear'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Date_Dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Quarter'; 
-exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Date_Dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'QuarterName'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Date_Dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Year'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Date_Dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'date_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'date_key'; 
@@ -165,22 +159,20 @@ exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'WeekOfYear'
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'MonthName', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthName'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'MonthOfYear', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthOfYear'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'Quarter', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Quarter'; 
-exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'QuarterName', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'QuarterName'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'Year', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Year'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'IsAWeekday', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'date_key'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'datetime', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Date'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayOfWeek'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayName'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nvarchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayName'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayOfMonth'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayOfYear'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'WeekOfYear'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthName'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nvarchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthName'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthOfYear'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Quarter'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'QuarterName'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Year'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nvarchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
 ;
 
 
@@ -713,6 +705,7 @@ CREATE TABLE dbo.DimAddress (
 ,  [address2]  varchar(50)  DEFAULT 'N/A' NULL
 ,  [district]  varchar(20)   NOT NULL
 ,  [city_id]  int   NOT NULL
+,  [city]  varchar(50)   NOT NULL
 ,  [country_id]  SMALLINT   NOT NULL
 ,  [country]  varchar(50)   NOT NULL
 ,  [postal_code]  varchar(10)  DEFAULT 'N/A' NULL
@@ -741,6 +734,7 @@ SELECT [address_key] AS [address_key]
 , [address2] AS [address2]
 , [district] AS [district]
 , [city_id] AS [city_id]
+, [city] AS [city]
 , [country_id] AS [country_id]
 , [country] AS [country]
 , [postal_code] AS [postal_code]
@@ -755,6 +749,7 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'address', @level
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'address2', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'address2'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'district', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'district'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'city_id', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city_id'; 
+exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'city', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'country_id', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country_id'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'country', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'postal_code', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'postal_code'; 
@@ -775,6 +770,7 @@ exec sys.sp_addextendedproperty @name=N'Source System', @value=N'sakila', @level
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'address2'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'district'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city_id'; 
+exec sys.sp_addextendedproperty @name=N'Source System', @value=N'sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country_id'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'postal_code'; 
@@ -784,6 +780,7 @@ exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0ty
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'address2'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'district'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city_id'; 
+exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'postal_code'; 
@@ -793,6 +790,7 @@ exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'address', @level
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'address', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'address2'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'address', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'district'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'address', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city_id'; 
+exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'address', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'country', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'country', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'address', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'postal_code'; 
@@ -802,6 +800,7 @@ exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'address', @
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'address2', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'address2'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'district', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'district'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'city_id', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city_id'; 
+exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'city', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'country_id', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'country', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'postal_code', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'postal_code'; 
@@ -811,7 +810,8 @@ exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @le
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'address2'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'district'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city_id'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'smallint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country_id'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'city'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'SMALLINT', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'country'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'postal_code'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimAddress', @level2type=N'COLUMN', @level2name=N'phone'; 
@@ -925,7 +925,6 @@ CREATE TABLE dbo.FactBPerformance (
 ,  [district]  varchar(20)   NOT NULL
 ,  [country]  varchar(50)   NOT NULL
 ,  [full_name]  varchar(90)   NOT NULL
-,  [category_name]  varchar(25)   NOT NULL
 ,  [amount]  decimal   NOT NULL
 ,  [quantity]  int  DEFAULT -1 NULL
 ,  [revenue]  decimal  DEFAULT -1 NULL
@@ -955,7 +954,6 @@ SELECT [staff_key] AS [staff_key]
 , [district] AS [district]
 , [country] AS [country]
 , [full_name] AS [full_name]
-, [category_name] AS [category_name]
 , [amount] AS [amount]
 , [quantity] AS [quantity]
 , [revenue] AS [revenue]
@@ -973,7 +971,6 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'city', @level0ty
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'district', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'district'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'country', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'country'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'full_name', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'full_name'; 
-exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'category_name', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'category_name'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'amount', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'amount'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'quantity', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'quantity'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'revenue', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'revenue'; 
