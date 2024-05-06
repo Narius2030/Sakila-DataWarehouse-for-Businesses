@@ -88,6 +88,10 @@ CREATE TABLE [stgStaff] (
     [active] bit
 )
 
+--SRC - Customer From Sakila
+SELECT customer_id, first_name, last_name, email, address_id, active
+FROM customer
+
 -- Fact BPerformance
 select
 	s.staff_key, r.rental_key, s.store_id, s.address_store_id,

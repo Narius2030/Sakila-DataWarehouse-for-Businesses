@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_DimRental"
   DTS:PackageType="5"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{69440F54-DAA6-47FC-8C2E-D7656C736C45}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{3A9B6224-679B-48C9-A98E-B4551CCF6668}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -52,9 +52,482 @@
           DTS:ConnectionString="Data Source=.;Initial Catalog=SakilaStage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.Sakila]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5E0F4D92-5319-4DAD-ACC9-68D1BF13C9E7}"
+      DTS:ObjectName="TRIEUPHI2003\SQLEXPRESS.Sakila">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=TRIEUPHI2003\SQLEXPRESS;Initial Catalog=Sakila;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Integrate_DimRental-{5E0F4D92-5319-4DAD-ACC9-68D1BF13C9E7}TRIEUPHI2003\SQLEXPRESS.Sakila;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BEFA83AA-48FF-46DA-87BD-10813B73992B}"
+      DTS:ObjectName="TRIEUPHI2003\SQLEXPRESS.SakilaDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=TRIEUPHI2003\SQLEXPRESS;Initial Catalog=SakilaDWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Integrate_DimRental-{BEFA83AA-48FF-46DA-87BD-10813B73992B}TRIEUPHI2003\SQLEXPRESS.SakilaDWH;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E79290C7-9B9A-448D-8410-8D544634536F}"
+      DTS:ObjectName="TRIEUPHI2003\SQLEXPRESS.SakilaStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=TRIEUPHI2003\SQLEXPRESS;Initial Catalog=SakilaStage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Integrate_DimRental-{E79290C7-9B9A-448D-8410-8D544634536F}TRIEUPHI2003\SQLEXPRESS.SakilaStage;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{01F46241-64D4-487E-8F16-2D757FD6227E}"
+      DTS:ObjectName="TRIEUPHI2003\SQLEXPRESS.SakilaStage 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=TRIEUPHI2003\SQLEXPRESS;User ID=;Initial Catalog=SakilaStage;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF - Extract From Source to stgCustomer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C31ADCFC-BB76-47D2-A82F-D9AD88BE8E53}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Extract From Source to stgCustomer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - stgCustomer in SakilaStage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stgCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedDataType="i4"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].Columns[address_id]"
+                      cachedDataType="i4"
+                      cachedName="address_id"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[address_id]"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[address_id]" />
+                    <inputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].Columns[active]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="active"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[active]"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[active]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[address_id]"
+                      dataType="i4"
+                      name="address_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="active" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - Customer From Sakila"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT customer_id, first_name, last_name, email, address_id, active
+FROM customer</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.Sakila]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.Sakila]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      length="45"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      length="45"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      length="50"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[address_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[address_id]"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[address_id]"
+                      name="address_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[active]"
+                      length="1"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].Columns[active]"
+                      name="active"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[address_id]"
+                      dataType="i4"
+                      name="address_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output].ExternalColumns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="active" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[address_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[address_id]"
+                      name="address_id" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[active]"
+                      name="active" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Extract From Source to stgCustomer.Paths[OLE DB Source Output]"
+              endId="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\DF - Extract From Source to stgRental"
       DTS:CreationName="Microsoft.Pipeline"
@@ -128,8 +601,8 @@
               <connections>
                 <connection
                   refId="Package\DF - Extract From Source to stgRental\DST - stgRental in SakilaStage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaStage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaStage]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -309,8 +782,8 @@ FROM     rental AS r INNER JOIN
               <connections>
                 <connection
                   refId="Package\DF - Extract From Source to stgRental\SRC - Rental From Sakila.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.sakila]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.sakila]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.Sakila]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.Sakila]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -537,7 +1010,7 @@ FROM     rental AS r INNER JOIN
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[stgStaff]</property>
+                  name="OpenRowset">[dbo].[stgStaff]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -559,7 +1032,7 @@ FROM     rental AS r INNER JOIN
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -580,8 +1053,8 @@ FROM     rental AS r INNER JOIN
               <connections>
                 <connection
                   refId="Package\DF - Extract From Source to stgStaff\DST - Load to stgStaff in SakilaStage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaStage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaStage]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -814,8 +1287,8 @@ FROM     staff AS s INNER JOIN
               <connections>
                 <connection
                   refId="Package\DF - Extract From Source to stgStaff\SRC - Staff From sakila Database.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.sakila]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.sakila]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.Sakila]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.Sakila]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1097,6 +1570,875 @@ FROM     staff AS s INNER JOIN
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\DF - Load From Stage to DimCustomer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6CD46986-52D0-40C0-884B-7029D0386F5B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Load From Stage to DimCustomer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="DST - Slowing Changing Dimension DimCustomer"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [active], [address_id], [customer_id], [email], [first_name], [last_name] FROM [dbo].[DimCustomers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].Columns[active]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="active"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[active]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[active]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].Columns[address_id]"
+                      cachedDataType="i4"
+                      cachedName="address_id"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[address_id]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[address_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].Columns[customer_id]"
+                      cachedDataType="i4"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[email]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[first_name]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[first_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[last_name]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[last_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="active" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[address_id]"
+                      dataType="i4"
+                      name="address_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="last_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load From Stage to DimCustomer\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCustomers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedDataType="i4"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].Columns[address_id]"
+                      cachedDataType="i4"
+                      cachedName="address_id"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_id]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[address_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].Columns[active]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="active"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[active]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[active]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      dataType="i4"
+                      name="customer_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_id]"
+                      dataType="i4"
+                      name="address_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="active" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimCustomers] SET [active] = ?,[address_id] = ?,[email] = ?,[first_name] = ?,[last_name] = ? WHERE [customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].Columns[active]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="active"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[active]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].Columns[address_id]"
+                      cachedDataType="i4"
+                      cachedName="address_id"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[address_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].Columns[customer_id]"
+                      cachedDataType="i4"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[last_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - Stage Table From SakilaStage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stgCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      length="45"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      length="45"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      length="50"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[address_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[address_id]"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[address_id]"
+                      name="address_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[active]"
+                      length="1"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[active]"
+                      name="active"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[address_id]"
+                      dataType="i4"
+                      name="address_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="active" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[address_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[address_id]"
+                      name="address_id" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[active]"
+                      name="active" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Load From Stage to DimCustomer.Paths[Changing Attribute Updates Output]"
+              endId="Package\DF - Load From Stage to DimCustomer\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\DF - Load From Stage to DimCustomer.Paths[New Output]"
+              endId="Package\DF - Load From Stage to DimCustomer\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Outputs[New Output]" />
+            <path
+              refId="Package\DF - Load From Stage to DimCustomer.Paths[OLE DB Source Output]"
+              endId="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\DF - Load From Stage to DimRental"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -1160,8 +2502,8 @@ FROM     staff AS s INNER JOIN
               <connections>
                 <connection
                   refId="Package\DF - Load From Stage to DimRental\DST - Slowing Changing Dimension DimRental.Connections[LookupConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaDWH]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
                   description="Defines the connection to use for lookups in the dimension table"
                   name="LookupConnection" />
               </connections>
@@ -1425,8 +2767,8 @@ FROM     staff AS s INNER JOIN
               <connections>
                 <connection
                   refId="Package\DF - Load From Stage to DimRental\Insert Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaDWH]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1583,8 +2925,8 @@ FROM     staff AS s INNER JOIN
               <connections>
                 <connection
                   refId="Package\DF - Load From Stage to DimRental\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaDWH]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaDWH]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaDWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1824,8 +3166,8 @@ FROM     staff AS s INNER JOIN
               <connections>
                 <connection
                   refId="Package\DF - Load From Stage to DimRental\SRC - Stage Table From SakilaStage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaStage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaStage]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2900,8 +4242,8 @@ FROM     stgStaff</property>
               <connections>
                 <connection
                   refId="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaStage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaStage]"
+                  connectionManagerID="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[TRIEUPHI2003\SQLEXPRESS.SakilaStage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3181,8 +4523,8 @@ FROM     stgStaff</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6FB0A428-EB9B-4B08-AA0D-5057668DE23D}"
-          SQLTask:SqlStatementSource="truncate table stgRental;&#xA;truncate table stgStaff;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E79290C7-9B9A-448D-8410-8D544634536F}"
+          SQLTask:SqlStatementSource="truncate table stgRental;&#xA;truncate table stgStaff;truncate table stgCustomer;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -3219,6 +4561,22 @@ FROM     stgStaff</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\DF - Load From Stage to DimStaff" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{45C5C42D-7460-4078-9762-C124FD5AEED9}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\DF - Extract From Source to stgCustomer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{AE49526A-E68D-4151-90CF-995B99DD9DD3}"
+      DTS:From="Package\DF - Extract From Source to stgCustomer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\DF - Load From Stage to DimCustomer" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3364,6 +4722,82 @@ FROM     stgStaff</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="272.8,41.6"
+          Id="Package\DF - Extract From Source to stgCustomer"
+          TopLeft="305.685714795091,282.176470340897" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="432.628572176671,89.7764705460068">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.45714261841977,192.39999979489"
+              Start="0,0"
+              End="9.45714261841977,184.89999979489">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.199999897445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,92.199999897445"
+                    Point2="0,96.199999897445"
+                    Point3="4,96.199999897445" />
+                  <mssgle:LineSegment
+                    End="5.45714261841977,96.199999897445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.45714261841977,96.199999897445"
+                    Point2="9.45714261841977,96.199999897445"
+                    Point3="9.45714261841977,100.199999897445" />
+                  <mssgle:LineSegment
+                    End="9.45714261841977,184.89999979489" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="261.6,41.6"
+          Id="Package\DF - Load From Stage to DimCustomer"
+          TopLeft="324.971429121859,390.764705539833" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="442.085714795091,323.776470340897">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.6857143267687,66.9882351989358"
+              Start="0,0"
+              End="13.6857143267687,59.4882351989358">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.4941175994679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.4941175994679"
+                    Point2="0,33.4941175994679"
+                    Point3="4,33.4941175994679" />
+                  <mssgle:LineSegment
+                    End="9.68571432676868,33.4941175994679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.68571432676868,33.4941175994679"
+                    Point2="13.6857143267687,33.4941175994679"
+                    Point3="13.6857143267687,37.4941175994679" />
+                  <mssgle:LineSegment
+                    End="13.6857143267687,59.4882351989358" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3434,14 +4868,14 @@ FROM     stgStaff</property>
         <NodeLayout
           Size="233.6,41.6"
           Id="Package\DF - Extract From Source to stgStaff\SRC - Staff From sakila Database"
-          TopLeft="588.999991223216,67.9999989867211" />
+          TopLeft="271.857133405245,78.7058813302781" />
         <NodeLayout
           Size="252,41.6"
           Id="Package\DF - Extract From Source to stgStaff\DST - Load to stgStaff in SakilaStage"
-          TopLeft="583.999991297722,165.999997526407" />
+          TopLeft="266.857133479751,176.705879869964" />
         <EdgeLayout
           Id="Package\DF - Extract From Source to stgStaff.Paths[OLE DB Source Output]"
-          TopLeft="707.899991260469,109.599998986721">
+          TopLeft="390.757133442498,120.305881330278">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3493,62 +4927,52 @@ FROM     stgStaff</property>
         <NodeLayout
           Size="248.8,41.6"
           Id="Package\DF - Load From Stage to DimRental\SRC - Stage Table From SakilaStage"
-          TopLeft="339.871428898342,42.2058823207671" />
+          TopLeft="186.3,5.50000000000007" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load From Stage to DimRental\Insert Destination"
-          TopLeft="159.071428898342,245.405882320767" />
+          TopLeft="5.50000000000004,208.7" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\DF - Load From Stage to DimRental\OLE DB Command"
-          TopLeft="381.871428898342,245.405882320767" />
+          TopLeft="228.3,208.7" />
         <NodeLayout
           Size="296,41.6"
           Id="Package\DF - Load From Stage to DimRental\DST - Slowing Changing Dimension DimRental"
-          TopLeft="360.271428898342,143.805882320767" />
+          TopLeft="162.7,107.1" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[OLE DB Source Output]"
-          TopLeft="464.271428898342,83.8058823207671">
+          TopLeft="310.7,47.1000000000001">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="43.9999999999999,59.9999999999999"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="43.9999999999999,52.4999999999999">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="39.9999999999999,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="39.9999999999999,30"
-                    Point2="43.9999999999999,30"
-                    Point3="43.9999999999999,34" />
-                  <mssgle:LineSegment
-                    End="43.9999999999999,52.4999999999999" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[New Output]"
-          TopLeft="460.271428898342,185.405882320767">
+          TopLeft="262.7,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-220,60"
+              EndConnector="-176,60"
               Start="0,0"
-              End="-220,52.5">
+              End="-176,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3559,32 +4983,32 @@ FROM     stgStaff</property>
                     Point2="0,24.1935483870968"
                     Point3="-4,24.1935483870968" />
                   <mssgle:LineSegment
-                    End="-216,24.1935483870968" />
+                    End="-172,24.1935483870968" />
                   <mssgle:CubicBezierSegment
-                    Point1="-216,24.1935483870968"
-                    Point2="-220,24.1935483870968"
-                    Point3="-220,28.1935483870968" />
+                    Point1="-172,24.1935483870968"
+                    Point2="-176,24.1935483870968"
+                    Point3="-176,28.1935483870968" />
                   <mssgle:LineSegment
-                    End="-220,52.5" />
+                    End="-176,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-137.09138671875,29.1935483870968,54.1827734375,11.43359375"
+              BoundingBox="-115.09138671875,29.1935483870968,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[Changing Attribute Updates Output]"
-          TopLeft="556.271428898342,185.405882320767">
+          TopLeft="358.7,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-92,60"
+              EndConnector="-48,60"
               Start="0,0"
-              End="-92,52.5">
+              End="-48,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3595,20 +5019,20 @@ FROM     stgStaff</property>
                     Point2="0,24.1935483870968"
                     Point3="-4,24.1935483870968" />
                   <mssgle:LineSegment
-                    End="-88,24.1935483870968" />
+                    End="-44,24.1935483870968" />
                   <mssgle:CubicBezierSegment
-                    Point1="-88,24.1935483870968"
-                    Point2="-92,24.1935483870968"
-                    Point3="-92,28.1935483870968" />
+                    Point1="-44,24.1935483870968"
+                    Point2="-48,24.1935483870968"
+                    Point3="-48,28.1935483870968" />
                   <mssgle:LineSegment
-                    End="-92,52.5" />
+                    End="-48,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-124.53390625,29.1935483870968,157.0678125,11.6630859375"
+              BoundingBox="-102.53390625,29.1935483870968,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3636,7 +5060,7 @@ FROM     stgStaff</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{D4E57246-3D1C-4718-818C-24A88845CAFB}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{BEFA83AA-48FF-46DA-87BD-10813B73992B}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[DimRental]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -3713,114 +5137,112 @@ FROM     stgStaff</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load From Stage to DimStaff\OLE DB Command"
-          TopLeft="559.209085978161,274.154544479197" />
-        <NodeLayout
           Size="281.6,41.6"
           Id="Package\DF - Load From Stage to DimStaff\DST - Slowly Changing Dimension DimStaff"
-          TopLeft="398.081814781644,152.55454477722" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load From Stage to DimStaff\Insert Destination"
-          TopLeft="346.40908582915,274.154544479197" />
+          TopLeft="369.899997019768,228.09999819696" />
         <NodeLayout
           Size="228.8,41.6"
           Id="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage"
-          TopLeft="424.481814781644,50.95454477722" />
-        <EdgeLayout
-          Id="Package\DF - Load From Stage to DimStaff.Paths[New Output]"
-          TopLeft="493.281814781644,194.15454477722">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-65.672728952494,79.999999701977"
-              Start="0,0"
-              End="-65.672728952494,72.499999701977">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.2711863204585" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.2711863204585"
-                    Point2="0,32.2711863204585"
-                    Point3="-4,32.2711863204585" />
-                  <mssgle:LineSegment
-                    End="-61.672728952494,32.2711863204585" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-61.672728952494,32.2711863204585"
-                    Point2="-65.672728952494,32.2711863204585"
-                    Point3="-65.672728952494,36.2711863204585" />
-                  <mssgle:LineSegment
-                    End="-65.672728952494,72.499999701977" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-59.927751194997,37.2711863204585,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF - Load From Stage to DimStaff.Paths[Changing Attribute Updates Output]"
-          TopLeft="584.481814781644,194.15454477722">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="57.127271196517,79.999999701977"
-              Start="0,0"
-              End="57.127271196517,72.499999701977">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.2711863204585" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.2711863204585"
-                    Point2="0,32.2711863204585"
-                    Point3="4,32.2711863204585" />
-                  <mssgle:LineSegment
-                    End="53.127271196517,32.2711863204585" />
-                  <mssgle:CubicBezierSegment
-                    Point1="53.127271196517,32.2711863204585"
-                    Point2="57.127271196517,32.2711863204585"
-                    Point3="57.127271196517,36.2711863204585" />
-                  <mssgle:LineSegment
-                    End="57.127271196517,72.499999701977" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-49.9702706517415,37.2711863204585,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="396.299997019768,126.49999819696" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimStaff.Paths[OLE DB Source Output]"
-          TopLeft="538.881814781644,92.55454477722">
+          TopLeft="510.699997019768,168.09999819696">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load From Stage to DimStaff\Insert Destination"
+          TopLeft="205.499997019768,329.69999819696" />
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimStaff.Paths[New Output]"
+          TopLeft="465.099997019768,269.69999819696">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-178.4,60"
+              Start="0,0"
+              End="-178.4,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2033898305085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2033898305085"
+                    Point2="0,24.2033898305085"
+                    Point3="-4,24.2033898305085" />
+                  <mssgle:LineSegment
+                    End="-174.4,24.2033898305085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-174.4,24.2033898305085"
+                    Point2="-178.4,24.2033898305085"
+                    Point3="-178.4,28.2033898305085" />
+                  <mssgle:LineSegment
+                    End="-178.4,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-116.29138671875,29.2033898305085,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimStaff\OLE DB Command"
+          TopLeft="428.299997019768,329.69999819696" />
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimStaff.Paths[Changing Attribute Updates Output]"
+          TopLeft="556.299997019768,269.69999819696">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.6,60"
+              Start="0,0"
+              End="-45.6,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2033898305085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2033898305085"
+                    Point2="0,24.2033898305085"
+                    Point3="-4,24.2033898305085" />
+                  <mssgle:LineSegment
+                    End="-41.6,24.2033898305085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.6,24.2033898305085"
+                    Point2="-45.6,24.2033898305085"
+                    Point3="-45.6,28.2033898305085" />
+                  <mssgle:LineSegment
+                    End="-45.6,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-101.33390625,29.2033898305085,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3928,6 +5350,275 @@ FROM     stgStaff</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Extract From Source to stgCustomer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila"
+          TopLeft="242.538457924357,68.3076912898284" />
+        <NodeLayout
+          Size="236.8,41.6"
+          Id="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage"
+          TopLeft="237.807688846038,160.884613069204" />
+        <EdgeLayout
+          Id="Package\DF - Extract From Source to stgCustomer.Paths[OLE DB Source Output]"
+          TopLeft="348.138457924357,109.907691289828">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.0692309216812,50.9769217793758"
+              Start="0,0"
+              End="8.0692309216812,43.4769217793758">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4884608896879" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.4884608896879"
+                    Point2="0,25.4884608896879"
+                    Point3="4,25.4884608896879" />
+                  <mssgle:LineSegment
+                    End="4.0692309216812,25.4884608896879" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.0692309216812,25.4884608896879"
+                    Point2="8.0692309216812,25.4884608896879"
+                    Point3="8.0692309216812,29.4884608896879" />
+                  <mssgle:LineSegment
+                    End="8.0692309216812,43.4769217793758" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Extract From Source to stgCustomer\DST - stgCustomer in SakilaStage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Load From Stage to DimCustomer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="248.8,41.6"
+          Id="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage"
+          TopLeft="288.299998480082,78.8333322405816" />
+        <NodeLayout
+          Size="311.2,41.6"
+          Id="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer"
+          TopLeft="257.099998480082,180.433332240582" />
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimCustomer.Paths[OLE DB Source Output]"
+          TopLeft="412.699998480082,120.433332240582">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load From Stage to DimCustomer\Insert Destination"
+          TopLeft="107.499998480082,282.033332240582" />
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimCustomer.Paths[New Output]"
+          TopLeft="362.166665146748,222.033332240582">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-173.466666666667,60"
+              Start="0,0"
+              End="-173.466666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1841432225064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1841432225064"
+                    Point2="0,24.1841432225064"
+                    Point3="-4,24.1841432225064" />
+                  <mssgle:LineSegment
+                    End="-169.466666666667,24.1841432225064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-169.466666666667,24.1841432225064"
+                    Point2="-173.466666666667,24.1841432225064"
+                    Point3="-173.466666666667,28.1841432225064" />
+                  <mssgle:LineSegment
+                    End="-173.466666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.824720052083,29.1841432225064,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimCustomer\OLE DB Command"
+          TopLeft="330.299998480082,282.033332240582" />
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimCustomer.Paths[Changing Attribute Updates Output]"
+          TopLeft="463.233331813415,222.033332240582">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50.5333333333333,60"
+              Start="0,0"
+              End="-50.5333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1841432225064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1841432225064"
+                    Point2="0,24.1841432225064"
+                    Point3="-4,24.1841432225064" />
+                  <mssgle:LineSegment
+                    End="-46.5333333333333,24.1841432225064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-46.5333333333333,24.1841432225064"
+                    Point2="-50.5333333333333,24.1841432225064"
+                    Point3="-50.5333333333333,28.1841432225064" />
+                  <mssgle:LineSegment
+                    End="-50.5333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-103.800572916667,29.1841432225064,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{BEFA83AA-48FF-46DA-87BD-10813B73992B}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimCustomers]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[active]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;active&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[address_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;address_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[customer_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;customer_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[email]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;email&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[first_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;first_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Stage Table From SakilaStage.Outputs[OLE DB Source Output].Columns[last_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;last_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
