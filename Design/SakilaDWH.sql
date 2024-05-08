@@ -1,4 +1,4 @@
-/****** Object:  Database SakilaDWH    Script Date: 5/5/2024 5:13:28 PM ******/
+/****** Object:  Database SakilaDWH    Script Date: 5/7/2024 9:29:02 AM ******/
 /*
 Kimball Group, The Microsoft Data Warehouse Toolkit
 Generate a database from the datamodel worksheet, version: 4
@@ -21,10 +21,8 @@ ALTER DATABASE SakilaDWH
 SET RECOVERY SIMPLE
 GO
 */
-
 CREATE DATABASE SakilaDWH
 GO
-
 USE SakilaDWH
 ;
 IF EXISTS (SELECT Name from sys.extended_properties where Name = 'Description')
@@ -301,7 +299,7 @@ CREATE TABLE dbo.DimInventory (
    [inventory_key]  int IDENTITY  NOT NULL
 ,  [Inventory_id]  int   NOT NULL
 ,  [title]  varchar(255)   NOT NULL
-,  [description]  text   NULL
+,  [description]  varchar(255)   NULL
 ,  [release_year]  varchar(4)  DEFAULT 'N/A' NULL
 ,  [language]  char(20)  DEFAULT 'N/A' NULL
 ,  [rental_duration]  tinyint   NOT NULL
@@ -1156,7 +1154,7 @@ CREATE TABLE dbo.FactBPCustomer (
 ,  [first_name]  varchar   NOT NULL
 ,  [last_name]  varchar   NOT NULL
 ,  [address_key]  int   NOT NULL
-,  [address]  varchar   NOT NULL
+,  [address]  varchar(50)   NOT NULL
 ,  [rental_key]  int   NOT NULL
 ,  [rental_id]  int   NOT NULL
 ,  [rental_date_key]  int   NOT NULL

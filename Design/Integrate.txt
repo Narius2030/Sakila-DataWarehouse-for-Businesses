@@ -49,7 +49,7 @@ CREATE TABLE [stgDate] (
 )
 
 -- SRC - Rental From Sakila
-SELECT r.rental_id, r.customer_id, r.inventory_id, r.staff_id, p.amount, r.rental_date, p.payment_date, r.return_date
+SELECT r.rental_id, r.customer_id, r.inventory_id, r.staff_id, ROUND(p.amount, 2), r.rental_date, p.payment_date, r.return_date
 FROM  rental AS r INNER JOIN payment AS p ON p.rental_id = r.rental_id
 
 -- Create stgRental
@@ -65,7 +65,7 @@ CREATE TABLE [stgRental] (
 )
 
 -- SRC - Staff From Sakila
-SELECT s.staff_id, st.store_id, st.manager_staff_id, st.address_id, c.city, a.district, co.country, s.first_name, s.last_name, s.email, s.active
+SELECT s.staff_id, st.store_id, st.manager_staff_id, st.address_id, c.city, co.country, s.first_name, s.last_name, s.email, s.active
 FROM staff AS s 
 INNER JOIN store AS st ON st.store_id = s.store_id 
 INNER JOIN address AS a ON a.address_id = st.address_id
@@ -88,10 +88,63 @@ CREATE TABLE [stgStaff] (
     [active] bit
 )
 
+SELECT 
+	staff_id, store_id, manager_staff_id, address_id, city, district, country, 
+	CONCAT(first_name, last_name) AS full_name, email, active
+FROM stgStaff
+
 --SRC - Customer From Sakila
 SELECT customer_id, first_name, last_name, email, address_id, active
 FROM customer
 
+CREATE TABLE [stgCustomer] (
+    [customer_id] int,
+    [first_name] varchar(45),
+    [last_name] varchar(45),
+    [email] varchar(50),
+    [address_id] int,
+    [active] varchar(1)
+)
+
+
+--SRC - Actor From Sakila
+SELECT a.actor_id, a.first_name, a.last_name, f.film_id
+FROM actor as a 
+INNER JOIN film_actor as f ON f.actor_id = a.actor_id
+
+CREATE TABLE [stgActor] (
+    [actor_id] int,
+    [first_name] varchar(45),
+    [last_name] varchar(45),
+    [film_id] int
+)
+
+
+--SRC - Inventory From Sakila
+SELECT inventory.inventory_id, film.title, film.description, film.release_year, [language].name, film.rental_duration, film.length, film.rental_rate, film.replacement_cost, category.name AS Expr1, film.rating, film.special_features, 
+                  film_category.film_id
+FROM     inventory INNER JOIN
+                  film ON inventory.film_id = film.film_id INNER JOIN
+                  film_category ON film.film_id = film_category.film_id INNER JOIN
+                  category ON film_category.category_id = category.category_id INNER JOIN
+                  [language] ON film.language_id = [language].language_id AND film.original_language_id = [language].language_id
+
+--DST - stgInventory in SakilaStage
+CREATE TABLE [stgInventory] (
+    [inventory_id] int,
+    [title] varchar(255),
+    [description] varchar(255),
+    [release_year] varchar(4),
+    [name] varchar(20),
+    [rental_duration] tinyint,
+    [length] smallint,
+    [rental_rate] numeric(4,2),
+    [replacement_cost] numeric(5,2),
+    [Expr1] varchar(25),
+    [rating] varchar(10),
+    [special_features] varchar(255),
+    [film_id] int  
+)
 -- Fact BPerformance
 select
 	s.staff_key, r.rental_key, s.store_id, s.address_store_id,
@@ -103,3 +156,81 @@ select
 from DimRental r
 join DimStaff s ON s.staff_id = r.staff_id
 join DimAddress a ON a.address_id = s.address_store_id
+
+-- Fact BPInventory
+(select q4.inventory_key,q5.rental_key,q5.rental_date_key,q4.remaining,q5.Total_Rental_Amount From
+((select q2.*, ((SELECT COUNT(*) FROM DimInventory)-q2.Inventory_Payment) as remaining  From 
+(select di.*,q1.Inventory_Payment From DimInventory as di join
+(select inventory_id,count(*) as Inventory_Payment From DimRental
+group by inventory_id) as q1
+on q1.inventory_id=di.inventory_id) as q2) ) as q4
+join
+(select DimRental.*,q3.Total_Rental_Amount,
+(DAY(DimRental.rental_date) + 
+MONTH(DimRental.rental_date) * 100 + 
+YEAR(DimRental.rental_date) * 10000) 
+as rental_date_key From  DimRental join (
+select inventory_id,SUM(amount) as Total_Rental_Amount From DimRental
+group by inventory_id) as q3
+on q3.inventory_id=DimRental.inventory_id) as q5
+on q4.Inventory_id=q5.inventory_id)
+
+--Fact BPCustomerSegment
+SELECT c.customer_key,
+       c.first_name,
+       c.last_name,
+       a.address_key,
+       a.address,
+       r.rental_key,
+       r.rental_id,
+       d.date_key AS rental_date_key,
+       r.amount,
+       dd.date_key AS payment_date_key,
+       DATEDIFF(DAY, MAX(d.date_key), GETDATE()) AS recency,  -- Recency calculation
+       COUNT(*) AS frequency,                             -- Frequency calculation
+       SUM(r.amount) AS monetary                           -- Monetary calculation
+FROM DimCustomers c
+INNER JOIN DimAddress a ON c.address_id = a.address_key
+INNER JOIN DimRental r ON c.customer_key = r.customer_id
+INNER JOIN DimDate d ON r.rental_date = d.Date
+INNER JOIN DimDate dd ON r.payment_date = dd.Date
+GROUP BY c.customer_key, c.first_name, c.last_name, a.address_key, a.address, r.rental_key, r.rental_id, d.date_key, r.amount, dd.date_key
+ORDER BY c.customer_key;
+
+--SRC - Load From Source to stgExpenseRental
+SELECT
+	c.customer_key,
+	d.Year, d.MonthOfYear,
+	r.rental_key,
+	sum(r.amount) AS expense,
+	(select sum(r1.amount)
+		from DimRental r1
+		JOIN DimDate d1 ON d1.Date = CONVERT(date, r1.rental_date)
+		WHERE  r1.customer_id = c.customer_key AND d.Year = d1.Year AND d.MonthOfYear = d1.MonthOfYear) AS total_expense,
+	(DAY(r.rental_date) + MONTH(r.rental_date) * 100 + YEAR(r.rental_date) * 10000) AS rental_date_key
+FROM DimRental r
+JOIN DimDate d ON d.Date = CONVERT(date, r.rental_date)
+JOIN DimCustomers c ON c.customer_id = r.customer_id
+GROUP BY c.customer_key, d.Year, d.MonthOfYear, r.rental_date, r.rental_key
+
+--SRC - Fact Load From Stage to FactExpenseRental
+SELECT
+	fex.customer_key, fex.rental_key,
+	CONCAT(c.first_name, c.last_name) AS full_name,
+	a.address_key, a.city,	a.country,
+	fex.expense, fex.total_expense,
+	fex.rental_date_key
+FROM stgFactExpenseRental fex
+JOIN SakilaDWH.dbo.DimCustomers c ON fex.customer_key = c.customer_key
+JOIN SakilaDWH.dbo.DimAddress a ON a.address_id = c.address_id
+
+--Stage ExpenseRental
+CREATE TABLE [stgFactExpenseRental] (
+    [Year] int,
+    [MonthOfYear] int,
+    [expense] numeric(38,0),
+    [rental_date_key] int,
+    [customer_key] int,
+    [total_expense] float,
+    [rental_key] int
+)
