@@ -121,26 +121,25 @@ CREATE TABLE [stgActor] (
 
 
 --SRC - Inventory From Sakila
-SELECT inventory.inventory_id, film.title, film.description, film.release_year, [language].name, film.rental_duration, film.length, film.rental_rate, film.replacement_cost, category.name AS Expr1, film.rating, film.special_features, 
+SELECT inventory.inventory_id, film.title, film.release_year, [language].name, film.rental_duration, film.length, film.rental_rate, film.replacement_cost, category.name AS category_name, film.rating, film.special_features, 
                   film_category.film_id
 FROM     inventory INNER JOIN
                   film ON inventory.film_id = film.film_id INNER JOIN
                   film_category ON film.film_id = film_category.film_id INNER JOIN
                   category ON film_category.category_id = category.category_id INNER JOIN
-                  [language] ON film.language_id = [language].language_id AND film.original_language_id = [language].language_id
+                  [language] ON film.language_id = [language].language_id
 
 --DST - stgInventory in SakilaStage
 CREATE TABLE [stgInventory] (
     [inventory_id] int,
     [title] varchar(255),
-    [description] varchar(255),
     [release_year] varchar(4),
     [name] varchar(20),
     [rental_duration] tinyint,
     [length] smallint,
     [rental_rate] numeric(4,2),
     [replacement_cost] numeric(5,2),
-    [Expr1] varchar(25),
+    [category_name] varchar(25),
     [rating] varchar(10),
     [special_features] varchar(255),
     [film_id] int  
@@ -186,9 +185,9 @@ SELECT c.customer_key,
        d.date_key AS rental_date_key,
        r.amount,
        dd.date_key AS payment_date_key,
-       DATEDIFF(DAY, MAX(d.date_key), GETDATE()) AS recency,  -- Recency calculation
-       COUNT(*) AS frequency,                             -- Frequency calculation
-       SUM(r.amount) AS monetary                           -- Monetary calculation
+       DATEDIFF(DAY, MAX(d.date_key), GETDATE()) AS recency,
+       COUNT(r.rental_key) AS frequency,                             
+       SUM(r.amount) AS monetary   
 FROM DimCustomers c
 INNER JOIN DimAddress a ON c.address_id = a.address_key
 INNER JOIN DimRental r ON c.customer_key = r.customer_id
@@ -234,3 +233,61 @@ CREATE TABLE [stgFactExpenseRental] (
     [total_expense] float,
     [rental_key] int
 )
+
+
+-- Stage FactBPCustomer ##NB
+SELECT 
+	c.customer_key, c.first_name, c.last_name, a.address_key, a.address,
+	r.rental_key, r.rental_id,
+	(DAY(r.rental_date) + MONTH(r.rental_date) * 100 + YEAR(r.rental_date) * 10000) as rental_date_key,
+	(DAY(r.payment_date) + MONTH(r.payment_date) * 100 + YEAR(r.payment_date) * 10000) as payment_date_key,
+	r.amount,
+	DATEDIFF(DAY, (SELECT MAX(rental_date) FROM DimRental WHERE customer_id=c.customer_id), GETDATE()) AS recency,
+	(SELECT COUNT(r.rental_key) FROM DimRental WHERE r.customer_id = customer_id) AS frequency,                             
+	(SELECT SUM(amount) FROM DimRental WHERE r.customer_id = customer_id) AS monetary  
+FROM DimCustomers c
+INNER JOIN DimAddress a ON c.address_id = a.address_key
+INNER JOIN DimRental r ON c.customer_id = r.customer_id
+
+--Create stgFactBFilmActor
+CREATE TABLE [stgFactBPFilmActor] (
+    [actor_key] int,
+    [rental_key] int,
+    [inventory_key] int,
+    [rental_date_key] int,
+    [RentalFilm] smallint,
+    [ActorFamous] smallint,
+    [ActorCategory] smallint
+)
+
+-- Stage to FacBPFilmActor
+SELECT ac.actor_key, ac.rental_key, ac.inventory_key, ac.rental_date_key,  RentalFilm, af.ActorFamous, ActorCategory
+FROM (
+SELECT  a.actor_key
+		,a.actor_id
+		,a.first_name AS actor_first_name
+        ,a.last_name AS actor_last_name
+        ,a.film_id
+		,(COUNT(DISTINCT r.rental_id) * r.amount) AS RentalFilm
+		,category.ActorCategory
+		,r.rental_key
+		,d.inventory_key
+		,dd.date_key AS rental_date_key
+FROM DimActor a
+INNER JOIN (SELECT 
+				DISTINCT a1.actor_id, COUNT(DISTINCT d1.category_name) as ActorCategory
+			FROM 
+				DimActor AS a1 
+			INNER JOIN 
+				DimInventory d1 
+			ON a1.film_id = d1.film_id
+			GROUP BY a1.actor_id) AS category ON a.actor_id = category.actor_id
+INNER JOIN DimInventory d ON a.film_id = d.film_id
+INNER JOIN DimRental r ON d.Inventory_id = r.inventory_id
+INNER JOIN DimDate dd ON CONVERT(date, r.rental_date) = CONVERT(date, dd.Date)
+GROUP BY a.actor_key, a.actor_id, a.first_name, a.last_name, a.film_id, r.amount, category.ActorCategory, r.rental_key, d.inventory_key, dd.date_key) AS ac
+INNER JOIN (SELECT  DimActor.actor_id, DimActor.film_id, COUNT(DimRental.rental_key) AS ActorFamous 
+			FROM DimRental
+			INNER JOIN DimInventory ON DimRental.inventory_id = DimInventory.Inventory_id
+			INNER JOIN DimActor ON DimInventory.film_id = DimActor.film_id
+			GROUP BY DimActor.actor_id, DimActor.film_id) AS af ON ac.actor_id = af.actor_id AND ac.film_id = af.film_id

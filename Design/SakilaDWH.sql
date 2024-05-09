@@ -1,4 +1,4 @@
-/****** Object:  Database SakilaDWH    Script Date: 5/7/2024 9:29:02 AM ******/
+/****** Object:  Database SakilaDWH    Script Date: 5/9/2024 10:13:21 PM ******/
 /*
 Kimball Group, The Microsoft Data Warehouse Toolkit
 Generate a database from the datamodel worksheet, version: 4
@@ -21,8 +21,10 @@ ALTER DATABASE SakilaDWH
 SET RECOVERY SIMPLE
 GO
 */
+
 CREATE DATABASE SakilaDWH
 GO
+
 USE SakilaDWH
 ;
 IF EXISTS (SELECT Name from sys.extended_properties where Name = 'Description')
@@ -54,14 +56,14 @@ DROP TABLE dbo.DimDate
 CREATE TABLE dbo.DimDate (
    [date_key]  int   NOT NULL
 ,  [Date]  datetime   NOT NULL
-,  [DayOfWeek]  tinyint   NULL
+,  [DayOfWeek]  int   NULL
 ,  [DayName]  nvarchar(255)   NOT NULL
-,  [DayOfMonth]  tinyint   NOT NULL
+,  [DayOfMonth]  int   NOT NULL
 ,  [DayOfYear]  int   NOT NULL
-,  [WeekOfYear]  tinyint   NOT NULL
+,  [WeekOfYear]  int   NOT NULL
 ,  [MonthName]  nvarchar(255)   NOT NULL
-,  [MonthOfYear]  tinyint   NOT NULL
-,  [Quarter]  tinyint   NOT NULL
+,  [MonthOfYear]  int   NOT NULL
+,  [Quarter]  int   NOT NULL
 ,  [Year]  int   NOT NULL
 ,  [IsAWeekday]  nvarchar(255)   NOT NULL
 , CONSTRAINT [PK_dbo.DimDate] PRIMARY KEY CLUSTERED 
@@ -161,14 +163,14 @@ exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'Year', @lev
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'IsAWeekday', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'date_key'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'datetime', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Date'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayOfWeek'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayOfWeek'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nvarchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayName'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayOfMonth'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayOfMonth'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'DayOfYear'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'WeekOfYear'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'WeekOfYear'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nvarchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthName'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthOfYear'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Quarter'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'MonthOfYear'; 
+exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Quarter'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'Year'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nvarchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimDate', @level2type=N'COLUMN', @level2name=N'IsAWeekday'; 
 ;
@@ -299,7 +301,6 @@ CREATE TABLE dbo.DimInventory (
    [inventory_key]  int IDENTITY  NOT NULL
 ,  [Inventory_id]  int   NOT NULL
 ,  [title]  varchar(255)   NOT NULL
-,  [description]  varchar(255)   NULL
 ,  [release_year]  varchar(4)  DEFAULT 'N/A' NULL
 ,  [language]  char(20)  DEFAULT 'N/A' NULL
 ,  [rental_duration]  tinyint   NOT NULL
@@ -331,7 +332,6 @@ CREATE VIEW [MDWT].[Inventories] AS
 SELECT [inventory_key] AS [inventory_key]
 , [Inventory_id] AS [Inventory_id]
 , [title] AS [title]
-, [description] AS [description]
 , [release_year] AS [release_year]
 , [language] AS [language]
 , [rental_duration] AS [rental_duration]
@@ -349,7 +349,6 @@ GO
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'inventory_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'inventory_key'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'Inventory_id', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'Inventory_id'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'title', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'title'; 
-exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'description', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'description'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'release_year', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'release_year'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'language', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'language'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'rental_duration', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'rental_duration'; 
@@ -363,7 +362,6 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'film_id', @level
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'Surrogate primary key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'inventory_key'; 
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'Business key from source system (aka natural key)', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'Inventory_id'; 
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'The title of the film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'title'; 
-exec sys.sp_addextendedproperty @name=N'Description', @value=N'Description of the film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'description'; 
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'The year the film was released', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'release_year'; 
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'Language of the film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'language'; 
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'Rental duration (in days)', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'rental_duration'; 
@@ -377,7 +375,6 @@ exec sys.sp_addextendedproperty @name=N'Description', @value=N'the film_id of th
 exec sys.sp_addextendedproperty @name=N'Example Values', @value=N'1, 2, 3…', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'inventory_key'; 
 exec sys.sp_addextendedproperty @name=N'Example Values', @value=N'1,2,3,4...', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'Inventory_id'; 
 exec sys.sp_addextendedproperty @name=N'Example Values', @value=N'ACADEMY DINOSAUR', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'title'; 
-exec sys.sp_addextendedproperty @name=N'Example Values', @value=N'ABCXYZ', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'description'; 
 exec sys.sp_addextendedproperty @name=N'Example Values', @value=N'2006', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'release_year'; 
 exec sys.sp_addextendedproperty @name=N'Example Values', @value=N'English', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'language'; 
 exec sys.sp_addextendedproperty @name=N'Example Values', @value=N'6', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'rental_duration'; 
@@ -391,7 +388,6 @@ exec sys.sp_addextendedproperty @name=N'Example Values', @value=N'2', @level0typ
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Derived', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'inventory_key'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'Inventory_id'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'title'; 
-exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'description'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'release_year'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'language'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'rental_duration'; 
@@ -404,7 +400,6 @@ exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Sakila', @level
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Sakila', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'film_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'Inventory_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'title'; 
-exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'description'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'release_year'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'language'; 
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'rental_duration'; 
@@ -417,7 +412,6 @@ exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0ty
 exec sys.sp_addextendedproperty @name=N'Source Schema', @value=N'dbo', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'film_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Inventory', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'Inventory_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'title'; 
-exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'description'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'release_year'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Language', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'language'; 
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'rental_duration'; 
@@ -430,7 +424,6 @@ exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Film', @level0ty
 exec sys.sp_addextendedproperty @name=N'Source Table', @value=N'Film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'film_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'Inventory_id', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'Inventory_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'title', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'title'; 
-exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'description', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'description'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'release_year', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'release_year'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'language', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'language'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'rental_duration', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'rental_duration'; 
@@ -443,7 +436,6 @@ exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'special_fea
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'film_id', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'film_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'int', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'Inventory_id'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'title'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'text', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'description'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'varchar', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'release_year'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'char', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'language'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'tinyint', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimInventory', @level2type=N'COLUMN', @level2name=N'rental_duration'; 
@@ -994,8 +986,8 @@ CREATE TABLE dbo.FactRentalExpense (
 ,  [customer_address_key]  int   NOT NULL
 ,  [city]  varchar(50)   NOT NULL
 ,  [country]  varchar(50)   NOT NULL
-,  [amount]  decimal  DEFAULT -1 NULL
-,  [churn_rate]  float  DEFAULT -1 NULL
+,  [expense]  decimal  DEFAULT -1 NULL
+,  [total_expense]  float  DEFAULT -1 NULL
 ,  [rental_date_key]  int   NOT NULL
 ) ON [PRIMARY]
 ;
@@ -1019,8 +1011,8 @@ SELECT [customer_key] AS [customer_key]
 , [customer_address_key] AS [customer_address_key]
 , [city] AS [city]
 , [country] AS [country]
-, [amount] AS [amount]
-, [churn_rate] AS [churn_rate]
+, [expense] AS [expense]
+, [total_expense] AS [total_expense]
 , [rental_date_key] AS [rental_date_key]
 FROM dbo.FactRentalExpense
 GO
@@ -1032,8 +1024,8 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'full_name', @lev
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'customer_address_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'customer_address_key'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'city', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'city'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'country', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'country'; 
-exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'amount', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'amount'; 
-exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'churn_rate', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'churn_rate'; 
+exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'expense', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'expense'; 
+exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'total_expense', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'total_expense'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'rental_date_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'rental_date_key'; 
 ;
 

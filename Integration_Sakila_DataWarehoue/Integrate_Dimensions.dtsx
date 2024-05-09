@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_DimRental"
   DTS:PackageType="5"
-  DTS:VersionBuild="162"
-  DTS:VersionGUID="{5C9505A2-3FF4-4071-B90A-CD5FD9CA9C84}">
+  DTS:VersionBuild="182"
+  DTS:VersionGUID="{2AF7CB10-7B34-461E-A9A4-E56DABB5287A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -860,7 +860,7 @@ FROM customer</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[stgInventory]</property>
+                  name="OpenRowset">[dbo].[stgInventory]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -924,13 +924,6 @@ FROM customer</property>
                       cachedName="title"
                       externalMetadataColumnId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[title]"
                       lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[title]" />
-                    <inputColumn
-                      refId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].Columns[description]"
-                      cachedCodepage="1252"
-                      cachedDataType="text"
-                      cachedName="description"
-                      externalMetadataColumnId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[description]"
-                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[description]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].Columns[release_year]"
                       cachedCodepage="1252"
@@ -1004,13 +997,13 @@ FROM customer</property>
                       externalMetadataColumnId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[name]"
                       lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[name]" />
                     <inputColumn
-                      refId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].Columns[Expr1]"
+                      refId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].Columns[category_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="25"
-                      cachedName="Expr1"
-                      externalMetadataColumnId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[Expr1]"
-                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[Expr1]" />
+                      cachedName="category_name"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[category_name]"
+                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[category_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1024,12 +1017,6 @@ FROM customer</property>
                       dataType="str"
                       length="255"
                       name="title" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[description]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="description" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[release_year]"
                       codePage="1252"
@@ -1079,11 +1066,11 @@ FROM customer</property>
                       dataType="i4"
                       name="film_id" />
                     <externalMetadataColumn
-                      refId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[Expr1]"
+                      refId="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[category_name]"
                       codePage="1252"
                       dataType="str"
                       length="25"
-                      name="Expr1" />
+                      name="category_name" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1137,13 +1124,12 @@ FROM customer</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT inventory.inventory_id, film.title, film.description, film.release_year, [language].name, film.rental_duration, film.length, film.rental_rate, film.replacement_cost, category.name AS Expr1, film.rating, film.special_features, 
-                  film_category.film_id
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT inventory.inventory_id, film.title, film.release_year, [language].name, film.rental_duration, film.length, film.rental_rate, film.replacement_cost, category.name AS category_name, film.rating, film.special_features, film_category.film_id
 FROM     inventory INNER JOIN
                   film ON inventory.film_id = film.film_id INNER JOIN
                   film_category ON film.film_id = film_category.film_id INNER JOIN
                   category ON film_category.category_id = category.category_id INNER JOIN
-                  [language] ON film.language_id = [language].language_id AND film.original_language_id = [language].language_id</property>
+                  [language] ON film.language_id = [language].language_id</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1189,16 +1175,6 @@ FROM     inventory INNER JOIN
                       length="255"
                       lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[title]"
                       name="title"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[description]"
-                      codePage="1252"
-                      dataType="text"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].ExternalColumns[description]"
-                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[description]"
-                      name="description"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[release_year]"
@@ -1303,15 +1279,15 @@ FROM     inventory INNER JOIN
                       name="name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[Expr1]"
+                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[category_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
+                      externalMetadataColumnId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].ExternalColumns[category_name]"
                       length="25"
-                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[Expr1]"
-                      name="Expr1"
+                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].Columns[category_name]"
+                      name="category_name"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1322,11 +1298,6 @@ FROM     inventory INNER JOIN
                       dataType="str"
                       length="255"
                       name="title" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].ExternalColumns[description]"
-                      codePage="1252"
-                      dataType="text"
-                      name="description" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].ExternalColumns[release_year]"
                       codePage="1252"
@@ -1380,11 +1351,11 @@ FROM     inventory INNER JOIN
                       length="20"
                       name="name" />
                     <externalMetadataColumn
-                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
+                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Output].ExternalColumns[category_name]"
                       codePage="1252"
                       dataType="str"
                       length="25"
-                      name="Expr1" />
+                      name="category_name" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1404,12 +1375,6 @@ FROM     inventory INNER JOIN
                       length="255"
                       lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[title]"
                       name="title" />
-                    <outputColumn
-                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[description]"
-                      codePage="1252"
-                      dataType="text"
-                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[description]"
-                      name="description" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[release_year]"
                       codePage="1252"
@@ -1449,12 +1414,12 @@ FROM     inventory INNER JOIN
                       precision="5"
                       scale="2" />
                     <outputColumn
-                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[Expr1]"
+                      refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[category_name]"
                       codePage="1252"
                       dataType="str"
                       length="25"
-                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[Expr1]"
-                      name="Expr1" />
+                      lineageId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[category_name]"
+                      name="category_name" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila.Outputs[OLE DB Source Error Output].Columns[rating]"
                       codePage="1252"
@@ -4222,14 +4187,6 @@ FROM     staff AS s INNER JOIN
                       externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]" />
                     <inputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].Columns[description]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="description"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]" />
-                    <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].Columns[release_year]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -4274,13 +4231,13 @@ FROM     staff AS s INNER JOIN
                       externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[replacement_cost]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[replacement_cost]" />
                     <inputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].Columns[Expr1]"
+                      refId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].Columns[category_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="25"
-                      cachedName="Expr1"
+                      cachedName="category_name"
                       externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_name]"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expr1]" />
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_name]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].Columns[rating]"
                       cachedCodepage="1252"
@@ -4320,12 +4277,6 @@ FROM     staff AS s INNER JOIN
                       dataType="str"
                       length="255"
                       name="title" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="description" />
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[release_year]"
                       codePage="1252"
@@ -4424,7 +4375,7 @@ FROM     staff AS s INNER JOIN
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimInventory] SET [category_name] = ?,[description] = ?,[film_id] = ?,[language] = ?,[length] = ?,[rating] = ?,[release_year] = ?,[rental_duration] = ?,[rental_rate] = ?,[replacement_cost] = ?,[special_features] = ?,[title] = ? WHERE [Inventory_id] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimInventory] SET [category_name] = ?,[film_id] = ?,[language] = ?,[length] = ?,[rating] = ?,[release_year] = ?,[rental_duration] = ?,[rental_rate] = ?,[replacement_cost] = ?,[special_features] = ?,[title] = ? WHERE [Inventory_id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4447,32 +4398,24 @@ FROM     staff AS s INNER JOIN
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[Expr1]"
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[category_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="25"
-                      cachedName="Expr1"
+                      cachedName="category_name"
                       externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expr1]" />
-                    <inputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[description]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="description"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]" />
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_name]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[film_id]"
                       cachedDataType="i4"
                       cachedName="film_id"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[film_id]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[inventory_id]"
                       cachedDataType="i4"
                       cachedName="inventory_id"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_id]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[name]"
@@ -4480,13 +4423,13 @@ FROM     staff AS s INNER JOIN
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="name"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[length]"
                       cachedDataType="i2"
                       cachedName="length"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[length]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[rating]"
@@ -4494,7 +4437,7 @@ FROM     staff AS s INNER JOIN
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="rating"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[rating]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[release_year]"
@@ -4502,13 +4445,13 @@ FROM     staff AS s INNER JOIN
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="release_year"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[release_year]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[rental_duration]"
                       cachedDataType="ui1"
                       cachedName="rental_duration"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[rental_duration]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[rental_rate]"
@@ -4516,7 +4459,7 @@ FROM     staff AS s INNER JOIN
                       cachedName="rental_rate"
                       cachedPrecision="4"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[rental_rate]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[replacement_cost]"
@@ -4524,7 +4467,7 @@ FROM     staff AS s INNER JOIN
                       cachedName="replacement_cost"
                       cachedPrecision="5"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[replacement_cost]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[special_features]"
@@ -4532,7 +4475,7 @@ FROM     staff AS s INNER JOIN
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="special_features"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[special_features]" />
                     <inputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].Columns[title]"
@@ -4540,7 +4483,7 @@ FROM     staff AS s INNER JOIN
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="title"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -4560,57 +4503,57 @@ FROM     staff AS s INNER JOIN
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
+                      dataType="i4"
                       name="Param_1">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
+                          name="DBParamInfoFlags">81</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
                       name="Param_2">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
+                          name="DBParamInfoFlags">65</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
+                      dataType="i2"
                       name="Param_3">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
+                          name="DBParamInfoFlags">81</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="i2"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
                       name="Param_4">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
+                          name="DBParamInfoFlags">65</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="4"
                       name="Param_5">
                       <properties>
                         <property
@@ -4621,26 +4564,25 @@ FROM     staff AS s INNER JOIN
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
+                      dataType="ui1"
                       name="Param_6">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
+                          name="DBParamInfoFlags">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      dataType="ui1"
-                      name="Param_7">
+                      dataType="numeric"
+                      name="Param_7"
+                      precision="18">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
+                          name="DBParamInfoFlags">17</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -4657,14 +4599,15 @@ FROM     staff AS s INNER JOIN
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      dataType="numeric"
-                      name="Param_9"
-                      precision="18">
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_9">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
+                          name="DBParamInfoFlags">65</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -4677,26 +4620,13 @@ FROM     staff AS s INNER JOIN
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="Param_11">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
                           name="DBParamInfoFlags">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
                       dataType="i4"
-                      name="Param_12">
+                      name="Param_11">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4801,15 +4731,6 @@ FROM     staff AS s INNER JOIN
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[inventory_id]"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_id]"
-                      name="inventory_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]"
                       codePage="1252"
                       dataType="str"
@@ -4819,17 +4740,6 @@ FROM     staff AS s INNER JOIN
                       length="255"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]"
                       name="title"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[description]"
-                      length="255"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]"
-                      name="description"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[release_year]"
@@ -4914,6 +4824,15 @@ FROM     staff AS s INNER JOIN
                       name="film_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[inventory_id]"
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_id]"
+                      name="inventory_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]"
                       codePage="1252"
                       dataType="str"
@@ -4925,35 +4844,25 @@ FROM     staff AS s INNER JOIN
                       name="name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expr1]"
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_name]"
                       length="25"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expr1]"
-                      name="Expr1"
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_name]"
+                      name="category_name"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[inventory_id]"
-                      dataType="i4"
-                      name="inventory_id" />
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[title]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="title" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[description]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="description" />
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[release_year]"
                       codePage="1252"
@@ -4997,17 +4906,21 @@ FROM     staff AS s INNER JOIN
                       dataType="i4"
                       name="film_id" />
                     <externalMetadataColumn
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[inventory_id]"
+                      dataType="i4"
+                      name="inventory_id" />
+                    <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="name" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_name]"
                       codePage="1252"
                       dataType="str"
                       length="25"
-                      name="Expr1" />
+                      name="category_name" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5016,11 +4929,6 @@ FROM     staff AS s INNER JOIN
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[inventory_id]"
-                      dataType="i4"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[inventory_id]"
-                      name="inventory_id" />
-                    <outputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[title]"
                       codePage="1252"
                       dataType="str"
@@ -5028,26 +4936,12 @@ FROM     staff AS s INNER JOIN
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[title]"
                       name="title" />
                     <outputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[description]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[description]"
-                      name="description" />
-                    <outputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[release_year]"
                       codePage="1252"
                       dataType="str"
                       length="4"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[release_year]"
                       name="release_year" />
-                    <outputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
-                      name="name" />
                     <outputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rental_duration]"
                       dataType="ui1"
@@ -5073,13 +4967,6 @@ FROM     staff AS s INNER JOIN
                       precision="5"
                       scale="2" />
                     <outputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Expr1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="25"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Expr1]"
-                      name="Expr1" />
-                    <outputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rating]"
                       codePage="1252"
                       dataType="str"
@@ -5098,6 +4985,25 @@ FROM     staff AS s INNER JOIN
                       dataType="i4"
                       lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[film_id]"
                       name="film_id" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[inventory_id]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[inventory_id]"
+                      name="inventory_id" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[category_name]"
+                      name="category_name" />
                     <outputColumn
                       refId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -5127,7 +5033,7 @@ FROM     staff AS s INNER JOIN
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [category_name], [description], [film_id], [Inventory_id], [language], [length], [rating], [release_year], [rental_duration], [rental_rate], [replacement_cost], [special_features], [title] FROM [dbo].[DimInventory]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [category_name], [film_id], [Inventory_id], [language], [length], [rating], [release_year], [rental_duration], [rental_rate], [replacement_cost], [special_features], [title] FROM [dbo].[DimInventory]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -5176,28 +5082,13 @@ FROM     staff AS s INNER JOIN
                   name="Slowly Changing Dimension Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[name]"
+                      refId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[category_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="name"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[language]"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[description]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="description"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[description]"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]">
+                      cachedLength="25"
+                      cachedName="category_name"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[category_name]"
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_name]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5232,13 +5123,13 @@ FROM     staff AS s INNER JOIN
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Expr1]"
+                      refId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="25"
-                      cachedName="Expr1"
-                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[category_name]"
-                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expr1]">
+                      cachedLength="20"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[language]"
+                      lineageId="Package\DF - Load From Stage to DimInventory\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5371,12 +5262,6 @@ FROM     staff AS s INNER JOIN
                       dataType="str"
                       length="25"
                       name="category_name" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[description]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="description" />
                     <externalMetadataColumn
                       refId="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[film_id]"
                       dataType="i4"
@@ -7658,7 +7543,7 @@ FROM     stgStaff</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
-      DTS:DTSID="{7E44FADA-D166-4166-AE3D-A1A95E3C557F}"
+      DTS:DTSID="{86B2FD48-C0E8-475F-9D8A-068767D8EFE9}"
       DTS:From="Package\DF - Extract From Source to stgInventory"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
@@ -7956,26 +7841,26 @@ FROM     stgStaff</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="45.292857251195,34.8705881682648"
+              EndConnector="45.292857251195,34.870588168265"
               Start="0,0"
-              End="45.292857251195,27.3705881682648">
+              End="45.292857251195,27.370588168265">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.4352940841324" />
+                    End="0,13.4352940841325" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.4352940841324"
-                    Point2="0,17.4352940841324"
-                    Point3="4,17.4352940841324" />
+                    Point1="0,13.4352940841325"
+                    Point2="0,17.4352940841325"
+                    Point3="4,17.4352940841325" />
                   <mssgle:LineSegment
-                    End="41.292857251195,17.4352940841324" />
+                    End="41.292857251195,17.4352940841325" />
                   <mssgle:CubicBezierSegment
-                    Point1="41.292857251195,17.4352940841324"
-                    Point2="45.292857251195,17.4352940841324"
-                    Point3="45.292857251195,21.4352940841324" />
+                    Point1="41.292857251195,17.4352940841325"
+                    Point2="45.292857251195,17.4352940841325"
+                    Point3="45.292857251195,21.4352940841325" />
                   <mssgle:LineSegment
-                    End="45.292857251195,27.3705881682648" />
+                    End="45.292857251195,27.370588168265" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8035,7 +7920,7 @@ FROM     stgStaff</property>
     design-time-name="Package\DF - Extract From Source to stgActor">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\DF - Extract From Source to stgActor\SRC - Actor From Sakila"
@@ -8063,7 +7948,9 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8094,7 +7981,7 @@ FROM     stgStaff</property>
     design-time-name="Package\DF - Extract From Source to stgCustomer">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="211.2,41.6"
           Id="Package\DF - Extract From Source to stgCustomer\SRC - Customer From Sakila"
@@ -8122,7 +8009,9 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8155,39 +8044,27 @@ FROM     stgStaff</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="211.2,41.6"
-          Id="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila"
-          TopLeft="253.021978861893,52.6515839339604" />
-        <NodeLayout
           Size="236.8,41.6"
           Id="Package\DF - Extract From Source to stgInventory\DST - stgInventory in SakilaStage"
-          TopLeft="267.71428625012,182.176470372452" />
+          TopLeft="335.714285236841,196.176470163836" />
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\DF - Extract From Source to stgInventory\SRC - Inventory From Sakila"
+          TopLeft="343.021977520788,74.6515836061349" />
         <EdgeLayout
           Id="Package\DF - Extract From Source to stgInventory.Paths[OLE DB Source Output]"
-          TopLeft="358.621978861893,94.2515839339604">
+          TopLeft="451.368131378815,116.251583606135">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27.4923073882268,87.924886438492"
+              EndConnector="0,79.9248865577011"
               Start="0,0"
-              End="27.4923073882268,80.424886438492">
+              End="0,72.4248865577011">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.962443219246" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.962443219246"
-                    Point2="0,43.962443219246"
-                    Point3="4,43.962443219246" />
-                  <mssgle:LineSegment
-                    End="23.4923073882268,43.962443219246" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.4923073882268,43.962443219246"
-                    Point2="27.4923073882268,43.962443219246"
-                    Point3="27.4923073882268,47.962443219246" />
-                  <mssgle:LineSegment
-                    End="27.4923073882268,80.424886438492" />
+                    End="0,72.4248865577011" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8224,7 +8101,7 @@ FROM     stgStaff</property>
     design-time-name="Package\DF - Extract From Source to stgRental">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="221.6,41.6"
           Id="Package\DF - Extract From Source to stgRental\DST - stgRental in SakilaStage"
@@ -8252,7 +8129,9 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8283,7 +8162,7 @@ FROM     stgStaff</property>
     design-time-name="Package\DF - Extract From Source to stgStaff">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="233.6,41.6"
           Id="Package\DF - Extract From Source to stgStaff\SRC - Staff From sakila Database"
@@ -8311,7 +8190,9 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8349,6 +8230,14 @@ FROM     stgStaff</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimActor\OLE DB Command"
+          TopLeft="228.3,208.7" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load From Stage to DimActor\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
+        <NodeLayout
           Size="248.8,41.6"
           Id="Package\DF - Load From Stage to DimActor\SRC - Stage Table From SakilaStage"
           TopLeft="186.3,5.50000000000007" />
@@ -8375,13 +8264,11 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load From Stage to DimActor\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimActor.Paths[New Output]"
           TopLeft="263.5,148.7">
@@ -8418,10 +8305,6 @@ FROM     stgStaff</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load From Stage to DimActor\OLE DB Command"
-          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimActor.Paths[Changing Attribute Updates Output]"
           TopLeft="357.9,148.7">
@@ -8539,6 +8422,14 @@ FROM     stgStaff</property>
           Id="Package\DF - Load From Stage to DimCustomer\SRC - Stage Table From SakilaStage"
           TopLeft="186.3,5.50000000000007" />
         <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimCustomer\OLE DB Command"
+          TopLeft="228.3,208.7" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load From Stage to DimCustomer\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
+        <NodeLayout
           Size="311.2,41.6"
           Id="Package\DF - Load From Stage to DimCustomer\DST - Slowing Changing Dimension DimCustomer"
           TopLeft="155.1,107.1" />
@@ -8561,13 +8452,11 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load From Stage to DimCustomer\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimCustomer.Paths[New Output]"
           TopLeft="260.166666666667,148.7">
@@ -8604,10 +8493,6 @@ FROM     stgStaff</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load From Stage to DimCustomer\OLE DB Command"
-          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimCustomer.Paths[Changing Attribute Updates Output]"
           TopLeft="361.233333333333,148.7">
@@ -8737,75 +8622,17 @@ FROM     stgStaff</property>
           Id="Package\DF - Load From Stage to DimInventory\OLE DB Source"
           TopLeft="235.9,5.49999999999995" />
         <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimInventory\OLE DB Command"
+          TopLeft="228.3,208.7" />
+        <NodeLayout
           Size="208,41.6"
           Id="Package\DF - Load From Stage to DimInventory\Slowly Changing Dimension"
           TopLeft="206.7,107.1" />
-        <EdgeLayout
-          Id="Package\DF - Load From Stage to DimInventory.Paths[OLE DB Source Output]"
-          TopLeft="310.7,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load From Stage to DimInventory\Insert Destination"
           TopLeft="5.50000000000004,208.7" />
-        <EdgeLayout
-          Id="Package\DF - Load From Stage to DimInventory.Paths[New Output]"
-          TopLeft="277.366666666667,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-190.666666666667,60"
-              Start="0,0"
-              End="-190.666666666667,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2748091603053" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2748091603053"
-                    Point2="0,24.2748091603053"
-                    Point3="-4,24.2748091603053" />
-                  <mssgle:LineSegment
-                    End="-186.666666666667,24.2748091603053" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-186.666666666667,24.2748091603053"
-                    Point2="-190.666666666667,24.2748091603053"
-                    Point3="-190.666666666667,28.2748091603053" />
-                  <mssgle:LineSegment
-                    End="-190.666666666667,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-122.424720052083,29.2748091603053,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load From Stage to DimInventory\OLE DB Command"
-          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimInventory.Paths[Changing Attribute Updates Output]"
           TopLeft="344.033333333333,148.7">
@@ -8842,6 +8669,64 @@ FROM     stgStaff</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimInventory.Paths[OLE DB Source Output]"
+          TopLeft="310.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimInventory.Paths[New Output]"
+          TopLeft="277.366666666667,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190.666666666667,60"
+              Start="0,0"
+              End="-190.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2748091603053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2748091603053"
+                    Point2="0,24.2748091603053"
+                    Point3="-4,24.2748091603053" />
+                  <mssgle:LineSegment
+                    End="-186.666666666667,24.2748091603053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186.666666666667,24.2748091603053"
+                    Point2="-190.666666666667,24.2748091603053"
+                    Point3="-190.666666666667,28.2748091603053" />
+                  <mssgle:LineSegment
+                    End="-190.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.424720052084,29.2748091603053,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -8870,14 +8755,8 @@ FROM     stgStaff</property>
   &lt;TableName&gt;[dbo].[DimInventory]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Expr1]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[category_name]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;category_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[description]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;description&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
@@ -8977,6 +8856,14 @@ FROM     stgStaff</property>
           Id="Package\DF - Load From Stage to DimRental\SRC - Stage Table From SakilaStage"
           TopLeft="186.3,5.50000000000007" />
         <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load From Stage to DimRental\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimRental\OLE DB Command"
+          TopLeft="228.3,208.7" />
+        <NodeLayout
           Size="296,41.6"
           Id="Package\DF - Load From Stage to DimRental\DST - Slowing Changing Dimension DimRental"
           TopLeft="162.7,107.1" />
@@ -8986,26 +8873,24 @@ FROM     stgStaff</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load From Stage to DimRental\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[New Output]"
           TopLeft="262.7,148.7">
@@ -9042,10 +8927,6 @@ FROM     stgStaff</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load From Stage to DimRental\OLE DB Command"
-          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[Changing Attribute Updates Output]"
           TopLeft="358.7,148.7">
@@ -9183,39 +9064,21 @@ FROM     stgStaff</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load From Stage to DimStaff\OLE DB Command"
+          TopLeft="228.3,208.7" />
+        <NodeLayout
           Size="281.6,41.6"
           Id="Package\DF - Load From Stage to DimStaff\DST - Slowly Changing Dimension DimStaff"
           TopLeft="169.9,107.1" />
         <NodeLayout
-          Size="228.8,41.6"
-          Id="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage"
-          TopLeft="196.3,5.50000000000007" />
-        <EdgeLayout
-          Id="Package\DF - Load From Stage to DimStaff.Paths[OLE DB Source Output]"
-          TopLeft="310.7,47.1000000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load From Stage to DimStaff\Insert Destination"
           TopLeft="5.50000000000004,208.7" />
+        <NodeLayout
+          Size="228.8,41.6"
+          Id="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage"
+          TopLeft="196.3,5.50000000000007" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimStaff.Paths[New Output]"
           TopLeft="265.1,148.7">
@@ -9252,10 +9115,6 @@ FROM     stgStaff</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load From Stage to DimStaff\OLE DB Command"
-          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimStaff.Paths[Changing Attribute Updates Output]"
           TopLeft="356.3,148.7">
@@ -9289,6 +9148,30 @@ FROM     stgStaff</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-101.33390625,29.2033898305085,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF - Load From Stage to DimStaff.Paths[OLE DB Source Output]"
+          TopLeft="310.7,47.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

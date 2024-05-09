@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Intergrate_Date_Address"
   DTS:PackageType="5"
-  DTS:VersionBuild="91"
-  DTS:VersionGUID="{C39FD288-CC36-4B69-8523-A0EAD8CE18D8}">
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{AA70577C-369C-4487-B852-43944C3E185A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -50,18 +50,6 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=SakilaStage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Intergrate_address_Dimension-{EC73BC91-082A-4393-A756-5005BBC0AF18}LocalHost.SakilaStage;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.SakilaStage 1]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{C9CF89F5-BE8D-4BD2-B591-A7E975F47D5A}"
-      DTS:ObjectName="LocalHost.SakilaStage 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=SakilaStage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -678,7 +666,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stgDate]</property>
+                  name="OpenRowset">[stgDate]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -736,26 +724,25 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="month"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[month]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[month]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[quarter]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="quarter"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[quarter]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[year]"
-                      cachedDataType="i2"
+                      cachedDataType="i4"
                       cachedName="year"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[year]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[year]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[yearmo]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
+                      cachedDataType="i4"
                       cachedName="yearmo"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[yearmo]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[yearmo]" />
@@ -773,13 +760,13 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[full_date]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[day_of_week]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="day_of_week"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[day_of_week]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[day_num_in_month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="day_num_in_month"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[day_num_in_month]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[day_num_in_month]" />
@@ -812,13 +799,13 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[weekday_flag]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[week_num_in_year]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="week_num_in_year"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[week_num_in_year]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[week_num_in_year]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[week_num_overall]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="week_num_overall"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[week_num_overall]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[week_num_overall]" />
@@ -836,7 +823,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[week_begin_date_key]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[month_num_overall]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="month_num_overall"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[month_num_overall]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[month_num_overall]" />
@@ -856,19 +843,19 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[month_abbrev]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[fiscal_month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="fiscal_month"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[fiscal_month]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[fiscal_month]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[fiscal_quarter]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="fiscal_quarter"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[fiscal_quarter]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[fiscal_quarter]" />
                     <inputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].Columns[fiscal_year]"
-                      cachedDataType="i2"
+                      cachedDataType="i4"
                       cachedName="fiscal_year"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[fiscal_year]"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[fiscal_year]" />
@@ -899,11 +886,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="full_date" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="day_of_week" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[day_num_in_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="day_num_in_month" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[day_num_overall]"
@@ -926,11 +913,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="weekday_flag" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[week_num_in_year]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="week_num_in_year" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[week_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="week_num_overall" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[week_begin_date]"
@@ -942,11 +929,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="week_begin_date_key" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="month" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[month_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="month_num_overall" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
@@ -960,7 +947,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="month_abbrev" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="quarter" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[year]"
@@ -972,15 +959,15 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="yearmo" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[fiscal_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="fiscal_month" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[fiscal_quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="fiscal_quarter" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[fiscal_year]"
-                      dataType="i2"
+                      dataType="i4"
                       name="fiscal_year" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage.Inputs[OLE DB Destination Input].ExternalColumns[last_day_in_month_flag]"
@@ -1083,7 +1070,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[month]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[month]"
@@ -1092,7 +1079,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[quarter]"
@@ -1101,7 +1088,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[year]"
-                      dataType="i2"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[year]"
@@ -1110,11 +1097,10 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[yearmo]"
-                      dataType="wstr"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[yearmo]"
-                      length="10"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[yearmo]"
                       name="yearmo"
                       truncationRowDisposition="FailComponent" />
@@ -1138,7 +1124,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[day_of_week]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[day_of_week]"
@@ -1147,7 +1133,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[day_num_in_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[day_num_in_month]"
@@ -1195,7 +1181,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[week_num_in_year]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[week_num_in_year]"
@@ -1204,7 +1190,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[week_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[week_num_overall]"
@@ -1231,7 +1217,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[month_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[month_num_overall]"
@@ -1260,7 +1246,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[fiscal_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[fiscal_month]"
@@ -1269,7 +1255,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[fiscal_quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[fiscal_quarter]"
@@ -1278,7 +1264,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].Columns[fiscal_year]"
-                      dataType="i2"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[fiscal_year]"
@@ -1310,11 +1296,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="month" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="quarter" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[year]"
@@ -1334,11 +1320,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="full_date" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[day_of_week]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="day_of_week" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[day_num_in_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="day_num_in_month" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[day_num_overall]"
@@ -1361,11 +1347,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="weekday_flag" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[week_num_in_year]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="week_num_in_year" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[week_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="week_num_overall" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[week_begin_date]"
@@ -1377,7 +1363,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="week_begin_date_key" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[month_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="month_num_overall" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[month_name]"
@@ -1391,15 +1377,15 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="month_abbrev" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[fiscal_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="fiscal_month" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[fiscal_quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="fiscal_quarter" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[fiscal_year]"
-                      dataType="i2"
+                      dataType="i4"
                       name="fiscal_year" />
                     <externalMetadataColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Output].ExternalColumns[last_day_in_month_flag]"
@@ -1430,12 +1416,12 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="full_date" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[day_of_week]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[day_of_week]"
                       name="day_of_week" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[day_num_in_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[day_num_in_month]"
                       name="day_num_in_month" />
                     <outputColumn
@@ -1463,12 +1449,12 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="weekday_flag" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[week_num_in_year]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[week_num_in_year]"
                       name="week_num_in_year" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[week_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[week_num_overall]"
                       name="week_num_overall" />
                     <outputColumn
@@ -1483,12 +1469,12 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="week_begin_date_key" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[month]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[month]"
                       name="month" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[month_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[month_num_overall]"
                       name="month_num_overall" />
                     <outputColumn
@@ -1505,7 +1491,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="month_abbrev" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[quarter]"
                       name="quarter" />
                     <outputColumn
@@ -1520,17 +1506,17 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="yearmo" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[fiscal_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[fiscal_month]"
                       name="fiscal_month" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[fiscal_quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[fiscal_quarter]"
                       name="fiscal_quarter" />
                     <outputColumn
                       refId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[fiscal_year]"
-                      dataType="i2"
+                      dataType="i4"
                       lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database.Outputs[OLE DB Source Error Output].Columns[fiscal_year]"
                       name="fiscal_year" />
                     <outputColumn
@@ -2786,7 +2772,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                         <property
                           dataType="System.Int32"
                           name="ColumnType"
-                          typeConverter="ColumnType">2</property>
+                          typeConverter="ColumnType">1</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2799,7 +2785,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                         <property
                           dataType="System.Int32"
                           name="ColumnType"
-                          typeConverter="ColumnType">1</property>
+                          typeConverter="ColumnType">2</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2818,7 +2804,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     </inputColumn>
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].Columns[day_num_in_month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="day_num_in_month"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfMonth]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_num_in_month]">
@@ -2831,7 +2817,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     </inputColumn>
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].Columns[day_of_week]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="day_of_week"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfWeek]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_of_week]">
@@ -2885,7 +2871,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     </inputColumn>
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].Columns[month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="month"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthOfYear]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month]">
@@ -2898,7 +2884,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     </inputColumn>
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].Columns[quarter]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="quarter"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[Quarter]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[quarter]">
@@ -2910,11 +2896,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].Columns[week_num_overall]"
-                      cachedDataType="ui1"
-                      cachedName="week_num_overall"
+                      refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].Columns[week_num_in_year]"
+                      cachedDataType="i4"
+                      cachedName="week_num_in_year"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[WeekOfYear]"
-                      lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[week_num_overall]">
+                      lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[week_num_in_year]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2928,19 +2914,6 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       cachedName="year"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[Year]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[year]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].Columns[week_num_in_year]"
-                      cachedDataType="ui1"
-                      cachedName="week_num_in_year"
-                      externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[WeekOfYear]"
-                      lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[week_num_in_year]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2966,11 +2939,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="DayName" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfMonth]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="DayOfMonth" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfWeek]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="DayOfWeek" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfYear]"
@@ -2988,15 +2961,15 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="MonthName" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthOfYear]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="MonthOfYear" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[Quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Quarter" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[WeekOfYear]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="WeekOfYear" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate.Inputs[Slowly Changing Dimension Input].ExternalColumns[Year]"
@@ -3142,7 +3115,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[full_date]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].Columns[day_of_week]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="day_of_week"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeek]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_of_week]" />
@@ -3155,7 +3128,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_name]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].Columns[day_num_in_month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="day_num_in_month"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfMonth]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_num_in_month]" />
@@ -3167,7 +3140,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_num_overall]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].Columns[week_num_in_year]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="week_num_in_year"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[WeekOfYear]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[week_num_in_year]" />
@@ -3180,13 +3153,13 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month_name]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].Columns[month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="month"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthOfYear]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].Columns[quarter]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="quarter"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[quarter]" />
@@ -3216,7 +3189,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="Date" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeek]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="DayOfWeek" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayName]"
@@ -3225,7 +3198,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="DayName" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfMonth]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="DayOfMonth" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfYear]"
@@ -3233,7 +3206,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="DayOfYear" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[WeekOfYear]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="WeekOfYear" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
@@ -3242,11 +3215,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="MonthName" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthOfYear]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="MonthOfYear" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Quarter" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
@@ -3303,7 +3276,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimDate] SET [Date] = ?,[DayName] = ?,[DayOfMonth] = ?,[DayOfWeek] = ?,[DayOfYear] = ?,[IsAWeekday] = ?,[MonthName] = ?,[MonthOfYear] = ?,[Quarter] = ?,[WeekOfYear] = ?,[Year] = ? WHERE [date_key] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimDate] SET [date_key] = ?,[DayName] = ?,[DayOfMonth] = ?,[DayOfWeek] = ?,[DayOfYear] = ?,[IsAWeekday] = ?,[MonthName] = ?,[MonthOfYear] = ?,[Quarter] = ?,[WeekOfYear] = ?,[Year] = ? WHERE [Date] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3329,13 +3302,13 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].Columns[full_date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="full_date"
-                      externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[full_date]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].Columns[date_key]"
                       cachedDataType="i4"
                       cachedName="date_key"
-                      externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[date_key]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].Columns[day_name]"
@@ -3346,13 +3319,13 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_name]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].Columns[day_num_in_month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="day_num_in_month"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_num_in_month]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].Columns[day_of_week]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="day_of_week"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_of_week]" />
@@ -3378,19 +3351,19 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month_name]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].Columns[month]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="month"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].Columns[quarter]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="quarter"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[quarter]" />
                     <inputColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].Columns[week_num_in_year]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="week_num_in_year"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[week_num_in_year]" />
@@ -3405,13 +3378,13 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="dbTimeStamp"
+                      dataType="i4"
                       name="Param_0">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
+                          name="DBParamInfoFlags">17</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -3428,24 +3401,24 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Param_2">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
+                          name="DBParamInfoFlags">17</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Param_3">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
+                          name="DBParamInfoFlags">81</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -3485,35 +3458,35 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Param_7">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
+                          name="DBParamInfoFlags">17</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Param_8">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
+                          name="DBParamInfoFlags">17</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Param_9">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
+                          name="DBParamInfoFlags">17</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -3529,13 +3502,13 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      dataType="i4"
+                      dataType="dbTimeStamp"
                       name="Param_11">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
+                          name="DBParamInfoFlags">1</property>
                       </properties>
                     </externalMetadataColumn>
                   </externalMetadataColumns>
@@ -3654,7 +3627,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_of_week]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[day_of_week]"
@@ -3663,7 +3636,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_num_in_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[day_num_in_month]"
@@ -3711,7 +3684,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[week_num_in_year]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[week_num_in_year]"
@@ -3720,7 +3693,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[week_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[week_num_overall]"
@@ -3747,7 +3720,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[month]"
@@ -3756,7 +3729,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[month_num_overall]"
@@ -3785,7 +3758,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[quarter]"
@@ -3812,7 +3785,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[fiscal_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[fiscal_month]"
@@ -3821,7 +3794,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[fiscal_quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[fiscal_quarter]"
@@ -3830,7 +3803,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[fiscal_year]"
-                      dataType="i2"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[fiscal_year]"
@@ -3870,11 +3843,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="full_date" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[day_of_week]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="day_of_week" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[day_num_in_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="day_num_in_month" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[day_num_overall]"
@@ -3897,11 +3870,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="weekday_flag" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[week_num_in_year]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="week_num_in_year" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[week_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="week_num_overall" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[week_begin_date]"
@@ -3913,11 +3886,11 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="week_begin_date_key" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="month" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[month_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="month_num_overall" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[month_name]"
@@ -3931,7 +3904,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="month_abbrev" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="quarter" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[year]"
@@ -3943,15 +3916,15 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="yearmo" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[fiscal_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="fiscal_month" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[fiscal_quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="fiscal_quarter" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[fiscal_year]"
-                      dataType="i2"
+                      dataType="i4"
                       name="fiscal_year" />
                     <externalMetadataColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].ExternalColumns[last_day_in_month_flag]"
@@ -3982,12 +3955,12 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="full_date" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[day_of_week]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[day_of_week]"
                       name="day_of_week" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[day_num_in_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[day_num_in_month]"
                       name="day_num_in_month" />
                     <outputColumn
@@ -4015,12 +3988,12 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="weekday_flag" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[week_num_in_year]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[week_num_in_year]"
                       name="week_num_in_year" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[week_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[week_num_overall]"
                       name="week_num_overall" />
                     <outputColumn
@@ -4035,12 +4008,12 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="week_begin_date_key" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[month]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[month]"
                       name="month" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[month_num_overall]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[month_num_overall]"
                       name="month_num_overall" />
                     <outputColumn
@@ -4057,7 +4030,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="month_abbrev" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[quarter]"
                       name="quarter" />
                     <outputColumn
@@ -4072,17 +4045,17 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
                       name="yearmo" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[fiscal_month]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[fiscal_month]"
                       name="fiscal_month" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[fiscal_quarter]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[fiscal_quarter]"
                       name="fiscal_quarter" />
                     <outputColumn
                       refId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[fiscal_year]"
-                      dataType="i2"
+                      dataType="i4"
                       lineageId="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage.Outputs[OLE DB Source Error Output].Columns[fiscal_year]"
                       name="fiscal_year" />
                     <outputColumn
@@ -4338,7 +4311,7 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
     design-time-name="Package\DF - Extract From Source to Stage stgAddress">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203.2,41.6"
           Id="Package\DF - Extract From Source to Stage stgAddress\SRC - Address From Sakila"
@@ -4366,7 +4339,9 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4417,14 +4392,14 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.9060339168244"
+              EndConnector="0,50.9060339168246"
               Start="0,0"
-              End="0,43.4060339168244">
+              End="0,43.4060339168246">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.4060339168244" />
+                    End="0,43.4060339168246" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4436,6 +4411,19 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DF - Extract From Source to Stage stgDate\SRC - Date From Temp Database">
     <Properties>
@@ -4455,21 +4443,57 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load from stgDate to DimAddress\OLE DB Command"
-          TopLeft="473.754541796988,257.790908359398" />
-        <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load from stgDate to DimAddress\Insert Destination"
           TopLeft="250.954541796988,257.790908359398" />
+        <NodeLayout
+          Size="248.8,41.6"
+          Id="Package\DF - Load from stgDate to DimAddress\SRC - Stage Table From SakilaStage"
+          TopLeft="431.754541796988,54.5909083593976" />
         <NodeLayout
           Size="304,41.6"
           Id="Package\DF - Load from stgDate to DimAddress\DST - Slowing Changing Dimension DimAddress"
           TopLeft="404.154541796988,156.190908359398" />
         <NodeLayout
-          Size="248.8,41.6"
-          Id="Package\DF - Load from stgDate to DimAddress\SRC - Stage Table From SakilaStage"
-          TopLeft="431.754541796988,54.5909083593976" />
+          Size="164.8,41.6"
+          Id="Package\DF - Load from stgDate to DimAddress\OLE DB Command"
+          TopLeft="473.754541796988,257.790908359398" />
+        <EdgeLayout
+          Id="Package\DF - Load from stgDate to DimAddress.Paths[Changing Attribute Updates Output]"
+          TopLeft="605.487875130321,197.790908359398">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.3333333333334,60"
+              Start="0,0"
+              End="-49.3333333333334,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1884816753927" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1884816753927"
+                    Point2="0,24.1884816753927"
+                    Point3="-4,24.1884816753927" />
+                  <mssgle:LineSegment
+                    End="-45.3333333333334,24.1884816753927" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.3333333333334,24.1884816753927"
+                    Point2="-49.3333333333334,24.1884816753927"
+                    Point3="-49.3333333333334,28.1884816753927" />
+                  <mssgle:LineSegment
+                    End="-49.3333333333334,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-103.200572916667,29.1884816753927,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load from stgDate to DimAddress.Paths[OLE DB Source Output]"
           TopLeft="556.154541796988,96.1909083593976">
@@ -4489,7 +4513,9 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4528,47 +4554,24 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF - Load from stgDate to DimAddress.Paths[Changing Attribute Updates Output]"
-          TopLeft="605.487875130321,197.790908359398">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-49.3333333333334,60"
-              Start="0,0"
-              End="-49.3333333333334,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1884816753927" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.1884816753927"
-                    Point2="0,24.1884816753927"
-                    Point3="-4,24.1884816753927" />
-                  <mssgle:LineSegment
-                    End="-45.3333333333334,24.1884816753927" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-45.3333333333334,24.1884816753927"
-                    Point2="-49.3333333333334,24.1884816753927"
-                    Point3="-49.3333333333334,28.1884816753927" />
-                  <mssgle:LineSegment
-                    End="-49.3333333333334,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-103.200572916667,29.1884816753927,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\DF - Load from stgDate to DimAddress\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from stgDate to DimAddress\SRC - Stage Table From SakilaStage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4665,46 +4668,33 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Load from stgDate to DimAddress\SRC - Stage Table From SakilaStage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DF - Load from stgDate to DimDate">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="300,41.6"
-          Id="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate"
-          TopLeft="423.699996080995,165.099999135733" />
-        <NodeLayout
           Size="228.8,41.6"
           Id="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage"
-          TopLeft="460.899996647238,69.4999990463256" />
+          TopLeft="196.3,5.50000000000007" />
+        <NodeLayout
+          Size="300,41.6"
+          Id="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate"
+          TopLeft="160.7,107.1" />
         <EdgeLayout
           Id="Package\DF - Load from stgDate to DimDate.Paths[OLE DB Source Output]"
-          TopLeft="574.499996364117,111.099999046326">
+          TopLeft="310.7,47.1000000000001">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54.000000089407"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,46.500000089407">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.500000089407" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4716,10 +4706,10 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load from stgDate to DimDate\Insert Destination"
-          TopLeft="268.499996080995,266.699999135733" />
+          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\DF - Load from stgDate to DimDate.Paths[New Output]"
-          TopLeft="525.033329414328,206.699999135733">
+          TopLeft="262.033333333333,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4756,10 +4746,10 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\DF - Load from stgDate to DimDate\OLE DB Command"
-          TopLeft="491.299996080995,266.699999135733" />
+          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\DF - Load from stgDate to DimDate.Paths[Changing Attribute Updates Output]"
-          TopLeft="622.366662747661,206.699999135733">
+          TopLeft="359.366666666667,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4797,6 +4787,19 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DF - Load from stgDate to DimDate\DST - Slowly Changing From Stage to DimDate">
     <Properties>
       <Property>
@@ -4808,73 +4811,73 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
   &lt;TableName&gt;[dbo].[DimDate]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[full_date]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[full_date]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Date&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;date_key&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[day_name]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[date_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;date_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_name]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;DayName&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[day_num_in_month]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_num_in_month]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;DayOfMonth&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_of_week]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;DayOfWeek&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[day_num_overall]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[day_num_overall]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;DayOfYear&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[weekday_flag]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[weekday_flag]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;IsAWeekday&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month_name]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;MonthName&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[month]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[month]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;MonthOfYear&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[quarter]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[quarter]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Quarter&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[week_num_in_year]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[week_num_in_year]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;WeekOfYear&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[year]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SRC - stgDate From SakilaStage.Outputs[OLE DB Source Output].Columns[year]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Year&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
@@ -4896,32 +4899,6 @@ INNER JOIN country AS cn ON cn.country_id = c.country_id;</property>
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Extract From Source to Stage stgDate\DST - Load Date to stgDate in SakilaStage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Load from stgDate to DimDate\SRC - stgDate From SakilaStage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
