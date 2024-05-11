@@ -1,4 +1,4 @@
-/****** Object:  Database SakilaDWH    Script Date: 5/9/2024 10:13:21 PM ******/
+/****** Object:  Database SakilaDWH    Script Date: 5/11/2024 3:17:51 PM ******/
 /*
 Kimball Group, The Microsoft Data Warehouse Toolkit
 Generate a database from the datamodel worksheet, version: 4
@@ -912,14 +912,11 @@ CREATE TABLE dbo.FactBPerformance (
 ,  [store_id]  int   NOT NULL
 ,  [store_address_key]  int   NOT NULL
 ,  [city]  varchar(50)   NOT NULL
-,  [district]  varchar(20)   NOT NULL
 ,  [country]  varchar(50)   NOT NULL
 ,  [full_name]  varchar(90)   NOT NULL
 ,  [amount]  decimal   NOT NULL
 ,  [quantity]  int  DEFAULT -1 NULL
-,  [revenue]  decimal  DEFAULT -1 NULL
 ,  [rental_date_key]  int   NOT NULL
-,  [payment_date_key]  int   NOT NULL
 ) ON [PRIMARY]
 ;
 
@@ -941,14 +938,11 @@ SELECT [staff_key] AS [staff_key]
 , [store_id] AS [store_id]
 , [store_address_key] AS [store_address_key]
 , [city] AS [city]
-, [district] AS [district]
 , [country] AS [country]
 , [full_name] AS [full_name]
 , [amount] AS [amount]
 , [quantity] AS [quantity]
-, [revenue] AS [revenue]
 , [rental_date_key] AS [rental_date_key]
-, [payment_date_key] AS [payment_date_key]
 FROM dbo.FactBPerformance
 GO
 
@@ -958,14 +952,11 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'rental_key', @le
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'store_id', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'store_id'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'store_address_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'store_address_key'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'city', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'city'; 
-exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'district', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'district'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'country', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'country'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'full_name', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'full_name'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'amount', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'amount'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'quantity', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'quantity'; 
-exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'revenue', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'revenue'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'rental_date_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'rental_date_key'; 
-exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'payment_date_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'payment_date_key'; 
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Staff dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'staff_key'; 
 ;
 
@@ -986,6 +977,7 @@ CREATE TABLE dbo.FactRentalExpense (
 ,  [customer_address_key]  int   NOT NULL
 ,  [city]  varchar(50)   NOT NULL
 ,  [country]  varchar(50)   NOT NULL
+,  [quantity]  int  DEFAULT -1 NULL
 ,  [expense]  decimal  DEFAULT -1 NULL
 ,  [total_expense]  float  DEFAULT -1 NULL
 ,  [rental_date_key]  int   NOT NULL
@@ -1011,6 +1003,7 @@ SELECT [customer_key] AS [customer_key]
 , [customer_address_key] AS [customer_address_key]
 , [city] AS [city]
 , [country] AS [country]
+, [quantity] AS [quantity]
 , [expense] AS [expense]
 , [total_expense] AS [total_expense]
 , [rental_date_key] AS [rental_date_key]
@@ -1024,6 +1017,7 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'full_name', @lev
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'customer_address_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'customer_address_key'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'city', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'city'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'country', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'country'; 
+exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'quantity', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'quantity'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'expense', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'expense'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'total_expense', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'total_expense'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'rental_date_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'rental_date_key'; 
@@ -1236,16 +1230,6 @@ ALTER TABLE dbo.FactBPerformance ADD CONSTRAINT
    FK_dbo_FactBPerformance_rental_date_key FOREIGN KEY
    (
    rental_date_key
-   ) REFERENCES DimDate
-   ( date_key )
-     ON UPDATE  NO ACTION
-     ON DELETE  NO ACTION
-;
- 
-ALTER TABLE dbo.FactBPerformance ADD CONSTRAINT
-   FK_dbo_FactBPerformance_payment_date_key FOREIGN KEY
-   (
-   payment_date_key
    ) REFERENCES DimDate
    ( date_key )
      ON UPDATE  NO ACTION

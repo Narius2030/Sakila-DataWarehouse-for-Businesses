@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Sakila Analysis Multidimensional", "Sakila Analysis Multidimensional.dwproj", "{DFA5B7C6-7804-4EE8-A21F-5D358DDE088B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFA5B7C6-7804-4EE8-A21F-5D358DDE088B}.Development|Default.ActiveCfg = Development
+		{DFA5B7C6-7804-4EE8-A21F-5D358DDE088B}.Development|Default.Build.0 = Development
+		{DFA5B7C6-7804-4EE8-A21F-5D358DDE088B}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7B19EEE-8DE4-4FED-B492-DBF58D25B6CF}
+	EndGlobalSection
+EndGlobal

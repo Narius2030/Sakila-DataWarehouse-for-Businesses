@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_Facts"
   DTS:PackageType="5"
-  DTS:VersionBuild="134"
-  DTS:VersionGUID="{B8DA4745-7E35-43E1-AFEF-9F1F6008A9C1}">
+  DTS:VersionBuild="144"
+  DTS:VersionGUID="{D3360A38-F797-4BFE-AB1C-CF8E831EA75A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -701,7 +701,7 @@ ORDER BY c.customer_key</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stgBPerformance]</property>
+                  name="OpenRowset">[stgFactBPerformance]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -790,14 +790,6 @@ ORDER BY c.customer_key</property>
                       externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                       lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[city]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[district]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="district"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[district]"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[district]" />
-                    <inputColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[country]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -827,24 +819,11 @@ ORDER BY c.customer_key</property>
                       externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
                       lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[quantity]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[revenue]"
-                      cachedDataType="numeric"
-                      cachedName="revenue"
-                      cachedPrecision="38"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[revenue]" />
-                    <inputColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[rental_date_key]"
                       cachedDataType="i4"
                       cachedName="rental_date_key"
                       externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
                       lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_date_key]" />
-                    <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].Columns[payment_date_key]"
-                      cachedDataType="i4"
-                      cachedName="payment_date_key"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[payment_date_key]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -871,12 +850,6 @@ ORDER BY c.customer_key</property>
                       length="50"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="district" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[country]"
                       codePage="1252"
                       dataType="str"
@@ -898,18 +871,9 @@ ORDER BY c.customer_key</property>
                       dataType="i4"
                       name="quantity" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
-                      dataType="numeric"
-                      name="revenue"
-                      precision="38" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
                       dataType="i4"
                       name="rental_date_key" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
-                      dataType="i4"
-                      name="payment_date_key" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -963,14 +927,10 @@ ORDER BY c.customer_key</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s.staff_key, r.rental_key, s.store_id, s.address_store_id, a.city, a.district, a.country, s.full_name, r.amount,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s.staff_key, r.rental_key, s.store_id, s.address_store_id, a.city, a.country, s.full_name, r.amount,
                       (SELECT COUNT(rental_id) AS Expr1
                        FROM      DimRental
-                       WHERE   (staff_id = s.staff_id)) AS quantity,
-                      (SELECT SUM(amount) AS Expr1
-                       FROM      DimRental AS DimRental_1
-                       WHERE   (staff_id = s.staff_id)) AS revenue, (DAY(r.rental_date) + MONTH(r.rental_date) * 100) + YEAR(r.rental_date) * 10000 AS rental_date_key, (DAY(r.payment_date) + MONTH(r.payment_date) * 100) + YEAR(r.payment_date) 
-                  * 10000 AS payment_date_key
+                       WHERE   (staff_id = s.staff_id) AND (rental_key = r.rental_key)) AS quantity, (DAY(r.rental_date) + MONTH(r.rental_date) * 100) + YEAR(r.rental_date) * 10000 AS rental_date_key
 FROM     DimRental AS r INNER JOIN
                   DimStaff AS s ON s.staff_id = r.staff_id INNER JOIN
                   DimAddress AS a ON a.address_id = s.address_store_id</property>
@@ -1057,17 +1017,6 @@ FROM     DimRental AS r INNER JOIN
                       name="city"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[district]"
-                      length="20"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[district]"
-                      name="district"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[country]"
                       codePage="1252"
                       dataType="str"
@@ -1109,16 +1058,6 @@ FROM     DimRental AS r INNER JOIN
                       name="quantity"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[revenue]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[revenue]"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[revenue]"
-                      name="revenue"
-                      precision="38"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_date_key]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
@@ -1126,15 +1065,6 @@ FROM     DimRental AS r INNER JOIN
                       externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[rental_date_key]"
                       lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_date_key]"
                       name="rental_date_key"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[payment_date_key]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[payment_date_key]"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[payment_date_key]"
-                      name="payment_date_key"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1162,12 +1092,6 @@ FROM     DimRental AS r INNER JOIN
                       length="50"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="district" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[country]"
                       codePage="1252"
                       dataType="str"
@@ -1189,18 +1113,9 @@ FROM     DimRental AS r INNER JOIN
                       dataType="i4"
                       name="quantity" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[revenue]"
-                      dataType="numeric"
-                      name="revenue"
-                      precision="38" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[rental_date_key]"
                       dataType="i4"
                       name="rental_date_key" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[payment_date_key]"
-                      dataType="i4"
-                      name="payment_date_key" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1236,13 +1151,6 @@ FROM     DimRental AS r INNER JOIN
                       lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[city]"
                       name="city" />
                     <outputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[district]"
-                      name="district" />
-                    <outputColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[country]"
                       codePage="1252"
                       dataType="str"
@@ -1268,21 +1176,10 @@ FROM     DimRental AS r INNER JOIN
                       lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[quantity]"
                       name="quantity" />
                     <outputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[revenue]"
-                      dataType="numeric"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[revenue]"
-                      name="revenue"
-                      precision="38" />
-                    <outputColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
                       dataType="i4"
                       lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
                       name="rental_date_key" />
-                    <outputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[payment_date_key]"
-                      dataType="i4"
-                      lineageId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[payment_date_key]"
-                      name="payment_date_key" />
                     <outputColumn
                       refId="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -2212,7 +2109,7 @@ FROM     (SELECT a.actor_key, a.actor_id, a.first_name AS actor_first_name, a.la
                       lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[Year]" />
                     <inputColumn
                       refId="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental.Inputs[OLE DB Destination Input].Columns[MonthOfYear]"
-                      cachedDataType="ui1"
+                      cachedDataType="i4"
                       cachedName="MonthOfYear"
                       externalMetadataColumnId="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental.Inputs[OLE DB Destination Input].ExternalColumns[MonthOfYear]"
                       lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[MonthOfYear]" />
@@ -2248,6 +2145,12 @@ FROM     (SELECT a.actor_key, a.actor_id, a.first_name AS actor_first_name, a.la
                       cachedName="rental_key"
                       externalMetadataColumnId="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
                       lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_key]" />
+                    <inputColumn
+                      refId="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[quantity]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2280,6 +2183,10 @@ FROM     (SELECT a.actor_key, a.actor_id, a.first_name AS actor_first_name, a.la
                       refId="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
                       dataType="i4"
                       name="rental_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2333,7 +2240,7 @@ FROM     (SELECT a.actor_key, a.actor_id, a.first_name AS actor_first_name, a.la
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT c.customer_key, d.[Year], d.MonthOfYear, r.rental_key, SUM(r.amount) AS expense,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT c.customer_key, d.[Year], d.MonthOfYear, r.rental_key, COUNT(r.rental_key) AS quantity, SUM(r.amount) AS expense,
                       (SELECT SUM(r1.amount) AS Expr1
                        FROM      DimRental AS r1 INNER JOIN
                                          DimDate AS d1 ON d1.[Date] = CONVERT(date, r1.rental_date)
@@ -2389,7 +2296,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[MonthOfYear]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[MonthOfYear]"
@@ -2443,6 +2350,15 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_key]"
                       name="rental_key"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2452,7 +2368,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       name="Year" />
                     <externalMetadataColumn
                       refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[MonthOfYear]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="MonthOfYear" />
                     <externalMetadataColumn
                       refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[expense]"
@@ -2476,6 +2392,10 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[rental_key]"
                       dataType="i4"
                       name="rental_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2495,7 +2415,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       name="Year" />
                     <outputColumn
                       refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[MonthOfYear]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[MonthOfYear]"
                       name="MonthOfYear" />
                     <outputColumn
@@ -2503,6 +2423,11 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       dataType="i4"
                       lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[rental_key]"
                       name="rental_key" />
+                    <outputColumn
+                      refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      name="quantity" />
                     <outputColumn
                       refId="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions.Outputs[OLE DB Source Error Output].Columns[expense]"
                       dataType="numeric"
@@ -3879,7 +3804,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [amount], [city], [country], [district], [full_name], [payment_date_key], [quantity], [rental_date_key], [rental_key], [revenue], [staff_key], [store_address_key], [store_id] FROM [dbo].[FactBPerformance]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [amount], [city], [country], [full_name], [quantity], [rental_date_key], [rental_key], [staff_key], [store_address_key], [store_id] FROM [dbo].[FactBPerformance]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -3972,21 +3897,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[district]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="district"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[district]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[full_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -3994,19 +3904,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       cachedName="full_name"
                       externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[full_name]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[payment_date_key]"
-                      cachedDataType="i4"
-                      cachedName="payment_date_key"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[payment_date_key]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4054,20 +3951,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[revenue]"
-                      cachedDataType="numeric"
-                      cachedName="revenue"
-                      cachedPrecision="38"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[revenue]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].Columns[staff_key]"
                       cachedDataType="i4"
                       cachedName="staff_key"
@@ -4077,7 +3960,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                         <property
                           dataType="System.Int32"
                           name="ColumnType"
-                          typeConverter="ColumnType">2</property>
+                          typeConverter="ColumnType">1</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -4127,21 +4010,11 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       length="50"
                       name="country" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="district" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[full_name]"
                       codePage="1252"
                       dataType="str"
                       length="90"
                       name="full_name" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[payment_date_key]"
-                      dataType="i4"
-                      name="payment_date_key" />
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[quantity]"
                       dataType="i4"
@@ -4154,11 +4027,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[rental_key]"
                       dataType="i4"
                       name="rental_key" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[revenue]"
-                      dataType="numeric"
-                      name="revenue"
-                      precision="18" />
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance.Inputs[Slowly Changing Dimension Input].ExternalColumns[staff_key]"
                       dataType="i4"
@@ -4330,14 +4198,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[city]" />
                     <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[district]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="district"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[district]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]" />
-                    <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[country]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -4367,24 +4227,11 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]" />
                     <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[revenue]"
-                      cachedDataType="numeric"
-                      cachedName="revenue"
-                      cachedPrecision="38"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]" />
-                    <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[rental_date_key]"
                       cachedDataType="i4"
                       cachedName="rental_date_key"
                       externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]" />
-                    <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].Columns[payment_date_key]"
-                      cachedDataType="i4"
-                      cachedName="payment_date_key"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4411,12 +4258,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       length="50"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="district" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
                       codePage="1252"
                       dataType="str"
@@ -4438,18 +4279,9 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       dataType="i4"
                       name="quantity" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
-                      dataType="numeric"
-                      name="revenue"
-                      precision="18" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
                       dataType="i4"
                       name="rental_date_key" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
-                      dataType="i4"
-                      name="payment_date_key" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4496,7 +4328,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactBPerformance] SET [amount] = ?,[city] = ?,[country] = ?,[district] = ?,[full_name] = ?,[payment_date_key] = ?,[quantity] = ?,[rental_date_key] = ?,[revenue] = ?,[staff_key] = ?,[store_address_key] = ?,[store_id] = ? WHERE [rental_key] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactBPerformance] SET [amount] = ?,[city] = ?,[country] = ?,[full_name] = ?,[quantity] = ?,[rental_date_key] = ?,[store_address_key] = ?,[store_id] = ? WHERE [rental_key] = ? AND [staff_key] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4542,52 +4374,31 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]" />
                     <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[district]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="district"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]" />
-                    <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[full_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="90"
                       cachedName="full_name"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]" />
-                    <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[payment_date_key]"
-                      cachedDataType="i4"
-                      cachedName="payment_date_key"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]" />
                     <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[quantity]"
                       cachedDataType="i4"
                       cachedName="quantity"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]" />
                     <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[rental_date_key]"
                       cachedDataType="i4"
                       cachedName="rental_date_key"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]" />
                     <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[rental_key]"
                       cachedDataType="i4"
                       cachedName="rental_key"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]" />
-                    <inputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[revenue]"
-                      cachedDataType="numeric"
-                      cachedName="revenue"
-                      cachedPrecision="38"
                       externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]" />
+                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]" />
                     <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[staff_key]"
                       cachedDataType="i4"
@@ -4598,13 +4409,13 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[address_store_id]"
                       cachedDataType="i4"
                       cachedName="address_store_id"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[address_store_id]" />
                     <inputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].Columns[store_id]"
                       cachedDataType="i4"
                       cachedName="store_id"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[store_id]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -4651,7 +4462,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
+                      length="90"
                       name="Param_3">
                       <properties>
                         <property
@@ -4662,15 +4473,13 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      codePage="1252"
-                      dataType="str"
-                      length="90"
+                      dataType="i4"
                       name="Param_4">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
+                          name="DBParamInfoFlags">81</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -4692,7 +4501,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
+                          name="DBParamInfoFlags">17</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -4708,53 +4517,19 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      dataType="numeric"
-                      name="Param_8"
-                      precision="18">
+                      dataType="i4"
+                      name="Param_8">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
+                          name="DBParamInfoFlags">17</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       dataType="i4"
                       name="Param_9">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
-                      dataType="i4"
-                      name="Param_10">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      dataType="i4"
-                      name="Param_11">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
-                      dataType="i4"
-                      name="Param_12">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4813,7 +4588,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stgBPerformance]</property>
+                  name="OpenRowset">[dbo].[stgFactBPerformance]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4906,17 +4681,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       name="city"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[district]"
-                      length="20"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]"
-                      name="district"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]"
                       codePage="1252"
                       dataType="str"
@@ -4958,16 +4722,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       name="quantity"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[revenue]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]"
-                      name="revenue"
-                      precision="38"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
@@ -4975,15 +4729,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[rental_date_key]"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]"
                       name="rental_date_key"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[payment_date_key]"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]"
-                      name="payment_date_key"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -5011,12 +4756,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       length="50"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="district" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[country]"
                       codePage="1252"
                       dataType="str"
@@ -5038,18 +4777,9 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       dataType="i4"
                       name="quantity" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[revenue]"
-                      dataType="numeric"
-                      name="revenue"
-                      precision="38" />
-                    <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[rental_date_key]"
                       dataType="i4"
                       name="rental_date_key" />
-                    <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[payment_date_key]"
-                      dataType="i4"
-                      name="payment_date_key" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5085,13 +4815,6 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[city]"
                       name="city" />
                     <outputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[district]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[district]"
-                      name="district" />
-                    <outputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[country]"
                       codePage="1252"
                       dataType="str"
@@ -5117,21 +4840,10 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[quantity]"
                       name="quantity" />
                     <outputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[revenue]"
-                      dataType="numeric"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[revenue]"
-                      name="revenue"
-                      precision="38" />
-                    <outputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
                       dataType="i4"
                       lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
                       name="rental_date_key" />
-                    <outputColumn
-                      refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[payment_date_key]"
-                      dataType="i4"
-                      lineageId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[payment_date_key]"
-                      name="payment_date_key" />
                     <outputColumn
                       refId="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -6782,7 +6494,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [city], [country], [customer_address_key], [customer_key], [expense], [full_name], [rental_date_key], [rental_key], [total_expense] FROM [dbo].[FactRentalExpense]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [city], [country], [customer_address_key], [customer_key], [expense], [full_name], [quantity], [rental_date_key], [rental_key], [total_expense] FROM [dbo].[FactRentalExpense]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -6916,6 +6628,19 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\DST - Slowly Changing to FactExpenseRental.Inputs[Slowly Changing Dimension Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\DST - Slowly Changing to FactExpenseRental.Inputs[Slowly Changing Dimension Input].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\DST - Slowly Changing to FactExpenseRental.Inputs[Slowly Changing Dimension Input].Columns[rental_date_key]"
                       cachedDataType="i4"
                       cachedName="rental_date_key"
@@ -6988,6 +6713,10 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       dataType="str"
                       length="90"
                       name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\DST - Slowly Changing to FactExpenseRental.Inputs[Slowly Changing Dimension Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\DST - Slowly Changing to FactExpenseRental.Inputs[Slowly Changing Dimension Input].ExternalColumns[rental_date_key]"
                       dataType="i4"
@@ -7169,6 +6898,12 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
                       lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[country]" />
                     <inputColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\Insert Destination.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]" />
+                    <inputColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\Insert Destination.Inputs[OLE DB Destination Input].Columns[expense]"
                       cachedDataType="numeric"
                       cachedName="expense"
@@ -7220,6 +6955,10 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       dataType="str"
                       length="50"
                       name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[expense]"
                       dataType="numeric"
@@ -7279,7 +7018,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactRentalExpense] SET [city] = ?,[country] = ?,[customer_address_key] = ?,[expense] = ?,[full_name] = ?,[rental_date_key] = ?,[total_expense] = ? WHERE [customer_key] = ? AND [rental_key] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactRentalExpense] SET [city] = ?,[country] = ?,[customer_address_key] = ?,[expense] = ?,[full_name] = ?,[quantity] = ?,[rental_date_key] = ?,[total_expense] = ? WHERE [customer_key] = ? AND [rental_key] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -7327,7 +7066,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].Columns[customer_key]"
                       cachedDataType="i4"
                       cachedName="customer_key"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[customer_key]" />
                     <inputColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].Columns[expense]"
@@ -7345,22 +7084,28 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]" />
                     <inputColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]" />
+                    <inputColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].Columns[rental_date_key]"
                       cachedDataType="i4"
                       cachedName="rental_date_key"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]" />
                     <inputColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].Columns[rental_key]"
                       cachedDataType="i4"
                       cachedName="rental_key"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]" />
                     <inputColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].Columns[total_expense]"
                       cachedDataType="r8"
                       cachedName="total_expense"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[total_expense]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -7435,13 +7180,24 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
+                          name="DBParamInfoFlags">81</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      dataType="r8"
+                      dataType="i4"
                       name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="r8"
+                      name="Param_7">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -7450,9 +7206,9 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       dataType="i4"
-                      name="Param_7">
+                      name="Param_8">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -7461,9 +7217,9 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      refId="Package\DF - Load Stage to FactExpenseRental\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       dataType="i4"
-                      name="Param_8">
+                      name="Param_9">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -7531,7 +7287,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT fex.customer_key, fex.rental_key, { fn CONCAT(c.first_name, c.last_name) } AS full_name, a.address_key, a.city, a.country, fex.expense, fex.total_expense, fex.rental_date_key
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT fex.customer_key, fex.rental_key, { fn CONCAT(c.first_name, c.last_name) } AS full_name, a.address_key, a.city, a.country, fex.quantity, fex.expense, fex.total_expense, fex.rental_date_key
 FROM     stgFactExpenseRental AS fex INNER JOIN
                   SakilaDWH.dbo.DimCustomers AS c ON fex.customer_key = c.customer_key INNER JOIN
                   SakilaDWH.dbo.DimAddress AS a ON a.address_id = c.address_id</property>
@@ -7658,6 +7414,15 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
                       lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_key]"
                       name="rental_key"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7704,6 +7469,10 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
                       refId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[rental_key]"
                       dataType="i4"
                       name="rental_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -7748,6 +7517,11 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
                       length="50"
                       lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[country]"
                       name="country" />
+                    <outputColumn
+                      refId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      name="quantity" />
                     <outputColumn
                       refId="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage.Outputs[OLE DB Source Error Output].Columns[rental_date_key]"
                       dataType="i4"
@@ -7815,7 +7589,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B48D3F9E-9E6C-4D76-9989-1CC804C54DEC}"
-          SQLTask:SqlStatementSource="truncate table stgBPerformance;&#xA;truncate table FactFilmInventory;&#xA;truncate table stgFactBPCustomerSegment;&#xA;truncate table stgFactExpenseRental;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table stgFactBPerformance;&#xA;truncate table FactFilmInventory;&#xA;truncate table stgFactBPCustomerSegment;&#xA;truncate table stgFactExpenseRental;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -7926,6 +7700,10 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           Id="Package\DF - Load From Dimensions to stgBPFilmInventory"
           TopLeft="864.172337440502,310.148925965305" />
         <NodeLayout
+          Size="315.2,41.6"
+          Id="Package\DF - Load From Dimensions to stgFactBPFilmActor"
+          TopLeft="462.285715220839,313.823529180513" />
+        <NodeLayout
           Size="328,41.6"
           Id="Package\DF - Load From Dimensions to stgFactExpenseRental"
           TopLeft="715.918368870941,147.478991467367" />
@@ -7937,6 +7715,10 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           Size="256,41.6"
           Id="Package\DF - Load Stage to FactBPerformance"
           TopLeft="59.1950114638792,405.039215331243" />
+        <NodeLayout
+          Size="246.4,41.6"
+          Id="Package\DF - Load Stage to FactBPFilmActor"
+          TopLeft="496.214286721635,408.728991282199" />
         <NodeLayout
           Size="267.2,41.6"
           Id="Package\DF - Load Stage to FactBPFilmInventory"
@@ -8173,14 +7955,6 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="315.2,41.6"
-          Id="Package\DF - Load From Dimensions to stgFactBPFilmActor"
-          TopLeft="462.285715220839,313.823529180513" />
-        <NodeLayout
-          Size="246.4,41.6"
-          Id="Package\DF - Load Stage to FactBPFilmActor"
-          TopLeft="496.214286721635,408.728991282199" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
           TopLeft="619.650000971237,355.423529180513">
@@ -8232,7 +8006,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     design-time-name="Package\DF - Load From Dimensions to stgBPCustomerSegment">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="215.2,41.6"
           Id="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions"
@@ -8260,7 +8034,9 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8295,25 +8071,25 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
         <NodeLayout
           Size="215.2,41.6"
           Id="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions"
-          TopLeft="203.571429004779,139.941176347924" />
+          TopLeft="276.428572017016,55.0588234811502" />
         <NodeLayout
           Size="232,41.6"
           Id="Package\DF - Load From Dimensions to stgBPerformance\DST - Load to FactBPerformance"
-          TopLeft="195.000000415104,251.588235073591" />
+          TopLeft="267.857143427341,166.705882206817" />
         <EdgeLayout
           Id="Package\DF - Load From Dimensions to stgBPerformance.Paths[OLE DB Source Output]"
-          TopLeft="311.085714709941,181.541176347924">
+          TopLeft="383.942857722178,96.6588234811502">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.0470587256664"
+              EndConnector="0,70.047058725667"
               Start="0,0"
-              End="0,62.5470587256664">
+              End="0,62.547058725667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.5470587256664" />
+                    End="0,62.547058725667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8352,7 +8128,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     design-time-name="Package\DF - Load From Dimensions to stgBPFilmInventory">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="231.2,41.6"
           Id="Package\DF - Load From Dimensions to stgBPFilmInventory\DST - Load to FactFilmInventory"
@@ -8380,7 +8156,9 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8408,18 +8186,84 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\DF - Load From Dimensions to stgFactBPFilmActor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="316,41.6"
+          Id="Package\DF - Load From Dimensions to stgFactBPFilmActor\SRC - Load Dimensions From SakilaDWH database"
+          TopLeft="423.999993681908,98.9999985247851" />
+        <NodeLayout
+          Size="236.8,41.6"
+          Id="Package\DF - Load From Dimensions to stgFactBPFilmActor\DST - Load to stgFactBPFilmActor"
+          TopLeft="468.333326354623,212.166663505137" />
+        <EdgeLayout
+          Id="Package\DF - Load From Dimensions to stgFactBPFilmActor.Paths[OLE DB Source Output]"
+          TopLeft="584.366660018265,140.599998524785">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.5666649803519"
+              Start="0,0"
+              End="0,64.0666649803519">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.0666649803519" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load From Dimensions to stgFactBPFilmActor\DST - Load to stgFactBPFilmActor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load From Dimensions to stgFactBPFilmActor\SRC - Load Dimensions From SakilaDWH database">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\DF - Load From Dimensions to stgFactExpenseRental">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="215.2,41.6"
-          Id="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions"
-          TopLeft="336.714277047588,80.1176457684552" />
-        <NodeLayout
           Size="280,41.6"
           Id="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental"
           TopLeft="300.999991853322,176.117644337944" />
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\DF - Load From Dimensions to stgFactExpenseRental\SRC - Load From Dimensions"
+          TopLeft="336.714277047588,80.1176457684552" />
         <EdgeLayout
           Id="Package\DF - Load From Dimensions to stgFactExpenseRental.Paths[OLE DB Source Output]"
           TopLeft="442.657134450455,121.717645768455">
@@ -8725,13 +8569,13 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           Id="Package\DF - Load Stage to FactBPerformance\OLE DB Command"
           TopLeft="228.3,208.7" />
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load Stage to FactBPerformance\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
-        <NodeLayout
           Size="312.8,41.6"
           Id="Package\DF - Load Stage to FactBPerformance\DST - Slowly Changing Load to FactBPerformance"
           TopLeft="154.3,107.1" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load Stage to FactBPerformance\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\DF - Load Stage to FactBPerformance\SRC - Load From Stage"
@@ -8865,20 +8709,8 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[district]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;district&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[full_name]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;full_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[payment_date_key]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;payment_date_key&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
@@ -8901,16 +8733,10 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[revenue]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;revenue&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[staff_key]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;staff_key&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[address_store_id]&lt;/IdentificationString&gt;
@@ -8958,10 +8784,220 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\DF - Load Stage to FactBPFilmActor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load Stage to FactBPFilmActor\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
+        <NodeLayout
+          Size="251.2,41.6"
+          Id="Package\DF - Load Stage to FactBPFilmActor\SRC - Load From stgFactBPFilmActor"
+          TopLeft="185.1,5.50000000000007" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load Stage to FactBPFilmActor\OLE DB Command"
+          TopLeft="228.3,208.7" />
+        <NodeLayout
+          Size="303.2,41.6"
+          Id="Package\DF - Load Stage to FactBPFilmActor\DST - Slowly Changing Load to FactBPFilmActor"
+          TopLeft="159.1,107.1" />
+        <EdgeLayout
+          Id="Package\DF - Load Stage to FactBPFilmActor.Paths[Changing Attribute Updates Output]"
+          TopLeft="359.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.2,60"
+              Start="0,0"
+              End="-49.2,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1889763779528" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1889763779528"
+                    Point2="0,24.1889763779528"
+                    Point3="-4,24.1889763779528" />
+                  <mssgle:LineSegment
+                    End="-45.2,24.1889763779528" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.2,24.1889763779528"
+                    Point2="-49.2,24.1889763779528"
+                    Point3="-49.2,28.1889763779528" />
+                  <mssgle:LineSegment
+                    End="-49.2,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-103.13390625,29.1889763779528,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF - Load Stage to FactBPFilmActor.Paths[OLE DB Source Output]"
+          TopLeft="310.7,47.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF - Load Stage to FactBPFilmActor.Paths[New Output]"
+          TopLeft="261.5,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-174.8,60"
+              Start="0,0"
+              End="-174.8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1889763779528" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1889763779528"
+                    Point2="0,24.1889763779528"
+                    Point3="-4,24.1889763779528" />
+                  <mssgle:LineSegment
+                    End="-170.8,24.1889763779528" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-170.8,24.1889763779528"
+                    Point2="-174.8,24.1889763779528"
+                    Point3="-174.8,28.1889763779528" />
+                  <mssgle:LineSegment
+                    End="-174.8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-114.49138671875,29.1889763779528,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load Stage to FactBPFilmActor\SRC - Load From stgFactBPFilmActor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load Stage to FactBPFilmActor\DST - Slowly Changing Load to FactBPFilmActor">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{17CFA0B0-96E7-49CB-BE25-30EF54B52BE1}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[FactBPFilmActor]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[actor_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;actor_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[ActorCategory]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ActorCategory&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[ActorFamous]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ActorFamous&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[inventory_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;inventory_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[rental_date_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;rental_date_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[rental_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;rental_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[RentalFilm]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;RentalFilm&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\DF - Load Stage to FactBPFilmInventory">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load Stage to FactBPFilmInventory\OLE DB Command"
+          TopLeft="228.3,208.7" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\DF - Load Stage to FactBPFilmInventory\SRC - Load From Stage"
@@ -8970,28 +9006,6 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           Size="324,41.6"
           Id="Package\DF - Load Stage to FactBPFilmInventory\DST - Slowly Changing Load to FactBPFilmInventory"
           TopLeft="148.7,107.1" />
-        <EdgeLayout
-          Id="Package\DF - Load Stage to FactBPFilmInventory.Paths[OLE DB Source Output]"
-          TopLeft="310.7,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load Stage to FactBPFilmInventory\Insert Destination"
@@ -9032,10 +9046,6 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load Stage to FactBPFilmInventory\OLE DB Command"
-          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\DF - Load Stage to FactBPFilmInventory.Paths[Changing Attribute Updates Output]"
           TopLeft="363.366666666667,148.7">
@@ -9069,6 +9079,30 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-104.867239583333,29.1769041769042,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF - Load Stage to FactBPFilmInventory.Paths[OLE DB Source Output]"
+          TopLeft="310.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9155,17 +9189,17 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load Stage to FactExpenseRental\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
+          Size="164.8,41.6"
+          Id="Package\DF - Load Stage to FactExpenseRental\OLE DB Command"
+          TopLeft="228.3,208.7" />
         <NodeLayout
           Size="290.4,41.6"
           Id="Package\DF - Load Stage to FactExpenseRental\DST - Slowly Changing to FactExpenseRental"
           TopLeft="165.5,107.1" />
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load Stage to FactExpenseRental\OLE DB Command"
-          TopLeft="228.3,208.7" />
+          Size="162.4,41.6"
+          Id="Package\DF - Load Stage to FactExpenseRental\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage"
@@ -9189,7 +9223,9 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9224,7 +9260,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-115.558053385416,29.1972602739726,54.1827734375,11.43359375"
+              BoundingBox="-115.558053385417,29.1972602739726,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9315,6 +9351,12 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[quantity]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;quantity&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[rental_date_key]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;rental_date_key&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
@@ -9362,274 +9404,6 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DF - Load From Dimensions to stgFactBPFilmActor">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="316,41.6"
-          Id="Package\DF - Load From Dimensions to stgFactBPFilmActor\SRC - Load Dimensions From SakilaDWH database"
-          TopLeft="423.999993681908,98.9999985247851" />
-        <NodeLayout
-          Size="236.8,41.6"
-          Id="Package\DF - Load From Dimensions to stgFactBPFilmActor\DST - Load to stgFactBPFilmActor"
-          TopLeft="468.333326354623,212.166663505137" />
-        <EdgeLayout
-          Id="Package\DF - Load From Dimensions to stgFactBPFilmActor.Paths[OLE DB Source Output]"
-          TopLeft="584.366660018265,140.599998524785">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,71.5666649803519"
-              Start="0,0"
-              End="0,64.0666649803519">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.0666649803519" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\DF - Load Stage to FactBPFilmActor">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="251.2,41.6"
-          Id="Package\DF - Load Stage to FactBPFilmActor\SRC - Load From stgFactBPFilmActor"
-          TopLeft="185.1,5.50000000000007" />
-        <NodeLayout
-          Size="303.2,41.6"
-          Id="Package\DF - Load Stage to FactBPFilmActor\DST - Slowly Changing Load to FactBPFilmActor"
-          TopLeft="159.1,107.1" />
-        <EdgeLayout
-          Id="Package\DF - Load Stage to FactBPFilmActor.Paths[OLE DB Source Output]"
-          TopLeft="310.7,47.1000000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load Stage to FactBPFilmActor\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
-        <EdgeLayout
-          Id="Package\DF - Load Stage to FactBPFilmActor.Paths[New Output]"
-          TopLeft="261.5,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-174.8,60"
-              Start="0,0"
-              End="-174.8,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1889763779528" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.1889763779528"
-                    Point2="0,24.1889763779528"
-                    Point3="-4,24.1889763779528" />
-                  <mssgle:LineSegment
-                    End="-170.8,24.1889763779528" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-170.8,24.1889763779528"
-                    Point2="-174.8,24.1889763779528"
-                    Point3="-174.8,28.1889763779528" />
-                  <mssgle:LineSegment
-                    End="-174.8,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-114.49138671875,29.1889763779528,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load Stage to FactBPFilmActor\OLE DB Command"
-          TopLeft="228.3,208.7" />
-        <EdgeLayout
-          Id="Package\DF - Load Stage to FactBPFilmActor.Paths[Changing Attribute Updates Output]"
-          TopLeft="359.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-49.2,60"
-              Start="0,0"
-              End="-49.2,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1889763779528" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.1889763779528"
-                    Point2="0,24.1889763779528"
-                    Point3="-4,24.1889763779528" />
-                  <mssgle:LineSegment
-                    End="-45.2,24.1889763779528" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-45.2,24.1889763779528"
-                    Point2="-49.2,24.1889763779528"
-                    Point3="-49.2,28.1889763779528" />
-                  <mssgle:LineSegment
-                    End="-49.2,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-103.13390625,29.1889763779528,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Load From Dimensions to stgFactBPFilmActor\SRC - Load Dimensions From SakilaDWH database">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Load From Dimensions to stgFactBPFilmActor\DST - Load to stgFactBPFilmActor">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Load Stage to FactBPFilmActor\SRC - Load From stgFactBPFilmActor">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF - Load Stage to FactBPFilmActor\DST - Slowly Changing Load to FactBPFilmActor">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{17CFA0B0-96E7-49CB-BE25-30EF54B52BE1}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[FactBPFilmActor]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[actor_key]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;actor_key&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[ActorCategory]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ActorCategory&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[ActorFamous]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ActorFamous&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[inventory_key]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;inventory_key&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[rental_date_key]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;rental_date_key&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[rental_key]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;rental_key&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;SRC - Load From stgFactBPFilmActor.Outputs[OLE DB Source Output].Columns[RentalFilm]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;RentalFilm&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

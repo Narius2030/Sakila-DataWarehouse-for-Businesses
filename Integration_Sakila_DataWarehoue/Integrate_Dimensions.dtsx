@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_DimRental"
   DTS:PackageType="5"
-  DTS:VersionBuild="182"
-  DTS:VersionGUID="{2AF7CB10-7B34-461E-A9A4-E56DABB5287A}">
+  DTS:VersionBuild="184"
+  DTS:VersionGUID="{7A9D75EF-E244-4D87-9878-F6BB613F0618}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1693,7 +1693,7 @@ FROM     inventory INNER JOIN
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT r.rental_id, r.customer_id, r.inventory_id, r.staff_id, p.amount, r.rental_date, p.payment_date, r.return_date
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT r.rental_id, r.customer_id, r.inventory_id, r.staff_id, ROUND(p.amount, 2) AS amount, r.rental_date, p.payment_date, r.return_date
 FROM     rental AS r INNER JOIN
                   payment AS p ON p.rental_id = r.rental_id</property>
                 <property
@@ -8101,7 +8101,7 @@ FROM     stgStaff</property>
     design-time-name="Package\DF - Extract From Source to stgRental">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="221.6,41.6"
           Id="Package\DF - Extract From Source to stgRental\DST - stgRental in SakilaStage"
@@ -8129,9 +8129,7 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8886,9 +8884,7 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

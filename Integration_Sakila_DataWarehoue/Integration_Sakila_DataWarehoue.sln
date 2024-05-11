@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Integration_Sakila_DataWarehoue", "Integration_Sakila_DataWarehoue\Integration_Sakila_DataWarehoue.dtproj", "{FFEC0213-CC32-4593-8DED-6BBB6A36BC12}"
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Integration_Sakila_DataWarehoue", "Integration_Sakila_DataWarehoue.dtproj", "{7EEE01A7-DC67-4521-8508-E3E632E389EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FFEC0213-CC32-4593-8DED-6BBB6A36BC12}.Development|Default.ActiveCfg = Development
-		{FFEC0213-CC32-4593-8DED-6BBB6A36BC12}.Development|Default.Build.0 = Development
+		{7EEE01A7-DC67-4521-8508-E3E632E389EA}.Development|Default.ActiveCfg = Development
+		{7EEE01A7-DC67-4521-8508-E3E632E389EA}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

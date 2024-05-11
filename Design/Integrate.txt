@@ -49,7 +49,7 @@ CREATE TABLE [stgDate] (
 )
 
 -- SRC - Rental From Sakila
-SELECT r.rental_id, r.customer_id, r.inventory_id, r.staff_id, ROUND(p.amount, 2), r.rental_date, p.payment_date, r.return_date
+SELECT r.rental_id, r.customer_id, r.inventory_id, r.staff_id, ROUND(p.amount, 2) AS amount, r.rental_date, p.payment_date, r.return_date
 FROM  rental AS r INNER JOIN payment AS p ON p.rental_id = r.rental_id
 
 -- Create stgRental
@@ -147,11 +147,9 @@ CREATE TABLE [stgInventory] (
 -- Fact BPerformance
 select
 	s.staff_key, r.rental_key, s.store_id, s.address_store_id,
-	a.city, a.district, a.country, s.full_name, r.amount,
-	(select count(rental_id) from DimRental where staff_id = s.staff_id) as quantity,
-	(select sum(amount) from DimRental where staff_id = s.staff_id) as revenue,
-	(DAY(r.rental_date) + MONTH(r.rental_date) * 100 + YEAR(r.rental_date) * 10000) as rental_date_key,
-	(DAY(r.payment_date) + MONTH(r.payment_date) * 100 + YEAR(r.payment_date) * 10000) as payment_date_key
+	a.city, a.country, s.full_name, ROUND(r.amount, 2) AS amount,
+	(select count(rental_id) from DimRental where staff_id = s.staff_id and rental_key=r.rental_key) as quantity,
+	(DAY(r.rental_date) + MONTH(r.rental_date) * 100 + YEAR(r.rental_date) * 10000) as rental_date_key
 from DimRental r
 join DimStaff s ON s.staff_id = r.staff_id
 join DimAddress a ON a.address_id = s.address_store_id
@@ -201,6 +199,7 @@ SELECT
 	c.customer_key,
 	d.Year, d.MonthOfYear,
 	r.rental_key,
+	count(r.rental_key) AS quantity,
 	sum(r.amount) AS expense,
 	(select sum(r1.amount)
 		from DimRental r1
@@ -217,7 +216,7 @@ SELECT
 	fex.customer_key, fex.rental_key,
 	CONCAT(c.first_name, c.last_name) AS full_name,
 	a.address_key, a.city,	a.country,
-	fex.expense, fex.total_expense,
+	fex.quantity, fex.expense, fex.total_expense,
 	fex.rental_date_key
 FROM stgFactExpenseRental fex
 JOIN SakilaDWH.dbo.DimCustomers c ON fex.customer_key = c.customer_key
@@ -227,6 +226,7 @@ JOIN SakilaDWH.dbo.DimAddress a ON a.address_id = c.address_id
 CREATE TABLE [stgFactExpenseRental] (
     [Year] int,
     [MonthOfYear] int,
+    [quantity] int,
     [expense] numeric(38,0),
     [rental_date_key] int,
     [customer_key] int,
