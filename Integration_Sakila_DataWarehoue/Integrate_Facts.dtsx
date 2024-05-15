@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_Facts"
   DTS:PackageType="5"
-  DTS:VersionBuild="144"
-  DTS:VersionGUID="{D3360A38-F797-4BFE-AB1C-CF8E831EA75A}">
+  DTS:VersionBuild="146"
+  DTS:VersionGUID="{3B9D7A23-5AD0-4571-BB71-BB399CF7F034}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -8067,7 +8067,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     design-time-name="Package\DF - Load From Dimensions to stgBPerformance">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="215.2,41.6"
           Id="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions"
@@ -8095,9 +8095,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8255,7 +8253,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     design-time-name="Package\DF - Load From Dimensions to stgFactExpenseRental">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="280,41.6"
           Id="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental"
@@ -8283,9 +8281,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9191,22 +9187,22 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\DF - Load Stage to FactExpenseRental\OLE DB Command"
-          TopLeft="228.3,208.7" />
+          TopLeft="607.29999435246,246.699999433756" />
         <NodeLayout
           Size="290.4,41.6"
           Id="Package\DF - Load Stage to FactExpenseRental\DST - Slowly Changing to FactExpenseRental"
-          TopLeft="165.5,107.1" />
+          TopLeft="405.499996423721,139.099999523163" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load Stage to FactExpenseRental\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
+          TopLeft="333.499995112419,247.699999418855" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\DF - Load Stage to FactExpenseRental\SRC - Load From Stage"
-          TopLeft="216.7,5.49999999999995" />
+          TopLeft="456.699996423721,37.4999995231628" />
         <EdgeLayout
           Id="Package\DF - Load Stage to FactExpenseRental.Paths[OLE DB Source Output]"
-          TopLeft="310.7,47.1">
+          TopLeft="550.699996423721,79.0999995231628">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -9223,80 +9219,78 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load Stage to FactExpenseRental.Paths[New Output]"
-          TopLeft="263.633333333333,148.7">
+          TopLeft="503.633329757054,180.699999523163">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-176.933333333333,60"
+              EndConnector="-88.9333346446354,66.9999998956919"
               Start="0,0"
-              End="-176.933333333333,52.5">
+              End="-88.9333346446354,59.4999998956919">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.1972602739726" />
+                    End="0,23.0202739305366" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.1972602739726"
-                    Point2="0,24.1972602739726"
-                    Point3="-4,24.1972602739726" />
+                    Point1="0,23.0202739305366"
+                    Point2="0,27.0202739305366"
+                    Point3="-4,27.0202739305366" />
                   <mssgle:LineSegment
-                    End="-172.933333333333,24.1972602739726" />
+                    End="-84.9333346446354,27.0202739305366" />
                   <mssgle:CubicBezierSegment
-                    Point1="-172.933333333333,24.1972602739726"
-                    Point2="-176.933333333333,24.1972602739726"
-                    Point3="-176.933333333333,28.1972602739726" />
+                    Point1="-84.9333346446354,27.0202739305366"
+                    Point2="-88.9333346446354,27.0202739305366"
+                    Point3="-88.9333346446354,31.0202739305366" />
                   <mssgle:LineSegment
-                    End="-176.933333333333,52.5" />
+                    End="-88.9333346446354,59.4999998956919" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-115.558053385417,29.1972602739726,54.1827734375,11.43359375"
+              BoundingBox="-71.5580540410677,32.0202739305366,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load Stage to FactExpenseRental.Paths[Changing Attribute Updates Output]"
-          TopLeft="357.766666666667,148.7">
+          TopLeft="597.766663090388,180.699999523163">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-47.0666666666667,60"
+              EndConnector="91.9333312620719,65.9999999105931"
               Start="0,0"
-              End="-47.0666666666667,52.5">
+              End="91.9333312620719,58.4999999105931">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.1972602739726" />
+                    End="0,22.6169862653132" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.1972602739726"
-                    Point2="0,24.1972602739726"
-                    Point3="-4,24.1972602739726" />
+                    Point1="0,22.6169862653132"
+                    Point2="0,26.6169862653132"
+                    Point3="4,26.6169862653132" />
                   <mssgle:LineSegment
-                    End="-43.0666666666667,24.1972602739726" />
+                    End="87.9333312620719,26.6169862653132" />
                   <mssgle:CubicBezierSegment
-                    Point1="-43.0666666666667,24.1972602739726"
-                    Point2="-47.0666666666667,24.1972602739726"
-                    Point3="-47.0666666666667,28.1972602739726" />
+                    Point1="87.9333312620719,26.6169862653132"
+                    Point2="91.9333312620719,26.6169862653132"
+                    Point3="91.9333312620719,30.6169862653132" />
                   <mssgle:LineSegment
-                    End="-47.0666666666667,52.5" />
+                    End="91.9333312620719,58.4999999105931" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-102.067239583333,29.1972602739726,157.0678125,11.6630859375"
+              BoundingBox="-32.5672406189641,31.6169862653132,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

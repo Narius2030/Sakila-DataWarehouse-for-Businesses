@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_DimRental"
   DTS:PackageType="5"
-  DTS:VersionBuild="184"
-  DTS:VersionGUID="{7A9D75EF-E244-4D87-9878-F6BB613F0618}">
+  DTS:VersionBuild="191"
+  DTS:VersionGUID="{1ED974E2-C552-4C73-80B4-8CFDE9D06923}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7580,50 +7580,50 @@ FROM     stgStaff</property>
         <NodeLayout
           Size="252,41.6"
           Id="Package\DF - Extract From Source to stgActor"
-          TopLeft="323.042857652994,354.249999689486" />
+          TopLeft="509.947619955627,395.544117300349" />
         <NodeLayout
           Size="272.8,41.6"
           Id="Package\DF - Extract From Source to stgCustomer"
-          TopLeft="54.4714285098472,286.764705630993" />
+          TopLeft="241.37619081248,328.058823241856" />
         <NodeLayout
           Size="272.8,41.6"
           Id="Package\DF - Extract From Source to stgInventory"
-          TopLeft="572.07142961679,283.132352693" />
+          TopLeft="758.976191919423,324.426470303863" />
         <NodeLayout
           Size="257.6,41.6"
           Id="Package\DF - Extract From Source to stgRental"
-          TopLeft="118.607143073438,145.294117519702" />
+          TopLeft="305.511905376071,186.588235130565" />
         <NodeLayout
           Size="249.6,41.6"
           Id="Package\DF - Extract From Source to stgStaff"
-          TopLeft="573.964286899916,148.161764576013" />
+          TopLeft="760.869049202549,189.455882186876" />
         <NodeLayout
           Size="240.8,41.6"
           Id="Package\DF - Load From Stage to DimActor"
-          TopLeft="327.678572126113,436.838234911212" />
+          TopLeft="514.583334428746,478.132352522075" />
         <NodeLayout
           Size="261.6,41.6"
           Id="Package\DF - Load From Stage to DimCustomer"
-          TopLeft="13.0428569930847,362.279411447154" />
+          TopLeft="199.947619295718,403.573529058017" />
         <NodeLayout
           Size="261.6,41.6"
           Id="Package\DF - Load From Stage to DimInventory"
-          TopLeft="622.964286867985,359.602940861265" />
+          TopLeft="809.869049170618,400.897058472128" />
         <NodeLayout
           Size="246.4,41.6"
           Id="Package\DF - Load From Stage to DimRental"
-          TopLeft="120.03571450505,41.8676470221245" />
+          TopLeft="306.940476807683,83.1617646329874" />
         <NodeLayout
           Size="238.4,41.6"
           Id="Package\DF - Load From Stage to DimStaff"
-          TopLeft="575.928572618384,45.4999999601177" />
+          TopLeft="762.833334921017,86.7941175709806" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Execute SQL Task"
-          TopLeft="369.50000075038,226.544117448484" />
+          TopLeft="556.404763053013,267.838235059347" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="424.966667417047,226.544117448484">
+          TopLeft="611.87142971968,267.838235059347">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7657,7 +7657,7 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="245.321428789244,145.294117519702">
+          TopLeft="432.226191091877,186.588235130565">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7679,7 +7679,7 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="476.433334083713,226.544117448484">
+          TopLeft="663.338096386346,267.838235059347">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7713,7 +7713,7 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="696.94642975915,148.161764576013">
+          TopLeft="883.851192061783,189.455882186876">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7735,13 +7735,13 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="369.50000075038,247.344117448484">
+          TopLeft="556.404763053013,288.638235059347">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-42.2285722405329,60.2205881825086"
+              EndConnector="-42.2285722405329,60.2205881825085"
               Start="0,0"
-              End="-34.7285722405329,60.2205881825086">
+              End="-34.7285722405329,60.2205881825085">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7752,13 +7752,13 @@ FROM     stgStaff</property>
                     Point2="-21.1142861202665,0"
                     Point3="-21.1142861202665,4" />
                   <mssgle:LineSegment
-                    End="-21.1142861202665,56.2205881825086" />
+                    End="-21.1142861202665,56.2205881825085" />
                   <mssgle:CubicBezierSegment
-                    Point1="-21.1142861202665,56.2205881825086"
-                    Point2="-21.1142861202665,60.2205881825086"
-                    Point3="-25.1142861202665,60.2205881825086" />
+                    Point1="-21.1142861202665,56.2205881825085"
+                    Point2="-21.1142861202665,60.2205881825085"
+                    Point3="-25.1142861202665,60.2205881825085" />
                   <mssgle:LineSegment
-                    End="-34.7285722405329,60.2205881825086" />
+                    End="-34.7285722405329,60.2205881825085" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7769,7 +7769,7 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="190.871428509847,328.364705630993">
+          TopLeft="377.77619081248,369.658823241856">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7803,7 +7803,7 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="531.90000075038,247.344117448484">
+          TopLeft="718.804763053013,288.638235059347">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7837,7 +7837,7 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="708.47142961679,324.732352693">
+          TopLeft="895.376191919423,366.026470303863">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7871,7 +7871,7 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="449.871429201687,268.144117448484">
+          TopLeft="636.77619150432,309.438235059347">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7893,7 +7893,7 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="448.560714889554,395.849999689486">
+          TopLeft="635.465477192187,437.144117300349">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8160,7 +8160,7 @@ FROM     stgStaff</property>
     design-time-name="Package\DF - Extract From Source to stgStaff">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="233.6,41.6"
           Id="Package\DF - Extract From Source to stgStaff\SRC - Staff From sakila Database"
@@ -8188,9 +8188,7 @@ FROM     stgStaff</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8852,22 +8850,22 @@ FROM     stgStaff</property>
         <NodeLayout
           Size="248.8,41.6"
           Id="Package\DF - Load From Stage to DimRental\SRC - Stage Table From SakilaStage"
-          TopLeft="186.3,5.50000000000007" />
+          TopLeft="480.299995619059,39.4999994933606" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load From Stage to DimRental\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
+          TopLeft="414.954539353198,236.33636322455" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\DF - Load From Stage to DimRental\OLE DB Command"
-          TopLeft="228.3,208.7" />
+          TopLeft="638.663630248742,234.518181433461" />
         <NodeLayout
           Size="296,41.6"
           Id="Package\DF - Load From Stage to DimRental\DST - Slowing Changing Dimension DimRental"
-          TopLeft="162.7,107.1" />
+          TopLeft="456.699995619059,141.09999949336" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[OLE DB Source Output]"
-          TopLeft="310.7,47.1000000000001">
+          TopLeft="604.699995619059,81.0999994933606">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8889,73 +8887,73 @@ FROM     stgStaff</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[New Output]"
-          TopLeft="262.7,148.7">
+          TopLeft="556.699995619059,182.69999949336">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-176,60"
+              EndConnector="-60.5454562658613,53.6363637311892"
               Start="0,0"
-              End="-176,52.5">
+              End="-60.5454562658613,46.1363637311892">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.1935483870968" />
+                    End="0,17.6275660206408" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.1935483870968"
-                    Point2="0,24.1935483870968"
-                    Point3="-4,24.1935483870968" />
+                    Point1="0,17.6275660206408"
+                    Point2="0,21.6275660206408"
+                    Point3="-4,21.6275660206408" />
                   <mssgle:LineSegment
-                    End="-172,24.1935483870968" />
+                    End="-56.5454562658613,21.6275660206408" />
                   <mssgle:CubicBezierSegment
-                    Point1="-172,24.1935483870968"
-                    Point2="-176,24.1935483870968"
-                    Point3="-176,28.1935483870968" />
+                    Point1="-56.5454562658613,21.6275660206408"
+                    Point2="-60.5454562658613,21.6275660206408"
+                    Point3="-60.5454562658613,25.6275660206408" />
                   <mssgle:LineSegment
-                    End="-176,52.5" />
+                    End="-60.5454562658613,46.1363637311892" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-115.09138671875,29.1935483870968,54.1827734375,11.43359375"
+              BoundingBox="-57.3641148516806,26.6275660206408,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimRental.Paths[Changing Attribute Updates Output]"
-          TopLeft="358.7,148.7">
+          TopLeft="652.699995619059,182.69999949336">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-48,60"
+              EndConnector="68.3636346296829,51.8181819401003"
               Start="0,0"
-              End="-48,52.5">
+              End="68.3636346296829,44.3181819401003">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.1935483870968" />
+                    End="0,16.8944282016534" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.1935483870968"
-                    Point2="0,24.1935483870968"
-                    Point3="-4,24.1935483870968" />
+                    Point1="0,16.8944282016534"
+                    Point2="0,20.8944282016534"
+                    Point3="4,20.8944282016534" />
                   <mssgle:LineSegment
-                    End="-44,24.1935483870968" />
+                    End="64.3636346296829,20.8944282016534" />
                   <mssgle:CubicBezierSegment
-                    Point1="-44,24.1935483870968"
-                    Point2="-48,24.1935483870968"
-                    Point3="-48,28.1935483870968" />
+                    Point1="64.3636346296829,20.8944282016534"
+                    Point2="68.3636346296829,20.8944282016534"
+                    Point3="68.3636346296829,24.8944282016534" />
                   <mssgle:LineSegment
-                    End="-48,52.5" />
+                    End="68.3636346296829,44.3181819401003" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-102.53390625,29.1935483870968,157.0678125,11.6630859375"
+              BoundingBox="-44.3520889351586,25.8944282016534,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9062,113 +9060,111 @@ FROM     stgStaff</property>
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\DF - Load From Stage to DimStaff\OLE DB Command"
-          TopLeft="228.3,208.7" />
+          TopLeft="552.299995172024,251.69999935925" />
         <NodeLayout
           Size="281.6,41.6"
           Id="Package\DF - Load From Stage to DimStaff\DST - Slowly Changing Dimension DimStaff"
-          TopLeft="169.9,107.1" />
+          TopLeft="375.899996930361,147.099999403954" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\DF - Load From Stage to DimStaff\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
+          TopLeft="313.499995410442,252.699999344349" />
         <NodeLayout
           Size="228.8,41.6"
           Id="Package\DF - Load From Stage to DimStaff\SRC - stgStaff From SakilaStage"
-          TopLeft="196.3,5.50000000000007" />
+          TopLeft="407.299996855855,56.4999992400409" />
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimStaff.Paths[New Output]"
-          TopLeft="265.1,148.7">
+          TopLeft="471.099996930361,188.699999403954">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-178.4,60"
+              EndConnector="-76.4000015199183,63.9999999403954"
               Start="0,0"
-              End="-178.4,52.5">
+              End="-76.4000015199183,56.4999999403954">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2033898305085" />
+                    End="0,21.8169491284985" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2033898305085"
-                    Point2="0,24.2033898305085"
-                    Point3="-4,24.2033898305085" />
+                    Point1="0,21.8169491284985"
+                    Point2="0,25.8169491284985"
+                    Point3="-4,25.8169491284985" />
                   <mssgle:LineSegment
-                    End="-174.4,24.2033898305085" />
+                    End="-72.4000015199183,25.8169491284985" />
                   <mssgle:CubicBezierSegment
-                    Point1="-174.4,24.2033898305085"
-                    Point2="-178.4,24.2033898305085"
-                    Point3="-178.4,28.2033898305085" />
+                    Point1="-72.4000015199183,25.8169491284985"
+                    Point2="-76.4000015199183,25.8169491284985"
+                    Point3="-76.4000015199183,29.8169491284985" />
                   <mssgle:LineSegment
-                    End="-178.4,52.5" />
+                    End="-76.4000015199183,56.4999999403954" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-116.29138671875,29.2033898305085,54.1827734375,11.43359375"
+              BoundingBox="-65.2913874787092,30.8169491284985,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimStaff.Paths[Changing Attribute Updates Output]"
-          TopLeft="356.3,148.7">
+          TopLeft="562.299996930361,188.699999403954">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-45.6,60"
+              EndConnector="72.3999982416628,62.9999999552965"
               Start="0,0"
-              End="-45.6,52.5">
+              End="72.3999982416628,55.4999999552965">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2033898305085" />
+                    End="0,21.413559304001" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2033898305085"
-                    Point2="0,24.2033898305085"
-                    Point3="-4,24.2033898305085" />
+                    Point1="0,21.413559304001"
+                    Point2="0,25.413559304001"
+                    Point3="4,25.413559304001" />
                   <mssgle:LineSegment
-                    End="-41.6,24.2033898305085" />
+                    End="68.3999982416628,25.413559304001" />
                   <mssgle:CubicBezierSegment
-                    Point1="-41.6,24.2033898305085"
-                    Point2="-45.6,24.2033898305085"
-                    Point3="-45.6,28.2033898305085" />
+                    Point1="68.3999982416628,25.413559304001"
+                    Point2="72.3999982416628,25.413559304001"
+                    Point3="72.3999982416628,29.413559304001" />
                   <mssgle:LineSegment
-                    End="-45.6,52.5" />
+                    End="72.3999982416628,55.4999999552965" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-101.33390625,29.2033898305085,157.0678125,11.6630859375"
+              BoundingBox="-42.3339071291686,30.413559304001,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF - Load From Stage to DimStaff.Paths[OLE DB Source Output]"
-          TopLeft="310.7,47.1000000000001">
+          TopLeft="519.199996893108,98.0999992400409">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,49.0000001639126"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,41.5000001639126">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,41.5000001639126" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
