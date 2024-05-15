@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Integrate_Facts"
   DTS:PackageType="5"
-  DTS:VersionBuild="146"
-  DTS:VersionGUID="{3B9D7A23-5AD0-4571-BB71-BB399CF7F034}">
+  DTS:VersionBuild="153"
+  DTS:VersionGUID="{848D5442-C669-4F97-9ECA-4705CF464378}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,11 +58,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment"
+              refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="DST - Load to FactBPCustomerSegment"
+              name="DST - Load to stgFactBPCustomerSegment"
               usesDispositions="true"
               version="4">
               <properties>
@@ -115,7 +115,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Connections[OleDbConnection]"
+                  refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LocalHost.SakilaStage]"
                   connectionManagerRefId="Package.ConnectionManagers[LocalHost.SakilaStage]"
                   description="The OLE DB runtime connection used to access the database."
@@ -123,158 +123,158 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input]"
+                  refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[rental_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[rental_key]"
                       cachedDataType="i4"
                       cachedName="rental_key"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_key]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[amount]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[amount]"
                       cachedDataType="numeric"
                       cachedName="amount"
                       cachedPrecision="18"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[amount]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[rental_date_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[rental_date_key]"
                       cachedDataType="i4"
                       cachedName="rental_date_key"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_date_key]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[payment_date_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[payment_date_key]"
                       cachedDataType="i4"
                       cachedName="payment_date_key"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[payment_date_key]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[customer_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[customer_key]"
                       cachedDataType="i4"
                       cachedName="customer_key"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[customer_key]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[first_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="45"
                       cachedName="first_name"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[first_name]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[last_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="45"
                       cachedName="last_name"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[last_name]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[address_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[address_key]"
                       cachedDataType="i4"
                       cachedName="address_key"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[address_key]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[address_key]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[address_key]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[address]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[address]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="address"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[address]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[address]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[address]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[rental_id]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[rental_id]"
                       cachedDataType="i4"
                       cachedName="rental_id"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_id]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_id]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[rental_id]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[recency]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[recency]"
                       cachedDataType="i4"
                       cachedName="recency"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[recency]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[recency]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[recency]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[frequency]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[frequency]"
                       cachedDataType="i4"
                       cachedName="frequency"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[frequency]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[frequency]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[frequency]" />
                     <inputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[monetary]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].Columns[monetary]"
                       cachedDataType="numeric"
                       cachedName="monetary"
                       cachedPrecision="38"
-                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[monetary]"
+                      externalMetadataColumnId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[monetary]"
                       lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output].Columns[monetary]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_key]"
                       dataType="i4"
                       name="rental_key" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
                       dataType="numeric"
                       name="amount"
                       precision="18" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_date_key]"
                       dataType="i4"
                       name="rental_date_key" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_key]"
                       dataType="i4"
                       name="payment_date_key" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
                       dataType="i4"
                       name="customer_key" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
                       codePage="1252"
                       dataType="str"
                       length="45"
                       name="first_name" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
                       codePage="1252"
                       dataType="str"
                       length="45"
                       name="last_name" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[address_key]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[address_key]"
                       dataType="i4"
                       name="address_key" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[address]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[address]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="address" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_id]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[rental_id]"
                       dataType="i4"
                       name="rental_id" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[recency]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[recency]"
                       dataType="i4"
                       name="recency" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[frequency]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[frequency]"
                       dataType="i4"
                       name="frequency" />
                     <externalMetadataColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[monetary]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input].ExternalColumns[monetary]"
                       dataType="numeric"
                       name="monetary"
                       precision="38" />
@@ -283,22 +283,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -331,15 +331,14 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT c.customer_key, c.first_name, c.last_name, a.address_key, a.address, r.rental_key, r.rental_id, d.date_key AS rental_date_key, r.amount, dd.date_key AS payment_date_key, DATEDIFF([DAY], MAX(d.date_key), GETDATE()) AS recency, 
-                  COUNT(r.rental_key) AS frequency, SUM(r.amount) AS monetary
-FROM     DimCustomers AS c INNER JOIN
-                  DimAddress AS a ON c.address_id = a.address_key INNER JOIN
-                  DimRental AS r ON c.customer_key = r.customer_id INNER JOIN
-                  DimDate AS d ON r.rental_date = d.[Date] INNER JOIN
-                  DimDate AS dd ON r.payment_date = dd.[Date]
-GROUP BY c.customer_key, c.first_name, c.last_name, a.address_key, a.address, r.rental_key, r.rental_id, d.date_key, r.amount, dd.date_key
-ORDER BY c.customer_key</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT dc.customer_key, dc.first_name, dc.last_name, da.address_key, da.address, dr.rental_key, dr.rental_id, dd_rental.date_key AS rental_date_key, dr.amount, dd_payment.date_key AS payment_date_key, DATEDIFF([day], 
+                  dd_payment.[Date], GETDATE()) AS recency, COUNT(dr.rental_key) AS frequency, SUM(dr.amount) AS monetary
+FROM     DimCustomers AS dc INNER JOIN
+                  DimAddress AS da ON dc.address_id = da.address_key INNER JOIN
+                  DimRental AS dr ON dc.customer_key = dr.customer_id INNER JOIN
+                  DimDate AS dd_rental ON CONVERT(date, dr.rental_date) = dd_rental.[Date] INNER JOIN
+                  DimDate AS dd_payment ON CONVERT(date, dr.payment_date) = dd_payment.[Date]
+GROUP BY dc.customer_key, dc.first_name, dc.last_name, da.address_key, da.address, dr.rental_key, dr.rental_id, dd_rental.date_key, dr.amount, dd_payment.date_key, dd_payment.[Date]</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -664,7 +663,7 @@ ORDER BY c.customer_key</property>
           <paths>
             <path
               refId="Package\DF - Load From Dimensions to stgBPCustomerSegment.Paths[OLE DB Source Output]"
-              endId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment.Inputs[OLE DB Destination Input]"
+              endId="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions.Outputs[OLE DB Source Output]" />
           </paths>
@@ -2603,41 +2602,11 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].Columns[first_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="45"
-                      cachedName="first_name"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[first_name]"
-                      lineageId="Package\DF - Load Stage to FactBPCustomerSegment\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[first_name]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].Columns[frequency]"
                       cachedDataType="i4"
                       cachedName="frequency"
                       externalMetadataColumnId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[frequency]"
                       lineageId="Package\DF - Load Stage to FactBPCustomerSegment\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[frequency]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].Columns[last_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="45"
-                      cachedName="last_name"
-                      externalMetadataColumnId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[last_name]"
-                      lineageId="Package\DF - Load Stage to FactBPCustomerSegment\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[last_name]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2724,6 +2693,36 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                           typeConverter="ColumnType">2</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[first_name]"
+                      lineageId="Package\DF - Load Stage to FactBPCustomerSegment\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[first_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[last_name]"
+                      lineageId="Package\DF - Load Stage to FactBPCustomerSegment\SRC - Load From Stage.Outputs[OLE DB Source Output].Columns[last_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2751,7 +2750,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[first_name]"
                       codePage="1252"
                       dataType="str"
-                      length="1"
+                      length="45"
                       name="first_name" />
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[frequency]"
@@ -2761,7 +2760,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[last_name]"
                       codePage="1252"
                       dataType="str"
-                      length="1"
+                      length="45"
                       name="last_name" />
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment.Inputs[Slowly Changing Dimension Input].ExternalColumns[monetary]"
@@ -3012,13 +3011,13 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
                       codePage="1252"
                       dataType="str"
-                      length="1"
+                      length="45"
                       name="first_name" />
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
                       codePage="1252"
                       dataType="str"
-                      length="1"
+                      length="45"
                       name="last_name" />
                     <externalMetadataColumn
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_key]"
@@ -3264,7 +3263,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       codePage="1252"
                       dataType="str"
-                      length="1"
+                      length="45"
                       name="Param_3">
                       <properties>
                         <property
@@ -3288,7 +3287,7 @@ GROUP BY c.customer_key, d.[Year], d.MonthOfYear, r.rental_date, r.rental_key</p
                       refId="Package\DF - Load Stage to FactBPCustomerSegment\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       codePage="1252"
                       dataType="str"
-                      length="1"
+                      length="45"
                       name="Param_5">
                       <properties>
                         <property
@@ -8012,30 +8011,30 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           Id="Package\DF - Load From Dimensions to stgBPCustomerSegment\SRC - Load From Dimensions"
           TopLeft="240.571426026675,89.9999995529652" />
         <NodeLayout
-          Size="265.6,41.6"
-          Id="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment"
-          TopLeft="221.999997586012,201.647058278632" />
+          Size="279.2,41.6"
+          Id="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment"
+          TopLeft="210.571426133112,193.235293580123" />
         <EdgeLayout
           Id="Package\DF - Load From Dimensions to stgBPCustomerSegment.Paths[OLE DB Source Output]"
-          TopLeft="351.485711806344,131.599999552965">
+          TopLeft="349.171426079894,131.599999552965">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.047058725667"
+              EndConnector="0,61.6352940271577"
               Start="0,0"
-              End="0,62.547058725667">
+              End="0,54.1352940271577">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.547058725667" />
+                    End="0,54.1352940271577" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-27.53947265625,21.4533892010788,55.0789453125,11.228515625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8043,7 +8042,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to FactBPCustomerSegment">
+    design-time-name="Package\DF - Load From Dimensions to stgBPCustomerSegment\DST - Load to stgFactBPCustomerSegment">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8067,7 +8066,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     design-time-name="Package\DF - Load From Dimensions to stgBPerformance">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="215.2,41.6"
           Id="Package\DF - Load From Dimensions to stgBPerformance\SRC - Load From Dimensions"
@@ -8095,7 +8094,9 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8253,7 +8254,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
     design-time-name="Package\DF - Load From Dimensions to stgFactExpenseRental">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="280,41.6"
           Id="Package\DF - Load From Dimensions to stgFactExpenseRental\DST - Load to Stage stgFactExpenseRental"
@@ -8281,7 +8282,9 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8319,14 +8322,6 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\DF - Load Stage to FactBPCustomerSegment\OLE DB Command"
-          TopLeft="228.3,208.7" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DF - Load Stage to FactBPCustomerSegment\Insert Destination"
-          TopLeft="5.50000000000004,208.7" />
-        <NodeLayout
           Size="345.6,41.6"
           Id="Package\DF - Load Stage to FactBPCustomerSegment\DST - Slowly Changing Load to FactBPCustomerSegment"
           TopLeft="137.9,107.1" />
@@ -8354,10 +8349,14 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-27.53947265625,20.6357421875,55.0789453125,11.228515625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DF - Load Stage to FactBPCustomerSegment\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\DF - Load Stage to FactBPCustomerSegment.Paths[New Output]"
           TopLeft="254.433333333333,148.7">
@@ -8390,10 +8389,14 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-110.958053385417,29.1658986175115,54.1827734375,11.43359375"
+              BoundingBox="-143.278404947917,29.1658986175115,118.8234765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF - Load Stage to FactBPCustomerSegment\OLE DB Command"
+          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\DF - Load Stage to FactBPCustomerSegment.Paths[Changing Attribute Updates Output]"
           TopLeft="366.966666666667,148.7">
@@ -8596,7 +8599,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-27.53947265625,20.63818359375,55.0789453125,11.2236328125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8632,7 +8635,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-113.69138671875,29.1832061068702,54.1827734375,11.43359375"
+              BoundingBox="-113.69138671875,29.1832061068702,93.9534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8668,7 +8671,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-103.93390625,29.1832061068702,157.0678125,11.6630859375"
+              BoundingBox="-103.93390625,29.1832061068702,196.838515625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8832,7 +8835,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-103.13390625,29.1889763779528,157.0678125,11.6630859375"
+              BoundingBox="-103.13390625,29.1889763779528,196.838515625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8856,7 +8859,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-25.19765625,20.6357421875,50.3953125,11.228515625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8892,7 +8895,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-114.49138671875,29.1889763779528,54.1827734375,11.43359375"
+              BoundingBox="-114.49138671875,29.1889763779528,93.9534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9219,7 +9222,9 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-25.19765625,20.62841796875,50.3953125,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9254,7 +9259,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-71.5580540410677,32.0202739305366,54.1827734375,11.43359375"
+              BoundingBox="-71.5580540410677,32.0202739305366,93.9534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9290,7 +9295,7 @@ FROM     stgFactExpenseRental AS fex INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-32.5672406189641,31.6169862653132,157.0678125,11.6630859375"
+              BoundingBox="-32.5672406189641,31.6169862653132,196.838515625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

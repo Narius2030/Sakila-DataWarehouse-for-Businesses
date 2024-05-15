@@ -1,4 +1,4 @@
-/****** Object:  Database SakilaDWH    Script Date: 5/11/2024 3:17:51 PM ******/
+/****** Object:  Database SakilaDWH    Script Date: 5/15/2024 8:12:00 PM ******/
 /*
 Kimball Group, The Microsoft Data Warehouse Toolkit
 Generate a database from the datamodel worksheet, version: 4
@@ -958,6 +958,15 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'amount', @level0
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'quantity', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'quantity'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'rental_date_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'rental_date_key'; 
 exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Staff dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'staff_key'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Rental dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'rental_key'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The identify of store', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'store_id'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Address dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'store_address_key'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The city of that store located', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'city'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The country of that store located', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'country'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The full name of the staff that obtaining this rental', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'full_name'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The money should be payed', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'amount'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The number of items that a customer rents from that film', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'quantity'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Date dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactBPerformance', @level2type=N'COLUMN', @level2name=N'rental_date_key'; 
 ;
 
 
@@ -1021,6 +1030,16 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'quantity', @leve
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'expense', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'expense'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'total_expense', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'total_expense'; 
 exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'rental_date_key', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'rental_date_key'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Customer dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'customer_key'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Rental dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'rental_key'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The full name of customer', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'full_name'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Address dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'customer_address_key'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The city of customer''s address', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'city'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The country of customer''s address', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'country'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The number of rental have made', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'quantity'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The cost have payed', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'expense'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'The cost for a month', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'total_expense'; 
+exec sys.sp_addextendedproperty @name=N'Description', @value=N'Key to Date dimension', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'FactRentalExpense', @level2type=N'COLUMN', @level2name=N'rental_date_key'; 
 ;
 
 
@@ -1137,8 +1156,8 @@ DROP TABLE dbo.FactBPCustomer
 /* Create table dbo.FactBPCustomer */
 CREATE TABLE dbo.FactBPCustomer (
    [customer_key]  int   NOT NULL
-,  [first_name]  varchar   NOT NULL
-,  [last_name]  varchar   NOT NULL
+,  [first_name]  varchar(45)   NOT NULL
+,  [last_name]  varchar(45)   NOT NULL
 ,  [address_key]  int   NOT NULL
 ,  [address]  varchar(50)   NOT NULL
 ,  [rental_key]  int   NOT NULL
